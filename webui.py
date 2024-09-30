@@ -246,6 +246,7 @@ def change_tts_inference(bert_path,cnhubert_base_path,gpu_number,gpt_path,sovits
         p_tts_inference=None
         yield i18n("TTS推理进程已关闭"), {'__type__':'update','visible':True}, {'__type__':'update','visible':False}
 
+
 from tools.asr.config import asr_dict
 def open_asr(asr_inp_dir, asr_opt_dir, asr_model, asr_model_size, asr_lang, asr_precision):
     global p_asr
@@ -850,7 +851,7 @@ with gr.Blocks(title="GPT-SoVITS WebUI") as app:
                             choices     = ["float32"],
                             interactive = True,
                             value="float32"
-                        ) 
+                        )
                     with gr.Row():
                         asr_info = gr.Textbox(label=i18n("ASR进程输出信息"))     
                 open_asr_button = gr.Button(i18n("开启离线批量ASR"), variant="primary",visible=True)
