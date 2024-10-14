@@ -22,8 +22,6 @@ class TTSRequest(BaseModel):  # 定义一个类用作参数
     top_k: int
     temperature: float
 
-
-
 language = os.environ.get("language", "Auto")
 language = sys.argv[-1] if sys.argv[-1] in scan_language_list() else language
 
@@ -42,7 +40,6 @@ torch_engine = PyTorchTTSEngine(ref_wav_path=ref_wav_path,
                                 ref_text=prompt_text,
                                 ref_language=prompt_language,
                                 how_to_cut=how_to_cut)
-
 
 text_language = i18n("中文")
 how_to_cut = i18n("按中文句号。切")
