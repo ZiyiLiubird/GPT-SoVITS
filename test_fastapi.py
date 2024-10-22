@@ -2,7 +2,7 @@
 
 
 import requests
-from protocal import TTSRequest, TTSResponse
+# from protocal import TTSRequest, TTSResponse
 import base64
 import numpy
 import time
@@ -18,7 +18,7 @@ if __name__ == "__main__":
     url="http://0.0.0.0:63061/"
 
 
-    text = "我在明星斋的时候说，决定砸下群玉阁的时候，我已经算好了这笔交易的得与失。"
+    text = "在遥远的星系中，银河帝国经历了繁荣和倾覆，造就了一批流浪者和机器人"
     temperature = 1.0
     top_k = 15
     params = {

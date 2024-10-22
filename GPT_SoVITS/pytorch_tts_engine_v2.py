@@ -3,6 +3,7 @@ import sys
 import json
 import torch
 import re
+import random
 import traceback
 from scipy.io.wavfile import read, write
 
@@ -22,6 +23,7 @@ from tools.my_utils import load_audio
 from tools.i18n.i18n import I18nAuto, scan_language_list
 import LangSegment, os, re, sys, json
 import pdb
+from TTS_infer_pack.TTS import TTS, TTS_Config
 
 
 class DictToAttrRecursive(dict):
@@ -55,6 +57,15 @@ language = os.environ.get("language", "Auto")
 language = sys.argv[-1] if sys.argv[-1] in scan_language_list() else language
 
 i18n = I18nAuto(language = language)
+cut_method = {
+    i18n("不切"):"cut0",
+    i18n("凑四句一切"): "cut1",
+    i18n("凑50字一切"): "cut2",
+    i18n("按中文句号。切"): "cut3",
+    i18n("按英文句号.切"): "cut4",
+    i18n("按标点符号切"): "cut5",
+}
+
 
 class PyTorchTTSEngine(object):
     def __init__(self, ref_wav_path, ref_text, ref_language, how_to_cut) -> None:
@@ -153,6 +164,21 @@ class PyTorchTTSEngine(object):
             self.splits = {"，", "。", "？", "！", ",", ".", "?", "!", "~", ":", "：", "—", "…", }
             self.dtype = torch.float16 if self.is_half == True else torch.float32
             # self.change_model_weights()
+            tts_config = TTS_Config("GPT_SoVITS/configs/tts_infer.yaml")
+            tts_config.device = self.device
+            tts_config.is_half = self.is_half
+            tts_config.version = self.version
+            if self.gpt_path is not None:
+                tts_config.t2s_weights_path = self.gpt_path
+            if self.sovits_path is not None:
+                tts_config.vits_weights_path = self.sovits_path
+            if self.cnhubert_base_path is not None:
+                tts_config.cnhuhbert_base_path = self.cnhubert_base_path
+            if self.bert_path is not None:
+                tts_config.bert_base_path = self.bert_path
+                
+            print(tts_config)
+            self.tts_pipeline = TTS(tts_config)
 
     def get_bert_feature(self, text, word2ph):
         with torch.no_grad():
@@ -262,72 +288,27 @@ class PyTorchTTSEngine(object):
         opt = [item for item in mergeitems if not set(item).issubset(punds)]
         return "\n".join(opt)
 
-    def change_sovits_weights(self, sovits_path, prompt_language=None, text_language=None):
-        
-        dict_s2 = torch.load(sovits_path, map_location="cpu")
-        hps = dict_s2["config"]
-        hps = DictToAttrRecursive(hps)
-        hps.model.semantic_frame_rate = "25hz"
-        if dict_s2['weight']['enc_p.text_embedding.weight'].shape[0] == 322:
-            hps.model.version = "v1"
-        else:
-            hps.model.version = "v2"
-        version = hps.model.version
-        # print("sovits版本:",hps.model.version)
-        vq_model = SynthesizerTrn(
-            hps.data.filter_length // 2 + 1,
-            hps.train.segment_size // hps.data.hop_length,
-            n_speakers=hps.data.n_speakers,
-            **hps.model
-        )
-        if ("pretrained" not in sovits_path):
-            del vq_model.enc_q
-        if self.is_half == True:
-            vq_model = vq_model.half().to(self.device)
-        else:
-            vq_model = vq_model.to(self.device)
-        vq_model.eval()
-        print(vq_model.load_state_dict(dict_s2["weight"], strict=False))
-        with open("./weight.json")as f:
-            data=f.read()
-            data=json.loads(data)
-            data["SoVITS"][version]=sovits_path
-        with open("./weight.json","w")as f:f.write(json.dumps(data))
-        self.hps = hps
-        self.vq_model = vq_model
+    def change_sovits_weights(self, sovits_path,prompt_language=None,text_language=None):
+        self.tts_pipeline.init_vits_weights(sovits_path)
+        global version, dict_language
+        dict_language = self.dict_language
         if prompt_language is not None and text_language is not None:
-            if prompt_language in list(self.dict_language.keys()):
+            if prompt_language in list(dict_language.keys()):
                 prompt_text_update, prompt_language_update = {'__type__':'update'},  {'__type__':'update', 'value':prompt_language}
             else:
                 prompt_text_update = {'__type__':'update', 'value':''}
-                prompt_language_update = {'__type__':'update', 'value':self.i18n("中文")}
-            if text_language in list(self.dict_language.keys()):
+                prompt_language_update = {'__type__':'update', 'value':i18n("中文")}
+            if text_language in list(dict_language.keys()):
                 text_update, text_language_update = {'__type__':'update'}, {'__type__':'update', 'value':text_language}
             else:
                 text_update = {'__type__':'update', 'value':''}
-                text_language_update = {'__type__':'update', 'value':self.i18n("中文")}
-            return  {'__type__':'update', 'choices':list(self.dict_language.keys())}, {'__type__':'update', 'choices':list(self.dict_language.keys())}, prompt_text_update, prompt_language_update, text_update, text_language_update
+                text_language_update = {'__type__':'update', 'value':i18n("中文")}
+            return  {'__type__':'update', 'choices':list(dict_language.keys())}, {'__type__':'update', 'choices':list(dict_language.keys())}, prompt_text_update, prompt_language_update, text_update, text_language_update
+
 
     def change_gpt_weights(self, gpt_path):
-        self.hz = 50
-        dict_s1 = torch.load(gpt_path, map_location="cpu")
-        self.config = dict_s1["config"]
-        self.max_sec = self.config["data"]["max_sec"]
-        t2s_model = Text2SemanticLightningModule(self.config, "****", is_train=False)
-        t2s_model.load_state_dict(dict_s1["weight"])
-        if self.is_half == True:
-            t2s_model = t2s_model.half()
-        t2s_model = t2s_model.to(self.device)
-        t2s_model.eval()
-        self.t2s_model = t2s_model
-        total = sum([param.nelement() for param in t2s_model.parameters()])
-        print("Number of parameter: %.2fM" % (total / 1e6))
-        with open("./weight.json")as f:
-            data=f.read()
-            data=json.loads(data)
-            data["GPT"][self.version]=gpt_path
-        with open("./weight.json","w")as f: f.write(json.dumps(data))
-
+        self.tts_pipeline.init_t2s_weights(gpt_path)
+    
     def change_model_weights(self, gpt_path, sovits_path, prompt_language=None, text_language=None):
         self.change_sovits_weights(sovits_path=sovits_path,
                                    prompt_language=prompt_language,
@@ -516,15 +497,19 @@ class PyTorchTTSEngine(object):
     def inference(self,
                 text, text_lang, 
                 ref_audio_path, 
-                aux_ref_audio_paths,
                 prompt_text, 
                 prompt_lang, top_k, 
                 top_p, temperature, 
-                text_split_method, batch_size, 
-                speed_factor, ref_text_free,
-                split_bucket,fragment_interval,
-                seed, keep_random, parallel_infer,
-                repetition_penalty
+                aux_ref_audio_paths=None,
+                batch_size=10, 
+                speed_factor=1, 
+                ref_text_free=False,
+                split_bucket=True,
+                fragment_interval=0.3,
+                seed=-1,
+                keep_random=True,
+                parallel_infer=True,
+                repetition_penalty=1.35
                 ):
 
         seed = -1 if keep_random else seed
@@ -539,7 +524,7 @@ class PyTorchTTSEngine(object):
             "top_k": top_k,
             "top_p": top_p,
             "temperature": temperature,
-            "text_split_method": self.cut_method,
+            "text_split_method": cut_method[self.how_to_cut],
             "batch_size":int(batch_size),
             "speed_factor":float(speed_factor),
             "split_bucket":split_bucket,
@@ -549,87 +534,8 @@ class PyTorchTTSEngine(object):
             "parallel_infer": parallel_infer,
             "repetition_penalty": repetition_penalty,
         }
-        for item in tts_pipeline.run(inputs):
+        for item in self.tts_pipeline.run(inputs):
             yield item, actual_seed
-
-    def get_tts_wav(self,
-                    text,
-                    text_language,
-                    top_k=20,
-                    top_p=0.6,
-                    temperature=0.6,
-                    speed=1,
-                    if_freeze=False,
-                    inp_refs=None):
-        text_language = self.dict_language[text_language]
-        text = text.strip("\n")
-        text = self.cut_method(text)
-        while "\n\n" in text:
-            text = text.replace("\n\n", "\n")
-        texts = text.split("\n")
-        texts = self.process_text(texts)
-        texts = self.merge_short_text_in_array(texts, 5)
-        audio_opt = []
-        t = []
-        zero_wav = np.zeros(
-            int(self.hps.data.sampling_rate * 0.3),
-            dtype=np.float16 if self.is_half == True else np.float32,
-        )
-
-        for i_text, text in enumerate(texts):
-            # 解决输入目标文本的空行导致报错的问题
-            if (len(text.strip()) == 0):
-                continue
-            if (text[-1] not in self.splits): text += "。" if text_language != "en" else "."
-            phones2, bert2, norm_text2 = self.get_phones_and_bert(text, text_language, self.version)
-
-            bert = torch.cat([self.ref_bert1, bert2], 1)
-            all_phoneme_ids = torch.LongTensor(self.ref_phones1+phones2).to(self.device).unsqueeze(0)
-
-            bert = bert.to(self.device).unsqueeze(0)
-            all_phoneme_len = torch.tensor([all_phoneme_ids.shape[-1]]).to(self.device)
-
-            t2 = ttime()
-            # cache_key="%s-%s-%s-%s-%s-%s-%s-%s"%(ref_wav_path,prompt_text,prompt_language,text,text_language,top_k,top_p,temperature)
-            # print(cache.keys(),if_freeze)
-            # if(i_text in cache and if_freeze==True):pred_semantic=cache[i_text]
-            # else:
-            with torch.no_grad():
-                pred_semantic, idx = self.t2s_model.model.infer_panel(
-                    all_phoneme_ids,
-                    all_phoneme_len,
-                    self.ref_prompt,
-                    bert,
-                    # prompt_phone_len=ph_offset,
-                    top_k=top_k,
-                    top_p=top_p,
-                    temperature=temperature,
-                    early_stop_num=self.hz * self.max_sec,
-                )
-                pred_semantic = pred_semantic[:, -idx:].unsqueeze(0)
-                # cache[i_text]=pred_semantic
-            t3 = ttime()
-            refers=[]
-            if(inp_refs):
-                for path in inp_refs:
-                    try:
-                        refer = self.get_spepc(self.hps, path.name).to(self.dtype).to(self.device)
-                        refers.append(refer)
-                    except:
-                        traceback.print_exc()
-            if(len(refers)==0):refers = [self.get_spepc(self.hps, self.ref_wav_path).to(self.dtype).to(self.device)]
-            audio = (self.vq_model.decode(pred_semantic, torch.LongTensor(phones2).to(self.device).unsqueeze(0), refers,speed=speed).detach().cpu().numpy()[0, 0])
-            max_audio=np.abs(audio).max()#简单防止16bit爆音
-            if max_audio>1:audio/=max_audio
-            audio_opt.append(audio)
-            audio_opt.append(zero_wav)
-            # t4 = ttime()
-            # t.extend([t2 - t1,t3 - t2, t4 - t3])
-            # t1 = ttime()
-
-        return self.hps.data.sampling_rate, (np.concatenate(audio_opt, 0) * 32768 ).astype(
-            np.int16
-        )
 
 
 if __name__ == "__main__":
@@ -639,7 +545,7 @@ if __name__ == "__main__":
     ref_wav_path = "/data1/ziyiliu/tts/GPT-SoVITS/logs/Ningguang/raw/vo_dialog_DLEQ001_ningguang_01.wav"
     prompt_text = "北斗正在孤云阁那边帮我打捞散落的群玉阁藏品。你们若有兴趣，可以去看看。"
     prompt_language = i18n("中文")
-    how_to_cut = i18n("按中文句号。切")
+    how_to_cut = i18n("按标点符号切") #i18n("按中文句号。切")
     infer_engine = PyTorchTTSEngine(ref_wav_path=ref_wav_path,
                                     ref_text=prompt_text,
                                     ref_language=prompt_language,
@@ -657,28 +563,26 @@ if __name__ == "__main__":
     infer_engine.change_sovits_weights(sovits_path=sovits_path, prompt_language=prompt_language, text_language=text_language)
     infer_engine.change_gpt_weights(gpt_path=gpt_path)
 
-    infer_engine.process_ref_audio()
+    # infer_engine.process_ref_audio()
     test_text_list = [
         "若你困于无风之地，我便为你奏响高天之歌。以千年的流风，指引你前进的方向。当你重新踏上旅途之后，一定要记得旅途本身的意义。",
-        "我在明星斋的时候说，决定砸下群玉阁的时候，我已经算好了这笔交易的得与失。",
-        "这两位，还是别相提并论为好。北斗每次回到璃月港，都只会让我头疼而已。",
-        "如果早上没赚到钱，中午就会没饭吃。我对摩拉的执着，大概也是那时候形成的吧。",
-        "我是七星之「天权」，凝光。要做个交易吗？你来做我的贴身侍卫，而我，会教导你在璃月出人头地的技巧。",
-        "真想在复杂的商场中获利，还要看他们自己的见识与格局，我只是分享一些我的理解而已。",
-        "那时候他们一定已经做好准备，有资格成为卓越的商人了。而在那之前，我会保护他们的。",
-        "她刚刚说这些话的意思，大概也是想把她心中的那份热情传达给你。",
-        "要是每天醒来，在饮食上只能感受到重复，那还没开始做事，疲劳就已经积累起来了。",
-        "船越重，船体下沉就会越厉害，那么只要掌握船体浸入水的深度，就能估计船上的负载。"
     ]
+
     st = ttime()
     for i, text in enumerate(test_text_list):
-        sample_rate, audio_output = infer_engine.get_tts_wav(text=text,
-                                                            text_language=text_language,
-                                                            top_k=top_k,
-                                                            top_p=1,
-                                                            temperature=temperature,
-                                                            )
-
+        item = infer_engine.inference(text=text,
+                                    text_lang=text_language,
+                                    ref_audio_path=ref_wav_path,
+                                    prompt_text=prompt_text,
+                                    prompt_lang=prompt_language,
+                                    top_k=top_k,
+                                    top_p=1,
+                                    batch_size=20,
+                                    temperature=temperature,
+                                    )
+        item, seed = next(item)
+        print(type(item))
+        sample_rate, audio_output = item
         audio = audio_output
         output_file = f"ningguang_infer_{i}.wav"
         # sample_rate = 44100

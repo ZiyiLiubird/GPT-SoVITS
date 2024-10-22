@@ -29,7 +29,7 @@ i18n = I18nAuto(language = language)
 
 app = FastAPI()
 
-from pytorch_tts_engine import PyTorchTTSEngine
+from pytorch_tts_engine_v2 import PyTorchTTSEngine
 
 ref_wav_path = "/data1/ziyiliu/tts/GPT-SoVITS/logs/Ningguang/raw/vo_dialog_DLEQ001_ningguang_01.wav"
 prompt_text = "北斗正在孤云阁那边帮我打捞散落的群玉阁藏品。你们若有兴趣，可以去看看。"
@@ -52,7 +52,7 @@ gpt_path = "/data1/ziyiliu/tts/GPT-SoVITS/GPT_weights_v2/Ningguang-e10.ckpt"
 torch_engine.change_sovits_weights(sovits_path=sovits_path, prompt_language=prompt_language, text_language=text_language)
 torch_engine.change_gpt_weights(gpt_path=gpt_path)
 
-torch_engine.process_ref_audio()
+# torch_engine.process_ref_audio()
 
 
 
@@ -73,11 +73,22 @@ async def tts_torch(param: TTSRequest):
 
     print("INIT FILE TIME",time.time()-start_time)
     # res =  torch_engine.tts_fn(text, speaker, sdp_ratio, noise_scale, noise_scale_w, length_scale, language, reference_audio, emotion, prompt_mode, style_text, style_weight)
-
-    sample_rate, audio_output = torch_engine.get_tts_wav(text=text, text_language=text_language,
-                                                         top_k=top_k,
-                                                         top_p=top_p,
-                                                         temperature=temperature)
+    item = torch_engine.inference(text=text,
+                                text_lang=text_language,
+                                ref_audio_path=ref_wav_path,
+                                prompt_text=prompt_text,
+                                prompt_lang=prompt_language,
+                                top_k=top_k,
+                                top_p=1,
+                                batch_size=20,
+                                temperature=temperature,
+                                )
+    item, seed = next(item)
+    sample_rate, audio_output = item
+    # sample_rate, audio_output = torch_engine.get_tts_wav(text=text, text_language=text_language,
+    #                                                      top_k=top_k,
+    #                                                      top_p=top_p,
+    #                                                      temperature=temperature)
 
     print("TTS_FN TORCH INFER",time.time()-start_time)
     
