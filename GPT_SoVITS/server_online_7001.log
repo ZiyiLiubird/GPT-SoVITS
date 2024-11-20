@@ -1,0 +1,3236 @@
+Building prefix dict from the default dictionary ...
+---------------------------------------------TTS Config---------------------------------------------
+device              : cuda
+is_half             : True
+version             : v2
+t2s_weights_path    : /data1/ziyiliu/tts/GPT-SoVITS/GPT_weights_v2/Ningguang-e10.ckpt
+vits_weights_path   : /data1/ziyiliu/tts/GPT-SoVITS/SoVITS_weights_v2/Ningguang_e15_s630.pth
+bert_base_path      : /data1/ziyiliu/tts/GPT-SoVITS/GPT_SoVITS/pretrained_models/chinese-roberta-wwm-ext-large
+cnhuhbert_base_path : /data1/ziyiliu/tts/GPT-SoVITS/GPT_SoVITS/pretrained_models/chinese-hubert-base
+----------------------------------------------------------------------------------------------------
+
+Loading Text2Semantic weights from /data1/ziyiliu/tts/GPT-SoVITS/GPT_weights_v2/Ningguang-e10.ckpt
+Loading VITS weights from /data1/ziyiliu/tts/GPT-SoVITS/SoVITS_weights_v2/Ningguang_e15_s630.pth
+Loading BERT weights from /data1/ziyiliu/tts/GPT-SoVITS/GPT_SoVITS/pretrained_models/chinese-roberta-wwm-ext-large
+Loading CNHuBERT weights from /data1/ziyiliu/tts/GPT-SoVITS/GPT_SoVITS/pretrained_models/chinese-hubert-base
+Loading VITS weights from /data1/ziyiliu/tts/GPT-SoVITS/SoVITS_weights_v2/Sanyueqi_e24_s960.pth
+Loading Text2Semantic weights from /data1/ziyiliu/tts/GPT-SoVITS/GPT_weights_v2/Sanyueqi-e30.ckpt
+INIT FILE TIME 6.4373016357421875e-06
+Set seed to 2350364096
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+text before clean_text_inf: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+当前使用g2pw进行拼音推理
+text before normalization: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+=====================================text_normalize================================
+text after normalization: 说是检修,但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+text before g2p: 说是检修,但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+text after g2p: ['说是检修,', '但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?']
+seg before custom pinyin: 说是检修,
+seg after custom pinyin: 说是检修,
+customer_pin:  ['', '', '', '', '']
+DEBUG:jieba_fast:Building prefix dict from the default dictionary ...
+Loading model from cache /tmp/jieba.cache
+DEBUG:jieba_fast:Loading model from cache /tmp/jieba.cache
+Loading model cost 0.737 seconds.
+DEBUG:jieba_fast:Loading model cost 0.737 seconds.
+Prefix dict has been built succesfully.
+DEBUG:jieba_fast:Prefix dict has been built succesfully.
+g2pw seg:说是检修, pinyins:['shuo1', 'shi4', 'jian3', 'xiu1', ',']
+seg before custom pinyin: 但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+seg after custom pinyin: 但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线? pinyins:['dan4', 'kan4', 'qi3', 'lai2', 'ta1', 'men5', 'si4', 'hu1', 'bing4', 'bu4', 'zhi1', 'dao4', 'zen3', 'me5', 'bai3', 'nong4', 'na4', 'tiao2', 'xing1', 'cha2', 'zhi4', 'zao4', 'de5', 'liu2', 'shui3', 'xian4', '?']
+============================== custom_pinyin
+############ 切分文本 ############
+Actual Input Target Text:
+。建造师，右键是你的小帮手，能关弹(tan2)窗，撤操作，灵活运用更顺手哦。
+Actual Input Target Text (after sentence segmentation):
+['建造师，右键是你的小帮手，能关弹(tan2)窗，撤操作，灵活运用更顺手哦。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00,  7.32it/s]100%|██████████| 1/1 [00:00<00:00,  7.30it/s]
+text before clean_text_inf: 建造师，右键是你的小帮手，能关弹(tan2)窗，撤操作，灵活运用更顺手哦。
+text before normalization: 建造师，右键是你的小帮手，能关弹(tan2)窗，撤操作，灵活运用更顺手哦。
+=====================================text_normalize================================
+text after normalization: 建造师,右键是你的小帮手,能关弹(tan2)窗,撤操作,灵活运用更顺手哦.
+text before g2p: 建造师,右键是你的小帮手,能关弹(tan2)窗,撤操作,灵活运用更顺手哦.
+text after g2p: ['建造师,', '右键是你的小帮手,', '能关弹(tan2)窗,', '撤操作,', '灵活运用更顺手哦.']
+seg before custom pinyin: 建造师,
+seg after custom pinyin: 建造师,
+customer_pin:  ['', '', '', '']
+g2pw seg:建造师, pinyins:['jian4', 'zao4', 'shi1', ',']
+seg before custom pinyin: 右键是你的小帮手,
+seg after custom pinyin: 右键是你的小帮手,
+customer_pin:  ['', '', '', '', '', '', '', '', '']
+g2pw seg:右键是你的小帮手, pinyins:['you4', 'jian4', 'shi4', 'ni3', 'de5', 'xiao3', 'bang1', 'shou3', ',']
+seg before custom pinyin: 能关弹(tan2)窗,
+seg after custom pinyin: 能关弹窗,
+customer_pin:  ['', '', 'tan2', '', '']
+g2pw seg:能关弹窗, pinyins:['neng2', 'guan1', 'tan2', 'chuang1', ',']
+seg before custom pinyin: 撤操作,
+seg after custom pinyin: 撤操作,
+customer_pin:  ['', '', '', '']
+g2pw seg:撤操作, pinyins:['che4', 'cao1', 'zuo4', ',']
+seg before custom pinyin: 灵活运用更顺手哦.
+seg after custom pinyin: 灵活运用更顺手哦.
+customer_pin:  ['', '', '', '', '', '', '', '', '']
+g2pw seg:灵活运用更顺手哦. pinyins:['ling2', 'huo2', 'yun4', 'yong4', 'geng4', 'shun4', 'shou3', 'o2', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['建造师,右键是你的小帮手,能关弹窗,撤操作,灵活运用更顺手哦.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  0%|          | 6/1500 [00:00<00:25, 58.80it/s]  1%|          | 18/1500 [00:00<00:16, 92.55it/s]  2%|▏         | 30/1500 [00:00<00:14, 103.10it/s]  3%|▎         | 42/1500 [00:00<00:13, 108.31it/s]  4%|▎         | 54/1500 [00:00<00:12, 111.33it/s]  4%|▍         | 66/1500 [00:00<00:12, 112.97it/s]  5%|▌         | 78/1500 [00:00<00:12, 113.96it/s]  6%|▌         | 90/1500 [00:00<00:12, 114.79it/s]  7%|▋         | 102/1500 [00:00<00:12, 115.31it/s]  8%|▊         | 114/1500 [00:01<00:11, 115.74it/s]  8%|▊         | 126/1500 [00:01<00:11, 116.08it/s]  9%|▉         | 138/1500 [00:01<00:11, 116.17it/s] 10%|█         | 150/1500 [00:01<00:11, 116.25it/s] 11%|█         | 162/1500 [00:01<00:11, 116.17it/s] 11%|█▏        | 172/1500 [00:01<00:11, 111.78it/s]
+T2S Decoding EOS [152 -> 325]
+3.412	0.140	1.550	0.436
+TTS_FN TORCH INFER 5.7645158767700195
+TTS TORCH cost time  5.765524387359619
+****************************************************************************************************
+INIT FILE TIME 4.76837158203125e-06
+Set seed to 2423679502
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+############ 切分文本 ############
+Actual Input Target Text:
+。建造师，记得常备制氧材料哦，防护中枢可离不开星壤、稀有壤、复合矿和古老细菌呢。
+Actual Input Target Text (after sentence segmentation):
+['建造师，记得常备制氧材料哦，防护中枢可离不开星壤、稀有壤、复合矿和古老细菌呢。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00,  6.00it/s]100%|██████████| 1/1 [00:00<00:00,  5.99it/s]
+text before clean_text_inf: 建造师，记得常备制氧材料哦，防护中枢可离不开星壤、稀有壤、复合矿和古老细菌呢。
+text before normalization: 建造师，记得常备制氧材料哦，防护中枢可离不开星壤、稀有壤、复合矿和古老细菌呢。
+=====================================text_normalize================================
+text after normalization: 建造师,记得常备制氧材料哦,防护中枢可离不开星壤,稀有壤,复合矿和古老细菌呢.
+text before g2p: 建造师,记得常备制氧材料哦,防护中枢可离不开星壤,稀有壤,复合矿和古老细菌呢.
+text after g2p: ['建造师,', '记得常备制氧材料哦,', '防护中枢可离不开星壤,', '稀有壤,', '复合矿和古老细菌呢.']
+seg before custom pinyin: 建造师,
+seg after custom pinyin: 建造师,
+customer_pin:  ['', '', '', '']
+g2pw seg:建造师, pinyins:['jian4', 'zao4', 'shi1', ',']
+seg before custom pinyin: 记得常备制氧材料哦,
+seg after custom pinyin: 记得常备制氧材料哦,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '']
+g2pw seg:记得常备制氧材料哦, pinyins:['ji4', 'de5', 'chang2', 'bei4', 'zhi4', 'yang3', 'cai2', 'liao4', 'o2', ',']
+seg before custom pinyin: 防护中枢可离不开星壤,
+seg after custom pinyin: 防护中枢可离不开星壤,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:防护中枢可离不开星壤, pinyins:['fang2', 'hu4', 'zhong1', 'shu1', 'ke3', 'li2', 'bu4', 'kai1', 'xing1', 'rang3', ',']
+seg before custom pinyin: 稀有壤,
+seg after custom pinyin: 稀有壤,
+customer_pin:  ['', '', '', '']
+g2pw seg:稀有壤, pinyins:['xi1', 'you3', 'rang3', ',']
+seg before custom pinyin: 复合矿和古老细菌呢.
+seg after custom pinyin: 复合矿和古老细菌呢.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '']
+g2pw seg:复合矿和古老细菌呢. pinyins:['fu4', 'he2', 'kuang4', 'he2', 'gu3', 'lao3', 'xi4', 'jun1', 'ne5', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['建造师,记得常备制氧材料哦,防护中枢可离不开星壤,稀有壤,复合矿和古老细菌呢.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  1%|          | 11/1500 [00:00<00:14, 104.43it/s]  2%|▏         | 23/1500 [00:00<00:13, 111.03it/s]  2%|▏         | 35/1500 [00:00<00:12, 113.60it/s]  3%|▎         | 47/1500 [00:00<00:12, 114.92it/s]  4%|▍         | 59/1500 [00:00<00:12, 115.72it/s]  5%|▍         | 71/1500 [00:00<00:12, 116.10it/s]  6%|▌         | 83/1500 [00:00<00:12, 116.43it/s]  6%|▋         | 95/1500 [00:00<00:12, 116.80it/s]  7%|▋         | 107/1500 [00:00<00:11, 117.00it/s]  8%|▊         | 119/1500 [00:01<00:11, 117.12it/s]  9%|▊         | 131/1500 [00:01<00:11, 116.73it/s] 10%|▉         | 143/1500 [00:01<00:11, 116.61it/s] 10%|█         | 155/1500 [00:01<00:11, 116.34it/s] 11%|█         | 167/1500 [00:01<00:11, 116.25it/s] 12%|█▏        | 179/1500 [00:01<00:11, 116.08it/s] 13%|█▎        | 189/1500 [00:01<00:11, 115.17it/s]
+T2S Decoding EOS [152 -> 342]
+0.000	0.168	1.643	0.363
+TTS_FN TORCH INFER 2.3711912631988525
+TTS TORCH cost time  2.371983528137207
+****************************************************************************************************
+INIT FILE TIME 4.0531158447265625e-06
+Set seed to 798881713
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+############ 切分文本 ############
+Actual Input Target Text:
+。建造师，记得哦，采集资源要在对应建筑范围内，这样效率才高呢。
+Actual Input Target Text (after sentence segmentation):
+['建造师，记得哦，采集资源要在对应建筑范围内，这样效率才高呢。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00,  4.64it/s]100%|██████████| 1/1 [00:00<00:00,  4.64it/s]
+text before clean_text_inf: 建造师，记得哦，采集资源要在对应建筑范围内，这样效率才高呢。
+text before normalization: 建造师，记得哦，采集资源要在对应建筑范围内，这样效率才高呢。
+=====================================text_normalize================================
+text after normalization: 建造师,记得哦,采集资源要在对应建筑范围内,这样效率才高呢.
+text before g2p: 建造师,记得哦,采集资源要在对应建筑范围内,这样效率才高呢.
+text after g2p: ['建造师,', '记得哦,', '采集资源要在对应建筑范围内,', '这样效率才高呢.']
+seg before custom pinyin: 建造师,
+seg after custom pinyin: 建造师,
+customer_pin:  ['', '', '', '']
+g2pw seg:建造师, pinyins:['jian4', 'zao4', 'shi1', ',']
+seg before custom pinyin: 记得哦,
+seg after custom pinyin: 记得哦,
+customer_pin:  ['', '', '', '']
+g2pw seg:记得哦, pinyins:['ji4', 'de5', 'o2', ',']
+seg before custom pinyin: 采集资源要在对应建筑范围内,
+seg after custom pinyin: 采集资源要在对应建筑范围内,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:采集资源要在对应建筑范围内, pinyins:['cai3', 'ji2', 'zi1', 'yuan2', 'yao4', 'zai4', 'dui4', 'ying4', 'jian4', 'zhu4', 'fan4', 'wei2', 'nei4', ',']
+seg before custom pinyin: 这样效率才高呢.
+seg after custom pinyin: 这样效率才高呢.
+customer_pin:  ['', '', '', '', '', '', '', '']
+g2pw seg:这样效率才高呢. pinyins:['zhe4', 'yang4', 'xiao4', 'lv4', 'cai2', 'gao1', 'ne5', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['建造师,记得哦,采集资源要在对应建筑范围内,这样效率才高呢.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  1%|          | 11/1500 [00:00<00:14, 105.00it/s]  2%|▏         | 23/1500 [00:00<00:13, 110.43it/s]  2%|▏         | 35/1500 [00:00<00:12, 113.75it/s]  3%|▎         | 47/1500 [00:00<00:12, 113.94it/s]  4%|▍         | 59/1500 [00:00<00:12, 115.37it/s]  5%|▍         | 71/1500 [00:00<00:12, 115.01it/s]  6%|▌         | 83/1500 [00:00<00:12, 115.83it/s]  6%|▋         | 95/1500 [00:00<00:12, 116.40it/s]  7%|▋         | 107/1500 [00:00<00:12, 115.62it/s]  8%|▊         | 119/1500 [00:01<00:11, 116.33it/s]  9%|▊         | 131/1500 [00:01<00:11, 116.06it/s] 10%|▉         | 143/1500 [00:01<00:11, 116.37it/s] 10%|█         | 151/1500 [00:01<00:11, 114.56it/s]
+T2S Decoding EOS [152 -> 304]
+0.000	0.216	1.320	0.555
+TTS_FN TORCH INFER 2.309927225112915
+TTS TORCH cost time  2.3105902671813965
+****************************************************************************************************
+INIT FILE TIME 4.5299530029296875e-06
+Set seed to 56492045
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 好啦，大家都打起精神来！越到这种时候，我们就越要多传递传递信心呀！
+text before clean_text_inf: 好啦，大家都打起精神来！越到这种时候，我们就越要多传递传递信心呀！
+text before normalization: 好啦，大家都打起精神来！越到这种时候，我们就越要多传递传递信心呀！
+=====================================text_normalize================================
+text after normalization: 好啦,大家都打起精神来!越到这种时候,我们就越要多传递传递信心呀!
+text before g2p: 好啦,大家都打起精神来!越到这种时候,我们就越要多传递传递信心呀!
+text after g2p: ['好啦,', '大家都打起精神来!', '越到这种时候,', '我们就越要多传递传递信心呀!']
+seg before custom pinyin: 好啦,
+seg after custom pinyin: 好啦,
+customer_pin:  ['', '', '']
+g2pw seg:好啦, pinyins:['hao3', 'la5', ',']
+seg before custom pinyin: 大家都打起精神来!
+seg after custom pinyin: 大家都打起精神来!
+customer_pin:  ['', '', '', '', '', '', '', '', '']
+g2pw seg:大家都打起精神来! pinyins:['da4', 'jia1', 'dou1', 'da3', 'qi3', 'jing1', 'shen2', 'lai2', '!']
+seg before custom pinyin: 越到这种时候,
+seg after custom pinyin: 越到这种时候,
+customer_pin:  ['', '', '', '', '', '', '']
+g2pw seg:越到这种时候, pinyins:['yue4', 'dao4', 'zhe4', 'zhong3', 'shi2', 'hou4', ',']
+seg before custom pinyin: 我们就越要多传递传递信心呀!
+seg after custom pinyin: 我们就越要多传递传递信心呀!
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:我们就越要多传递传递信心呀! pinyins:['wo3', 'men5', 'jiu4', 'yue4', 'yao4', 'duo1', 'chuan2', 'di4', 'chuan2', 'di4', 'xin4', 'xin1', 'ya5', '!']
+============================== custom_pinyin
+############ 切分文本 ############
+Actual Input Target Text:
+我们又遇到了图纸选择的问题，记得考虑重力分离室的实用性哦。
+Actual Input Target Text (after sentence segmentation):
+['我们又遇到了图纸选择的问题，记得考虑重力分离室的实用性哦。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00,  6.18it/s]100%|██████████| 1/1 [00:00<00:00,  6.17it/s]
+text before clean_text_inf: 我们又遇到了图纸选择的问题，记得考虑重力分离室的实用性哦。
+text before normalization: 我们又遇到了图纸选择的问题，记得考虑重力分离室的实用性哦。
+=====================================text_normalize================================
+text after normalization: 我们又遇到了图纸选择的问题,记得考虑重力分离室的实用性哦.
+text before g2p: 我们又遇到了图纸选择的问题,记得考虑重力分离室的实用性哦.
+text after g2p: ['我们又遇到了图纸选择的问题,', '记得考虑重力分离室的实用性哦.']
+seg before custom pinyin: 我们又遇到了图纸选择的问题,
+seg after custom pinyin: 我们又遇到了图纸选择的问题,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:我们又遇到了图纸选择的问题, pinyins:['wo3', 'men5', 'you4', 'yu4', 'dao4', 'le5', 'tu2', 'zhi3', 'xuan3', 'ze2', 'de5', 'wen4', 'ti2', ',']
+seg before custom pinyin: 记得考虑重力分离室的实用性哦.
+seg after custom pinyin: 记得考虑重力分离室的实用性哦.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:记得考虑重力分离室的实用性哦. pinyins:['ji4', 'de5', 'kao3', 'lv4', 'zhong4', 'li4', 'fen1', 'li2', 'shi4', 'de5', 'shi2', 'yong4', 'xing4', 'o2', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['我们又遇到了图纸选择的问题,记得考虑重力分离室的实用性哦.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  1%|          | 10/1500 [00:00<00:15, 97.50it/s]  1%|▏         | 21/1500 [00:00<00:14, 102.65it/s]  2%|▏         | 32/1500 [00:00<00:13, 105.29it/s]  3%|▎         | 43/1500 [00:00<00:13, 106.72it/s]  4%|▎         | 54/1500 [00:00<00:13, 107.74it/s]  4%|▍         | 65/1500 [00:00<00:13, 103.64it/s]  5%|▌         | 77/1500 [00:00<00:13, 107.97it/s]  6%|▌         | 89/1500 [00:00<00:12, 111.02it/s]  7%|▋         | 101/1500 [00:00<00:12, 113.03it/s]  8%|▊         | 113/1500 [00:01<00:12, 114.43it/s]  8%|▊         | 116/1500 [00:01<00:12, 108.83it/s]
+T2S Decoding EOS [170 -> 287]
+0.485	0.163	1.068	0.208
+TTS_FN TORCH INFER 2.137662887573242
+TTS TORCH cost time  2.138418436050415
+****************************************************************************************************
+INIT FILE TIME 3.814697265625e-06
+Set seed to 3376135315
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 好啦，大家都打起精神来！越到这种时候，我们就越要多传递传递信心呀！
+############ 切分文本 ############
+Actual Input Target Text:
+我们这次还得选重力分离室的图纸，别忘了。
+Actual Input Target Text (after sentence segmentation):
+['我们这次还得选重力分离室的图纸，别忘了。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00,  6.47it/s]100%|██████████| 1/1 [00:00<00:00,  6.46it/s]
+text before clean_text_inf: 我们这次还得选重力分离室的图纸，别忘了。
+text before normalization: 我们这次还得选重力分离室的图纸，别忘了。
+=====================================text_normalize================================
+text after normalization: 我们这次还得选重力分离室的图纸,别忘了.
+text before g2p: 我们这次还得选重力分离室的图纸,别忘了.
+text after g2p: ['我们这次还得选重力分离室的图纸,', '别忘了.']
+seg before custom pinyin: 我们这次还得选重力分离室的图纸,
+seg after custom pinyin: 我们这次还得选重力分离室的图纸,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:我们这次还得选重力分离室的图纸, pinyins:['wo3', 'men5', 'zhe4', 'ci4', 'hai2', 'dei3', 'xuan3', 'zhong4', 'li4', 'fen1', 'li2', 'shi4', 'de5', 'tu2', 'zhi3', ',']
+seg before custom pinyin: 别忘了.
+seg after custom pinyin: 别忘了.
+customer_pin:  ['', '', '', '']
+g2pw seg:别忘了. pinyins:['bie2', 'wang4', 'le5', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['我们这次还得选重力分离室的图纸,别忘了.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  1%|          | 10/1500 [00:00<00:15, 94.63it/s]  1%|▏         | 21/1500 [00:00<00:14, 103.23it/s]  2%|▏         | 32/1500 [00:00<00:13, 105.95it/s]  3%|▎         | 44/1500 [00:00<00:13, 109.06it/s]  4%|▎         | 56/1500 [00:00<00:12, 111.39it/s]  5%|▍         | 68/1500 [00:00<00:12, 112.70it/s]  5%|▌         | 80/1500 [00:00<00:12, 113.54it/s]  6%|▌         | 83/1500 [00:00<00:13, 108.83it/s]
+T2S Decoding EOS [170 -> 254]
+0.000	0.156	0.765	0.228
+TTS_FN TORCH INFER 1.3678183555603027
+TTS TORCH cost time  1.3683488368988037
+****************************************************************************************************
+INIT FILE TIME 5.7220458984375e-06
+Set seed to 2765701230
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+text before clean_text_inf: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+text before normalization: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+=====================================text_normalize================================
+text after normalization: 说是检修,但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+text before g2p: 说是检修,但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+text after g2p: ['说是检修,', '但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?']
+seg before custom pinyin: 说是检修,
+seg after custom pinyin: 说是检修,
+customer_pin:  ['', '', '', '', '']
+g2pw seg:说是检修, pinyins:['shuo1', 'shi4', 'jian3', 'xiu1', ',']
+seg before custom pinyin: 但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+seg after custom pinyin: 但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线? pinyins:['dan4', 'kan4', 'qi3', 'lai2', 'ta1', 'men5', 'si4', 'hu1', 'bing4', 'bu4', 'zhi1', 'dao4', 'zen3', 'me5', 'bai3', 'nong4', 'na4', 'tiao2', 'xing1', 'cha2', 'zhi4', 'zao4', 'de5', 'liu2', 'shui3', 'xian4', '?']
+============================== custom_pinyin
+############ 切分文本 ############
+Actual Input Target Text:
+。建造师，右键是你的小帮手，能关弹(dan4)幕，撤操作，灵活运用更顺手哦。
+Actual Input Target Text (after sentence segmentation):
+['建造师，右键是你的小帮手，能关弹(dan4)幕，撤操作，灵活运用更顺手哦。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00,  6.55it/s]100%|██████████| 1/1 [00:00<00:00,  6.54it/s]
+text before clean_text_inf: 建造师，右键是你的小帮手，能关弹(dan4)幕，撤操作，灵活运用更顺手哦。
+text before normalization: 建造师，右键是你的小帮手，能关弹(dan4)幕，撤操作，灵活运用更顺手哦。
+=====================================text_normalize================================
+text after normalization: 建造师,右键是你的小帮手,能关弹(dan4)幕,撤操作,灵活运用更顺手哦.
+text before g2p: 建造师,右键是你的小帮手,能关弹(dan4)幕,撤操作,灵活运用更顺手哦.
+text after g2p: ['建造师,', '右键是你的小帮手,', '能关弹(dan4)幕,', '撤操作,', '灵活运用更顺手哦.']
+seg before custom pinyin: 建造师,
+seg after custom pinyin: 建造师,
+customer_pin:  ['', '', '', '']
+g2pw seg:建造师, pinyins:['jian4', 'zao4', 'shi1', ',']
+seg before custom pinyin: 右键是你的小帮手,
+seg after custom pinyin: 右键是你的小帮手,
+customer_pin:  ['', '', '', '', '', '', '', '', '']
+g2pw seg:右键是你的小帮手, pinyins:['you4', 'jian4', 'shi4', 'ni3', 'de5', 'xiao3', 'bang1', 'shou3', ',']
+seg before custom pinyin: 能关弹(dan4)幕,
+seg after custom pinyin: 能关弹幕,
+customer_pin:  ['', '', 'dan4', '', '']
+g2pw seg:能关弹幕, pinyins:['neng2', 'guan1', 'dan4', 'mu4', ',']
+seg before custom pinyin: 撤操作,
+seg after custom pinyin: 撤操作,
+customer_pin:  ['', '', '', '']
+g2pw seg:撤操作, pinyins:['che4', 'cao1', 'zuo4', ',']
+seg before custom pinyin: 灵活运用更顺手哦.
+seg after custom pinyin: 灵活运用更顺手哦.
+customer_pin:  ['', '', '', '', '', '', '', '', '']
+g2pw seg:灵活运用更顺手哦. pinyins:['ling2', 'huo2', 'yun4', 'yong4', 'geng4', 'shun4', 'shou3', 'o2', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['建造师,右键是你的小帮手,能关弹幕,撤操作,灵活运用更顺手哦.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  1%|          | 11/1500 [00:00<00:14, 105.76it/s]  2%|▏         | 23/1500 [00:00<00:13, 112.62it/s]  2%|▏         | 35/1500 [00:00<00:12, 113.63it/s]  3%|▎         | 47/1500 [00:00<00:12, 115.08it/s]  4%|▍         | 59/1500 [00:00<00:12, 115.62it/s]  5%|▍         | 71/1500 [00:00<00:12, 116.72it/s]  6%|▌         | 83/1500 [00:00<00:12, 116.31it/s]  6%|▋         | 95/1500 [00:00<00:12, 116.37it/s]  7%|▋         | 107/1500 [00:00<00:11, 117.00it/s]  8%|▊         | 119/1500 [00:01<00:11, 117.24it/s]  9%|▊         | 131/1500 [00:01<00:11, 117.49it/s] 10%|▉         | 143/1500 [00:01<00:11, 116.94it/s] 10%|█         | 155/1500 [00:01<00:11, 116.99it/s] 11%|█         | 161/1500 [00:01<00:11, 115.44it/s]
+T2S Decoding EOS [152 -> 314]
+0.493	0.154	1.397	0.207
+TTS_FN TORCH INFER 2.4748730659484863
+TTS TORCH cost time  2.475595235824585
+****************************************************************************************************
+INIT FILE TIME 4.291534423828125e-06
+Set seed to 3939471178
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+text before clean_text_inf: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+text before normalization: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+=====================================text_normalize================================
+text after normalization: 嘿嘿,似乎本姑娘教了他很多东西,我还挺厉害的嘛.
+text before g2p: 嘿嘿,似乎本姑娘教了他很多东西,我还挺厉害的嘛.
+text after g2p: ['嘿嘿,', '似乎本姑娘教了他很多东西,', '我还挺厉害的嘛.']
+seg before custom pinyin: 嘿嘿,
+seg after custom pinyin: 嘿嘿,
+customer_pin:  ['', '', '']
+g2pw seg:嘿嘿, pinyins:['hei1', 'hei1', ',']
+seg before custom pinyin: 似乎本姑娘教了他很多东西,
+seg after custom pinyin: 似乎本姑娘教了他很多东西,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:似乎本姑娘教了他很多东西, pinyins:['si4', 'hu1', 'ben3', 'gu1', 'niang2', 'jiao1', 'le5', 'ta1', 'hen3', 'duo1', 'dong1', 'xi5', ',']
+seg before custom pinyin: 我还挺厉害的嘛.
+seg after custom pinyin: 我还挺厉害的嘛.
+customer_pin:  ['', '', '', '', '', '', '', '']
+g2pw seg:我还挺厉害的嘛. pinyins:['wo3', 'hai2', 'ting3', 'li4', 'hai4', 'de5', 'ma5', '.']
+============================== custom_pinyin
+############ 切分文本 ############
+Actual Input Target Text:
+我们得赶紧选重力分离室图纸，我这有地质钻头，正好能用上。滴滴~道具地质钻头x1传输完成
+Actual Input Target Text (after sentence segmentation):
+['我们得赶紧选重力分离室图纸，我这有地质钻头，正好能用上。', '滴滴~道具地质钻头x1传输完成。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:00<00:00,  5.77it/s]100%|██████████| 2/2 [00:00<00:00,  7.63it/s]
+text before clean_text_inf: 我们得赶紧选重力分离室图纸，我这有地质钻头，正好能用上。
+text before normalization: 我们得赶紧选重力分离室图纸，我这有地质钻头，正好能用上。
+=====================================text_normalize================================
+text after normalization: 我们得赶紧选重力分离室图纸,我这有地质钻头,正好能用上.
+text before g2p: 我们得赶紧选重力分离室图纸,我这有地质钻头,正好能用上.
+text after g2p: ['我们得赶紧选重力分离室图纸,', '我这有地质钻头,', '正好能用上.']
+seg before custom pinyin: 我们得赶紧选重力分离室图纸,
+seg after custom pinyin: 我们得赶紧选重力分离室图纸,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:我们得赶紧选重力分离室图纸, pinyins:['wo3', 'men5', 'dei3', 'gan3', 'jin3', 'xuan3', 'zhong4', 'li4', 'fen1', 'li2', 'shi4', 'tu2', 'zhi3', ',']
+seg before custom pinyin: 我这有地质钻头,
+seg after custom pinyin: 我这有地质钻头,
+customer_pin:  ['', '', '', '', '', '', '', '']
+g2pw seg:我这有地质钻头, pinyins:['wo3', 'zhe4', 'you3', 'di4', 'zhi4', 'zuan1', 'tou2', ',']
+seg before custom pinyin: 正好能用上.
+seg after custom pinyin: 正好能用上.
+customer_pin:  ['', '', '', '', '', '']
+g2pw seg:正好能用上. pinyins:['zheng4', 'hao3', 'neng2', 'yong4', 'shang4', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~道具地质钻头x1传输完成。
+text before normalization: 滴滴~道具地质钻头x1传输完成。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…道具地质钻头一传输完成.
+text before g2p: 滴滴…道具地质钻头一传输完成.
+text after g2p: ['滴滴…', '道具地质钻头一传输完成.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 道具地质钻头一传输完成.
+seg after custom pinyin: 道具地质钻头一传输完成.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:道具地质钻头一传输完成. pinyins:['dao4', 'ju4', 'di4', 'zhi4', 'zuan1', 'tou2', 'yi1', 'chuan2', 'shu1', 'wan2', 'cheng2', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['滴滴…道具地质钻头一传输完成.', '我们得赶紧选重力分离室图纸,我这有地质钻头,正好能用上.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  1%|          | 8/1500 [00:00<00:19, 77.14it/s]  1%|          | 18/1500 [00:00<00:16, 88.46it/s]  2%|▏         | 28/1500 [00:00<00:16, 90.79it/s]  3%|▎         | 38/1500 [00:00<00:15, 92.92it/s]  3%|▎         | 48/1500 [00:00<00:15, 93.40it/s]  4%|▍         | 58/1500 [00:00<00:15, 94.20it/s]  5%|▍         | 68/1500 [00:00<00:15, 94.21it/s]  5%|▌         | 78/1500 [00:00<00:14, 95.65it/s]  6%|▌         | 90/1500 [00:00<00:13, 101.73it/s]  7%|▋         | 102/1500 [00:01<00:13, 106.61it/s]  8%|▊         | 114/1500 [00:01<00:12, 109.97it/s]  8%|▊         | 114/1500 [00:01<00:14, 98.84it/s] 
+T2S Decoding EOS [140 -> 255]
+0.393	0.263	1.156	0.228
+TTS_FN TORCH INFER 2.271878242492676
+TTS TORCH cost time  2.272888422012329
+****************************************************************************************************
+INIT FILE TIME 4.5299530029296875e-06
+Set seed to 2471002227
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+############ 切分文本 ############
+Actual Input Target Text:
+我们选重力分离室吧，我这儿有卫星天线，刚好能用上。滴滴~物资卫星天线x1已送给你啦。滴滴~道具卫星天线x1传输完成
+Actual Input Target Text (after sentence segmentation):
+['我们选重力分离室吧，我这儿有卫星天线，刚好能用上。', '滴滴~物资卫星天线x1已送给你啦。', '滴滴~道具卫星天线x1传输完成。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/3 [00:00<?, ?it/s] 33%|███▎      | 1/3 [00:00<00:00,  5.21it/s]100%|██████████| 3/3 [00:00<00:00, 10.63it/s]100%|██████████| 3/3 [00:00<00:00,  9.62it/s]
+text before clean_text_inf: 我们选重力分离室吧，我这儿有卫星天线，刚好能用上。
+text before normalization: 我们选重力分离室吧，我这儿有卫星天线，刚好能用上。
+=====================================text_normalize================================
+text after normalization: 我们选重力分离室吧,我这儿有卫星天线,刚好能用上.
+text before g2p: 我们选重力分离室吧,我这儿有卫星天线,刚好能用上.
+text after g2p: ['我们选重力分离室吧,', '我这儿有卫星天线,', '刚好能用上.']
+seg before custom pinyin: 我们选重力分离室吧,
+seg after custom pinyin: 我们选重力分离室吧,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '']
+g2pw seg:我们选重力分离室吧, pinyins:['wo3', 'men5', 'xuan3', 'zhong4', 'li4', 'fen1', 'li2', 'shi4', 'ba5', ',']
+seg before custom pinyin: 我这儿有卫星天线,
+seg after custom pinyin: 我这儿有卫星天线,
+customer_pin:  ['', '', '', '', '', '', '', '', '']
+g2pw seg:我这儿有卫星天线, pinyins:['wo3', 'zhe4', 'er1', 'you3', 'wei4', 'xing1', 'tian1', 'xian4', ',']
+seg before custom pinyin: 刚好能用上.
+seg after custom pinyin: 刚好能用上.
+customer_pin:  ['', '', '', '', '', '']
+g2pw seg:刚好能用上. pinyins:['gang1', 'hao3', 'neng2', 'yong4', 'shang4', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~物资卫星天线x1已送给你啦。
+text before normalization: 滴滴~物资卫星天线x1已送给你啦。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…物资卫星天线一已送给你啦.
+text before g2p: 滴滴…物资卫星天线一已送给你啦.
+text after g2p: ['滴滴…', '物资卫星天线一已送给你啦.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 物资卫星天线一已送给你啦.
+seg after custom pinyin: 物资卫星天线一已送给你啦.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:物资卫星天线一已送给你啦. pinyins:['wu4', 'zi1', 'wei4', 'xing1', 'tian1', 'xian4', 'yi1', 'yi3', 'song4', 'gei3', 'ni3', 'la5', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~道具卫星天线x1传输完成。
+text before normalization: 滴滴~道具卫星天线x1传输完成。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…道具卫星天线一传输完成.
+text before g2p: 滴滴…道具卫星天线一传输完成.
+text after g2p: ['滴滴…', '道具卫星天线一传输完成.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 道具卫星天线一传输完成.
+seg after custom pinyin: 道具卫星天线一传输完成.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:道具卫星天线一传输完成. pinyins:['dao4', 'ju4', 'wei4', 'xing1', 'tian1', 'xian4', 'yi1', 'chuan2', 'shu1', 'wan2', 'cheng2', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['滴滴…道具卫星天线一传输完成.', '滴滴…物资卫星天线一已送给你啦.', '我们选重力分离室吧,我这儿有卫星天线,刚好能用上.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  0%|          | 7/1500 [00:00<00:21, 68.00it/s]  1%|          | 17/1500 [00:00<00:17, 83.47it/s]  2%|▏         | 27/1500 [00:00<00:16, 88.83it/s]  2%|▏         | 37/1500 [00:00<00:15, 91.45it/s]  3%|▎         | 47/1500 [00:00<00:15, 92.92it/s]  4%|▍         | 57/1500 [00:00<00:15, 93.29it/s]  4%|▍         | 67/1500 [00:00<00:15, 93.87it/s]  5%|▌         | 77/1500 [00:00<00:15, 94.22it/s]  6%|▌         | 87/1500 [00:00<00:14, 94.37it/s]  6%|▋         | 97/1500 [00:01<00:14, 94.38it/s]  7%|▋         | 106/1500 [00:01<00:15, 92.37it/s]
+T2S Decoding EOS [140 -> 247]
+0.000	0.313	1.150	0.222
+TTS_FN TORCH INFER 1.9271314144134521
+TTS TORCH cost time  1.9286365509033203
+****************************************************************************************************
+INIT FILE TIME 4.5299530029296875e-06
+Set seed to 3289319945
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+text before clean_text_inf: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+text before normalization: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+=====================================text_normalize================================
+text after normalization: 说是检修,但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+text before g2p: 说是检修,但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+text after g2p: ['说是检修,', '但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?']
+seg before custom pinyin: 说是检修,
+seg after custom pinyin: 说是检修,
+customer_pin:  ['', '', '', '', '']
+g2pw seg:说是检修, pinyins:['shuo1', 'shi4', 'jian3', 'xiu1', ',']
+seg before custom pinyin: 但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+seg after custom pinyin: 但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线? pinyins:['dan4', 'kan4', 'qi3', 'lai2', 'ta1', 'men5', 'si4', 'hu1', 'bing4', 'bu4', 'zhi1', 'dao4', 'zen3', 'me5', 'bai3', 'nong4', 'na4', 'tiao2', 'xing1', 'cha2', 'zhi4', 'zao4', 'de5', 'liu2', 'shui3', 'xian4', '?']
+============================== custom_pinyin
+############ 切分文本 ############
+Actual Input Target Text:
+。建造师，记得常移动基地哦，探索新资源，发现未知惊喜！
+Actual Input Target Text (after sentence segmentation):
+['建造师，记得常移动基地哦，探索新资源，发现未知惊喜！']
+############ 提取文本Bert特征 ############
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00,  8.36it/s]100%|██████████| 1/1 [00:00<00:00,  8.34it/s]
+text before clean_text_inf: 建造师，记得常移动基地哦，探索新资源，发现未知惊喜！
+text before normalization: 建造师，记得常移动基地哦，探索新资源，发现未知惊喜！
+=====================================text_normalize================================
+text after normalization: 建造师,记得常移动基地哦,探索新资源,发现未知惊喜!
+text before g2p: 建造师,记得常移动基地哦,探索新资源,发现未知惊喜!
+text after g2p: ['建造师,', '记得常移动基地哦,', '探索新资源,', '发现未知惊喜!']
+seg before custom pinyin: 建造师,
+seg after custom pinyin: 建造师,
+customer_pin:  ['', '', '', '']
+g2pw seg:建造师, pinyins:['jian4', 'zao4', 'shi1', ',']
+seg before custom pinyin: 记得常移动基地哦,
+seg after custom pinyin: 记得常移动基地哦,
+customer_pin:  ['', '', '', '', '', '', '', '', '']
+g2pw seg:记得常移动基地哦, pinyins:['ji4', 'de5', 'chang2', 'yi2', 'dong4', 'ji1', 'di4', 'o2', ',']
+seg before custom pinyin: 探索新资源,
+seg after custom pinyin: 探索新资源,
+customer_pin:  ['', '', '', '', '', '']
+g2pw seg:探索新资源, pinyins:['tan4', 'suo3', 'xin1', 'zi1', 'yuan2', ',']
+seg before custom pinyin: 发现未知惊喜!
+seg after custom pinyin: 发现未知惊喜!
+customer_pin:  ['', '', '', '', '', '', '']
+g2pw seg:发现未知惊喜! pinyins:['fa1', 'xian4', 'wei4', 'zhi1', 'jing1', 'xi3', '!']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['建造师,记得常移动基地哦,探索新资源,发现未知惊喜!']
+  0%|          | 0/1500 [00:00<?, ?it/s]  1%|          | 11/1500 [00:00<00:14, 105.98it/s]  2%|▏         | 23/1500 [00:00<00:13, 111.67it/s]  2%|▏         | 35/1500 [00:00<00:12, 114.44it/s]  3%|▎         | 47/1500 [00:00<00:12, 115.97it/s]  4%|▍         | 59/1500 [00:00<00:12, 115.57it/s]  5%|▍         | 71/1500 [00:00<00:12, 116.46it/s]  6%|▌         | 83/1500 [00:00<00:12, 116.99it/s]  6%|▋         | 95/1500 [00:00<00:12, 116.32it/s]  7%|▋         | 107/1500 [00:00<00:11, 116.60it/s]  8%|▊         | 119/1500 [00:01<00:11, 115.97it/s]  9%|▊         | 131/1500 [00:01<00:11, 116.61it/s]  9%|▉         | 142/1500 [00:01<00:11, 115.15it/s]
+T2S Decoding EOS [152 -> 295]
+0.485	0.121	1.235	0.226
+TTS_FN TORCH INFER 2.2830729484558105
+TTS TORCH cost time  2.2838706970214844
+****************************************************************************************************
+INIT FILE TIME 4.291534423828125e-06
+Set seed to 2760849600
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+text before clean_text_inf: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+text before normalization: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+=====================================text_normalize================================
+text after normalization: 嘿嘿,似乎本姑娘教了他很多东西,我还挺厉害的嘛.
+text before g2p: 嘿嘿,似乎本姑娘教了他很多东西,我还挺厉害的嘛.
+text after g2p: ['嘿嘿,', '似乎本姑娘教了他很多东西,', '我还挺厉害的嘛.']
+seg before custom pinyin: 嘿嘿,
+seg after custom pinyin: 嘿嘿,
+customer_pin:  ['', '', '']
+g2pw seg:嘿嘿, pinyins:['hei1', 'hei1', ',']
+seg before custom pinyin: 似乎本姑娘教了他很多东西,
+seg after custom pinyin: 似乎本姑娘教了他很多东西,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:似乎本姑娘教了他很多东西, pinyins:['si4', 'hu1', 'ben3', 'gu1', 'niang2', 'jiao1', 'le5', 'ta1', 'hen3', 'duo1', 'dong1', 'xi5', ',']
+seg before custom pinyin: 我还挺厉害的嘛.
+seg after custom pinyin: 我还挺厉害的嘛.
+customer_pin:  ['', '', '', '', '', '', '', '']
+g2pw seg:我还挺厉害的嘛. pinyins:['wo3', 'hai2', 'ting3', 'li4', 'hai4', 'de5', 'ma5', '.']
+============================== custom_pinyin
+############ 切分文本 ############
+Actual Input Target Text:
+我们选重力分离室，这星壤正好能用上。滴滴~物资星壤x1已送给你啦。滴滴~道具星壤x1传输完成
+Actual Input Target Text (after sentence segmentation):
+['我们选重力分离室，这星壤正好能用上。', '滴滴~物资星壤x1已送给你啦。', '滴滴~道具星壤x1传输完成。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/3 [00:00<?, ?it/s] 33%|███▎      | 1/3 [00:00<00:00,  8.82it/s]100%|██████████| 3/3 [00:00<00:00, 14.13it/s]100%|██████████| 3/3 [00:00<00:00, 13.31it/s]
+text before clean_text_inf: 我们选重力分离室，这星壤正好能用上。
+text before normalization: 我们选重力分离室，这星壤正好能用上。
+=====================================text_normalize================================
+text after normalization: 我们选重力分离室,这星壤正好能用上.
+text before g2p: 我们选重力分离室,这星壤正好能用上.
+text after g2p: ['我们选重力分离室,', '这星壤正好能用上.']
+seg before custom pinyin: 我们选重力分离室,
+seg after custom pinyin: 我们选重力分离室,
+customer_pin:  ['', '', '', '', '', '', '', '', '']
+g2pw seg:我们选重力分离室, pinyins:['wo3', 'men5', 'xuan3', 'zhong4', 'li4', 'fen1', 'li2', 'shi4', ',']
+seg before custom pinyin: 这星壤正好能用上.
+seg after custom pinyin: 这星壤正好能用上.
+customer_pin:  ['', '', '', '', '', '', '', '', '']
+g2pw seg:这星壤正好能用上. pinyins:['zhe4', 'xing1', 'rang3', 'zheng4', 'hao3', 'neng2', 'yong4', 'shang4', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~物资星壤x1已送给你啦。
+text before normalization: 滴滴~物资星壤x1已送给你啦。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…物资星壤一已送给你啦.
+text before g2p: 滴滴…物资星壤一已送给你啦.
+text after g2p: ['滴滴…', '物资星壤一已送给你啦.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 物资星壤一已送给你啦.
+seg after custom pinyin: 物资星壤一已送给你啦.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:物资星壤一已送给你啦. pinyins:['wu4', 'zi1', 'xing1', 'rang3', 'yi1', 'yi3', 'song4', 'gei3', 'ni3', 'la5', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~道具星壤x1传输完成。
+text before normalization: 滴滴~道具星壤x1传输完成。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…道具星壤一传输完成.
+text before g2p: 滴滴…道具星壤一传输完成.
+text after g2p: ['滴滴…', '道具星壤一传输完成.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 道具星壤一传输完成.
+seg after custom pinyin: 道具星壤一传输完成.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '']
+g2pw seg:道具星壤一传输完成. pinyins:['dao4', 'ju4', 'xing1', 'rang3', 'yi1', 'chuan2', 'shu1', 'wan2', 'cheng2', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['滴滴…道具星壤一传输完成.', '滴滴…物资星壤一已送给你啦.', '我们选重力分离室,这星壤正好能用上.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  1%|          | 8/1500 [00:00<00:20, 72.46it/s]  1%|          | 18/1500 [00:00<00:17, 84.57it/s]  2%|▏         | 28/1500 [00:00<00:16, 89.41it/s]  3%|▎         | 38/1500 [00:00<00:15, 91.70it/s]  3%|▎         | 48/1500 [00:00<00:15, 93.13it/s]  4%|▍         | 58/1500 [00:00<00:15, 94.00it/s]  5%|▍         | 68/1500 [00:00<00:15, 93.93it/s]  5%|▌         | 78/1500 [00:00<00:15, 94.65it/s]  6%|▌         | 88/1500 [00:00<00:14, 96.06it/s]  6%|▌         | 92/1500 [00:00<00:15, 92.93it/s]
+T2S Decoding EOS [140 -> 233]
+0.389	0.226	0.993	0.221
+TTS_FN TORCH INFER 2.0451648235321045
+TTS TORCH cost time  2.0463554859161377
+****************************************************************************************************
+INIT FILE TIME 5.245208740234375e-06
+Set seed to 2241138543
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+text before clean_text_inf: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+text before normalization: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+=====================================text_normalize================================
+text after normalization: 说是检修,但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+text before g2p: 说是检修,但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+text after g2p: ['说是检修,', '但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?']
+seg before custom pinyin: 说是检修,
+seg after custom pinyin: 说是检修,
+customer_pin:  ['', '', '', '', '']
+g2pw seg:说是检修, pinyins:['shuo1', 'shi4', 'jian3', 'xiu1', ',']
+seg before custom pinyin: 但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+seg after custom pinyin: 但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线? pinyins:['dan4', 'kan4', 'qi3', 'lai2', 'ta1', 'men5', 'si4', 'hu1', 'bing4', 'bu4', 'zhi1', 'dao4', 'zen3', 'me5', 'bai3', 'nong4', 'na4', 'tiao2', 'xing1', 'cha2', 'zhi4', 'zao4', 'de5', 'liu2', 'shui3', 'xian4', '?']
+============================== custom_pinyin
+############ 切分文本 ############
+Actual Input Target Text:
+。建造师，这里曾是辉煌帝国，四百亿灵魂的家园。克里昂一世后，贵族掌权，边疆星郡自立。陈氏与狄伐特氏曾主宰一切，直至克里昂二世夺回王权。历史轮回，星球待你重建。
+Actual Input Target Text (after sentence segmentation):
+['建造师，这里曾是辉煌帝国，四百亿灵魂的家园。', '克里昂一世后，贵族掌权，边疆星郡自立。', '陈氏与狄伐特氏曾主宰一切，直至克里昂二世夺回王权。', '历史轮回，星球待你重建。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/4 [00:00<?, ?it/s] 50%|█████     | 2/4 [00:00<00:00, 15.13it/s]100%|██████████| 4/4 [00:00<00:00, 12.22it/s]100%|██████████| 4/4 [00:00<00:00, 12.57it/s]
+text before clean_text_inf: 建造师，这里曾是辉煌帝国，四百亿灵魂的家园。
+text before normalization: 建造师，这里曾是辉煌帝国，四百亿灵魂的家园。
+=====================================text_normalize================================
+text after normalization: 建造师,这里曾是辉煌帝国,四百亿灵魂的家园.
+text before g2p: 建造师,这里曾是辉煌帝国,四百亿灵魂的家园.
+text after g2p: ['建造师,', '这里曾是辉煌帝国,', '四百亿灵魂的家园.']
+seg before custom pinyin: 建造师,
+seg after custom pinyin: 建造师,
+customer_pin:  ['', '', '', '']
+g2pw seg:建造师, pinyins:['jian4', 'zao4', 'shi1', ',']
+seg before custom pinyin: 这里曾是辉煌帝国,
+seg after custom pinyin: 这里曾是辉煌帝国,
+customer_pin:  ['', '', '', '', '', '', '', '', '']
+g2pw seg:这里曾是辉煌帝国, pinyins:['zhe4', 'li3', 'ceng2', 'shi4', 'hui1', 'huang2', 'di4', 'guo2', ',']
+seg before custom pinyin: 四百亿灵魂的家园.
+seg after custom pinyin: 四百亿灵魂的家园.
+customer_pin:  ['', '', '', '', '', '', '', '', '']
+g2pw seg:四百亿灵魂的家园. pinyins:['si4', 'bai3', 'yi4', 'ling2', 'hun2', 'de5', 'jia1', 'yuan2', '.']
+============================== custom_pinyin
+text before clean_text_inf: 克里昂一世后，贵族掌权，边疆星郡自立。
+text before normalization: 克里昂一世后，贵族掌权，边疆星郡自立。
+=====================================text_normalize================================
+text after normalization: 克里昂一世后,贵族掌权,边疆星郡自立.
+text before g2p: 克里昂一世后,贵族掌权,边疆星郡自立.
+text after g2p: ['克里昂一世后,', '贵族掌权,', '边疆星郡自立.']
+seg before custom pinyin: 克里昂一世后,
+seg after custom pinyin: 克里昂一世后,
+customer_pin:  ['', '', '', '', '', '', '']
+g2pw seg:克里昂一世后, pinyins:['ke4', 'li3', 'ang2', 'yi1', 'shi4', 'hou4', ',']
+seg before custom pinyin: 贵族掌权,
+seg after custom pinyin: 贵族掌权,
+customer_pin:  ['', '', '', '', '']
+g2pw seg:贵族掌权, pinyins:['gui4', 'zu2', 'zhang3', 'quan2', ',']
+seg before custom pinyin: 边疆星郡自立.
+seg after custom pinyin: 边疆星郡自立.
+customer_pin:  ['', '', '', '', '', '', '']
+g2pw seg:边疆星郡自立. pinyins:['bian1', 'jiang1', 'xing1', 'jun4', 'zi4', 'li4', '.']
+============================== custom_pinyin
+text before clean_text_inf: 陈氏与狄伐特氏曾主宰一切，直至克里昂二世夺回王权。
+text before normalization: 陈氏与狄伐特氏曾主宰一切，直至克里昂二世夺回王权。
+=====================================text_normalize================================
+text after normalization: 陈氏与狄伐特氏曾主宰一切,直至克里昂二世夺回王权.
+text before g2p: 陈氏与狄伐特氏曾主宰一切,直至克里昂二世夺回王权.
+text after g2p: ['陈氏与狄伐特氏曾主宰一切,', '直至克里昂二世夺回王权.']
+seg before custom pinyin: 陈氏与狄伐特氏曾主宰一切,
+seg after custom pinyin: 陈氏与狄伐特氏曾主宰一切,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:陈氏与狄伐特氏曾主宰一切, pinyins:['chen2', 'shi4', 'yu3', 'di2', 'fa2', 'te4', 'shi4', 'ceng2', 'zhu3', 'zai3', 'yi1', 'qie4', ',']
+seg before custom pinyin: 直至克里昂二世夺回王权.
+seg after custom pinyin: 直至克里昂二世夺回王权.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:直至克里昂二世夺回王权. pinyins:['zhi2', 'zhi4', 'ke4', 'li3', 'ang2', 'er4', 'shi4', 'duo2', 'hui2', 'wang2', 'quan2', '.']
+============================== custom_pinyin
+text before clean_text_inf: 历史轮回，星球待你重建。
+text before normalization: 历史轮回，星球待你重建。
+=====================================text_normalize================================
+text after normalization: 历史轮回,星球待你重建.
+text before g2p: 历史轮回,星球待你重建.
+text after g2p: ['历史轮回,', '星球待你重建.']
+seg before custom pinyin: 历史轮回,
+seg after custom pinyin: 历史轮回,
+customer_pin:  ['', '', '', '', '']
+g2pw seg:历史轮回, pinyins:['li4', 'shi3', 'lun2', 'hui2', ',']
+seg before custom pinyin: 星球待你重建.
+seg after custom pinyin: 星球待你重建.
+customer_pin:  ['', '', '', '', '', '', '']
+g2pw seg:星球待你重建. pinyins:['xing1', 'qiu2', 'dai4', 'ni3', 'chong2', 'jian4', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['历史轮回,星球待你重建.', '克里昂一世后,贵族掌权,边疆星郡自立.', '建造师,这里曾是辉煌帝国,四百亿灵魂的家园.', '陈氏与狄伐特氏曾主宰一切,直至克里昂二世夺回王权.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  0%|          | 7/1500 [00:00<00:21, 68.90it/s]  1%|          | 17/1500 [00:00<00:17, 82.89it/s]  2%|▏         | 27/1500 [00:00<00:16, 87.89it/s]  2%|▏         | 37/1500 [00:00<00:16, 90.36it/s]  3%|▎         | 47/1500 [00:00<00:15, 91.87it/s]  4%|▍         | 57/1500 [00:00<00:15, 91.83it/s]  4%|▍         | 67/1500 [00:00<00:15, 90.66it/s]  5%|▌         | 77/1500 [00:00<00:15, 91.25it/s]  6%|▌         | 87/1500 [00:00<00:15, 92.16it/s]  6%|▋         | 97/1500 [00:01<00:15, 92.75it/s]  7%|▋         | 107/1500 [00:01<00:14, 93.21it/s]  8%|▊         | 119/1500 [00:01<00:13, 100.24it/s]  9%|▊         | 131/1500 [00:01<00:13, 105.17it/s]  9%|▊         | 131/1500 [00:01<00:14, 94.11it/s] 
+T2S Decoding EOS [152 -> 284]
+0.483	0.319	1.395	0.229
+TTS_FN TORCH INFER 2.675706624984741
+TTS TORCH cost time  2.677703619003296
+****************************************************************************************************
+INIT FILE TIME 4.5299530029296875e-06
+Set seed to 71740280
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+text before clean_text_inf: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+text before normalization: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+=====================================text_normalize================================
+text after normalization: 嘿嘿,似乎本姑娘教了他很多东西,我还挺厉害的嘛.
+text before g2p: 嘿嘿,似乎本姑娘教了他很多东西,我还挺厉害的嘛.
+text after g2p: ['嘿嘿,', '似乎本姑娘教了他很多东西,', '我还挺厉害的嘛.']
+seg before custom pinyin: 嘿嘿,
+seg after custom pinyin: 嘿嘿,
+customer_pin:  ['', '', '']
+g2pw seg:嘿嘿, pinyins:['hei1', 'hei1', ',']
+seg before custom pinyin: 似乎本姑娘教了他很多东西,
+seg after custom pinyin: 似乎本姑娘教了他很多东西,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:似乎本姑娘教了他很多东西, pinyins:['si4', 'hu1', 'ben3', 'gu1', 'niang2', 'jiao1', 'le5', 'ta1', 'hen3', 'duo1', 'dong1', 'xi5', ',']
+seg before custom pinyin: 我还挺厉害的嘛.
+seg after custom pinyin: 我还挺厉害的嘛.
+customer_pin:  ['', '', '', '', '', '', '', '']
+g2pw seg:我还挺厉害的嘛. pinyins:['wo3', 'hai2', 'ting3', 'li4', 'hai4', 'de5', 'ma5', '.']
+============================== custom_pinyin
+############ 切分文本 ############
+Actual Input Target Text:
+我们选重力分离室吧，我这儿有地质钻头，正好能用上。滴滴~道具地质钻头x1传输完成
+Actual Input Target Text (after sentence segmentation):
+['我们选重力分离室吧，我这儿有地质钻头，正好能用上。', '滴滴~道具地质钻头x1传输完成。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:00<00:00,  5.37it/s]100%|██████████| 2/2 [00:00<00:00,  7.31it/s]100%|██████████| 2/2 [00:00<00:00,  6.93it/s]
+text before clean_text_inf: 我们选重力分离室吧，我这儿有地质钻头，正好能用上。
+text before normalization: 我们选重力分离室吧，我这儿有地质钻头，正好能用上。
+=====================================text_normalize================================
+text after normalization: 我们选重力分离室吧,我这儿有地质钻头,正好能用上.
+text before g2p: 我们选重力分离室吧,我这儿有地质钻头,正好能用上.
+text after g2p: ['我们选重力分离室吧,', '我这儿有地质钻头,', '正好能用上.']
+seg before custom pinyin: 我们选重力分离室吧,
+seg after custom pinyin: 我们选重力分离室吧,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '']
+g2pw seg:我们选重力分离室吧, pinyins:['wo3', 'men5', 'xuan3', 'zhong4', 'li4', 'fen1', 'li2', 'shi4', 'ba5', ',']
+seg before custom pinyin: 我这儿有地质钻头,
+seg after custom pinyin: 我这儿有地质钻头,
+customer_pin:  ['', '', '', '', '', '', '', '', '']
+g2pw seg:我这儿有地质钻头, pinyins:['wo3', 'zhe4', 'er1', 'you3', 'di4', 'zhi4', 'zuan1', 'tou2', ',']
+seg before custom pinyin: 正好能用上.
+seg after custom pinyin: 正好能用上.
+customer_pin:  ['', '', '', '', '', '']
+g2pw seg:正好能用上. pinyins:['zheng4', 'hao3', 'neng2', 'yong4', 'shang4', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~道具地质钻头x1传输完成。
+text before normalization: 滴滴~道具地质钻头x1传输完成。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…道具地质钻头一传输完成.
+text before g2p: 滴滴…道具地质钻头一传输完成.
+text after g2p: ['滴滴…', '道具地质钻头一传输完成.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 道具地质钻头一传输完成.
+seg after custom pinyin: 道具地质钻头一传输完成.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:道具地质钻头一传输完成. pinyins:['dao4', 'ju4', 'di4', 'zhi4', 'zuan1', 'tou2', 'yi1', 'chuan2', 'shu1', 'wan2', 'cheng2', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['滴滴…道具地质钻头一传输完成.', '我们选重力分离室吧,我这儿有地质钻头,正好能用上.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  1%|          | 8/1500 [00:00<00:19, 77.39it/s]  1%|          | 18/1500 [00:00<00:17, 87.17it/s]  2%|▏         | 28/1500 [00:00<00:16, 89.05it/s]  3%|▎         | 38/1500 [00:00<00:16, 91.00it/s]  3%|▎         | 48/1500 [00:00<00:15, 92.07it/s]  4%|▍         | 58/1500 [00:00<00:15, 92.18it/s]  5%|▍         | 68/1500 [00:00<00:15, 92.61it/s]  5%|▌         | 78/1500 [00:00<00:15, 93.19it/s]  6%|▌         | 88/1500 [00:00<00:15, 94.07it/s]  6%|▋         | 96/1500 [00:01<00:15, 92.72it/s]
+T2S Decoding EOS [140 -> 237]
+0.386	0.290	1.038	0.229
+TTS_FN TORCH INFER 2.1405701637268066
+TTS TORCH cost time  2.1414966583251953
+****************************************************************************************************
+INIT FILE TIME 4.0531158447265625e-06
+Set seed to 816308721
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+############ 切分文本 ############
+Actual Input Target Text:
+我们选重力分离室，我刚找到些星壤，对你有帮助。滴滴~道具星壤x1传输完成
+Actual Input Target Text (after sentence segmentation):
+['我们选重力分离室，我刚找到些星壤，对你有帮助。', '滴滴~道具星壤x1传输完成。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:00<00:00,  8.87it/s]100%|██████████| 2/2 [00:00<00:00, 11.94it/s]
+text before clean_text_inf: 我们选重力分离室，我刚找到些星壤，对你有帮助。
+text before normalization: 我们选重力分离室，我刚找到些星壤，对你有帮助。
+=====================================text_normalize================================
+text after normalization: 我们选重力分离室,我刚找到些星壤,对你有帮助.
+text before g2p: 我们选重力分离室,我刚找到些星壤,对你有帮助.
+text after g2p: ['我们选重力分离室,', '我刚找到些星壤,', '对你有帮助.']
+seg before custom pinyin: 我们选重力分离室,
+seg after custom pinyin: 我们选重力分离室,
+customer_pin:  ['', '', '', '', '', '', '', '', '']
+g2pw seg:我们选重力分离室, pinyins:['wo3', 'men5', 'xuan3', 'zhong4', 'li4', 'fen1', 'li2', 'shi4', ',']
+seg before custom pinyin: 我刚找到些星壤,
+seg after custom pinyin: 我刚找到些星壤,
+customer_pin:  ['', '', '', '', '', '', '', '']
+g2pw seg:我刚找到些星壤, pinyins:['wo3', 'gang1', 'zhao3', 'dao4', 'xie1', 'xing1', 'rang3', ',']
+seg before custom pinyin: 对你有帮助.
+seg after custom pinyin: 对你有帮助.
+customer_pin:  ['', '', '', '', '', '']
+g2pw seg:对你有帮助. pinyins:['dui4', 'ni3', 'you3', 'bang1', 'zhu4', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~道具星壤x1传输完成。
+text before normalization: 滴滴~道具星壤x1传输完成。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…道具星壤一传输完成.
+text before g2p: 滴滴…道具星壤一传输完成.
+text after g2p: ['滴滴…', '道具星壤一传输完成.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 道具星壤一传输完成.
+seg after custom pinyin: 道具星壤一传输完成.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '']
+g2pw seg:道具星壤一传输完成. pinyins:['dao4', 'ju4', 'xing1', 'rang3', 'yi1', 'chuan2', 'shu1', 'wan2', 'cheng2', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['滴滴…道具星壤一传输完成.', '我们选重力分离室,我刚找到些星壤,对你有帮助.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  1%|          | 8/1500 [00:00<00:19, 77.20it/s]  1%|          | 18/1500 [00:00<00:17, 87.05it/s]  2%|▏         | 28/1500 [00:00<00:16, 90.38it/s]  3%|▎         | 38/1500 [00:00<00:16, 90.38it/s]  3%|▎         | 48/1500 [00:00<00:15, 91.72it/s]  4%|▍         | 58/1500 [00:00<00:15, 92.49it/s]  5%|▍         | 68/1500 [00:00<00:15, 92.91it/s]  5%|▌         | 78/1500 [00:00<00:15, 92.55it/s]  6%|▌         | 90/1500 [00:00<00:14, 99.71it/s]  7%|▋         | 102/1500 [00:01<00:13, 104.39it/s]  7%|▋         | 106/1500 [00:01<00:14, 95.78it/s] 
+T2S Decoding EOS [140 -> 247]
+0.000	0.168	1.109	0.231
+TTS_FN TORCH INFER 1.754404067993164
+TTS TORCH cost time  1.7553441524505615
+****************************************************************************************************
+INIT FILE TIME 5.4836273193359375e-06
+Set seed to 1254887831
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+############ 切分文本 ############
+Actual Input Target Text:
+我们选重力分离室吧，复合陶瓷也给你了，记得用哦。滴滴~道具复合陶瓷x1传输完成
+Actual Input Target Text (after sentence segmentation):
+['我们选重力分离室吧，复合陶瓷也给你了，记得用哦。', '滴滴~道具复合陶瓷x1传输完成。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:00<00:00,  6.93it/s]100%|██████████| 2/2 [00:00<00:00,  9.40it/s]
+text before clean_text_inf: 我们选重力分离室吧，复合陶瓷也给你了，记得用哦。
+text before normalization: 我们选重力分离室吧，复合陶瓷也给你了，记得用哦。
+=====================================text_normalize================================
+text after normalization: 我们选重力分离室吧,复合陶瓷也给你了,记得用哦.
+text before g2p: 我们选重力分离室吧,复合陶瓷也给你了,记得用哦.
+text after g2p: ['我们选重力分离室吧,', '复合陶瓷也给你了,', '记得用哦.']
+seg before custom pinyin: 我们选重力分离室吧,
+seg after custom pinyin: 我们选重力分离室吧,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '']
+g2pw seg:我们选重力分离室吧, pinyins:['wo3', 'men5', 'xuan3', 'zhong4', 'li4', 'fen1', 'li2', 'shi4', 'ba5', ',']
+seg before custom pinyin: 复合陶瓷也给你了,
+seg after custom pinyin: 复合陶瓷也给你了,
+customer_pin:  ['', '', '', '', '', '', '', '', '']
+g2pw seg:复合陶瓷也给你了, pinyins:['fu4', 'he2', 'tao2', 'ci2', 'ye3', 'gei3', 'ni3', 'le5', ',']
+seg before custom pinyin: 记得用哦.
+seg after custom pinyin: 记得用哦.
+customer_pin:  ['', '', '', '', '']
+g2pw seg:记得用哦. pinyins:['ji4', 'de5', 'yong4', 'o2', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~道具复合陶瓷x1传输完成。
+text before normalization: 滴滴~道具复合陶瓷x1传输完成。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…道具复合陶瓷一传输完成.
+text before g2p: 滴滴…道具复合陶瓷一传输完成.
+text after g2p: ['滴滴…', '道具复合陶瓷一传输完成.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 道具复合陶瓷一传输完成.
+seg after custom pinyin: 道具复合陶瓷一传输完成.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:道具复合陶瓷一传输完成. pinyins:['dao4', 'ju4', 'fu4', 'he2', 'tao2', 'ci2', 'yi1', 'chuan2', 'shu1', 'wan2', 'cheng2', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['滴滴…道具复合陶瓷一传输完成.', '我们选重力分离室吧,复合陶瓷也给你了,记得用哦.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  1%|          | 8/1500 [00:00<00:19, 77.07it/s]  1%|          | 18/1500 [00:00<00:17, 86.96it/s]  2%|▏         | 28/1500 [00:00<00:16, 88.90it/s]  3%|▎         | 38/1500 [00:00<00:16, 90.62it/s]  3%|▎         | 48/1500 [00:00<00:15, 91.88it/s]  4%|▍         | 58/1500 [00:00<00:15, 91.84it/s]  5%|▍         | 68/1500 [00:00<00:15, 92.36it/s]  5%|▌         | 79/1500 [00:00<00:14, 95.85it/s]  6%|▌         | 91/1500 [00:00<00:13, 101.82it/s]  7%|▋         | 99/1500 [00:01<00:14, 95.08it/s] 
+T2S Decoding EOS [140 -> 240]
+0.000	0.214	1.043	0.218
+TTS_FN TORCH INFER 1.6926486492156982
+TTS TORCH cost time  1.693533182144165
+****************************************************************************************************
+INIT FILE TIME 4.291534423828125e-06
+Set seed to 4058517007
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+############ 切分文本 ############
+Actual Input Target Text:
+我们选重力分离室的图纸，星壤也给你了，记得建造时使用哦。滴滴~物资星壤x1已传输。滴滴~道具星壤x1传输完成
+Actual Input Target Text (after sentence segmentation):
+['我们选重力分离室的图纸，星壤也给你了，记得建造时使用哦。', '滴滴~物资星壤x1已传输。', '滴滴~道具星壤x1传输完成。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/3 [00:00<?, ?it/s] 33%|███▎      | 1/3 [00:00<00:00,  5.74it/s]100%|██████████| 3/3 [00:00<00:00, 11.75it/s]100%|██████████| 3/3 [00:00<00:00, 10.63it/s]
+text before clean_text_inf: 我们选重力分离室的图纸，星壤也给你了，记得建造时使用哦。
+text before normalization: 我们选重力分离室的图纸，星壤也给你了，记得建造时使用哦。
+=====================================text_normalize================================
+text after normalization: 我们选重力分离室的图纸,星壤也给你了,记得建造时使用哦.
+text before g2p: 我们选重力分离室的图纸,星壤也给你了,记得建造时使用哦.
+text after g2p: ['我们选重力分离室的图纸,', '星壤也给你了,', '记得建造时使用哦.']
+seg before custom pinyin: 我们选重力分离室的图纸,
+seg after custom pinyin: 我们选重力分离室的图纸,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:我们选重力分离室的图纸, pinyins:['wo3', 'men5', 'xuan3', 'zhong4', 'li4', 'fen1', 'li2', 'shi4', 'de5', 'tu2', 'zhi3', ',']
+seg before custom pinyin: 星壤也给你了,
+seg after custom pinyin: 星壤也给你了,
+customer_pin:  ['', '', '', '', '', '', '']
+g2pw seg:星壤也给你了, pinyins:['xing1', 'rang3', 'ye3', 'gei3', 'ni3', 'le5', ',']
+seg before custom pinyin: 记得建造时使用哦.
+seg after custom pinyin: 记得建造时使用哦.
+customer_pin:  ['', '', '', '', '', '', '', '', '']
+g2pw seg:记得建造时使用哦. pinyins:['ji4', 'de5', 'jian4', 'zao4', 'shi2', 'shi3', 'yong4', 'o2', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~物资星壤x1已传输。
+text before normalization: 滴滴~物资星壤x1已传输。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…物资星壤一已传输.
+text before g2p: 滴滴…物资星壤一已传输.
+text after g2p: ['滴滴…', '物资星壤一已传输.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 物资星壤一已传输.
+seg after custom pinyin: 物资星壤一已传输.
+customer_pin:  ['', '', '', '', '', '', '', '', '']
+g2pw seg:物资星壤一已传输. pinyins:['wu4', 'zi1', 'xing1', 'rang3', 'yi1', 'yi3', 'chuan2', 'shu1', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~道具星壤x1传输完成。
+text before normalization: 滴滴~道具星壤x1传输完成。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…道具星壤一传输完成.
+text before g2p: 滴滴…道具星壤一传输完成.
+text after g2p: ['滴滴…', '道具星壤一传输完成.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 道具星壤一传输完成.
+seg after custom pinyin: 道具星壤一传输完成.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '']
+g2pw seg:道具星壤一传输完成. pinyins:['dao4', 'ju4', 'xing1', 'rang3', 'yi1', 'chuan2', 'shu1', 'wan2', 'cheng2', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['滴滴…物资星壤一已传输.', '滴滴…道具星壤一传输完成.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  1%|          | 8/1500 [00:00<00:19, 78.35it/s]  1%|          | 18/1500 [00:00<00:16, 88.21it/s]  2%|▏         | 28/1500 [00:00<00:16, 90.88it/s]  3%|▎         | 38/1500 [00:00<00:15, 91.51it/s]  3%|▎         | 48/1500 [00:00<00:15, 92.81it/s]  4%|▍         | 58/1500 [00:00<00:15, 91.88it/s]  5%|▍         | 68/1500 [00:00<00:15, 92.83it/s]  5%|▍         | 72/1500 [00:00<00:15, 90.74it/s]
+T2S Decoding EOS [140 -> 213]
+Processed text from the frontend (per sentence): ['我们选重力分离室的图纸,星壤也给你了,记得建造时使用哦.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  1%|          | 11/1500 [00:00<00:13, 107.09it/s]  2%|▏         | 23/1500 [00:00<00:13, 112.18it/s]  2%|▏         | 35/1500 [00:00<00:12, 114.54it/s]  3%|▎         | 47/1500 [00:00<00:12, 115.68it/s]  4%|▍         | 59/1500 [00:00<00:12, 115.61it/s]  5%|▍         | 71/1500 [00:00<00:12, 116.34it/s]  6%|▌         | 83/1500 [00:00<00:12, 116.12it/s]  6%|▋         | 95/1500 [00:00<00:12, 116.47it/s]  7%|▋         | 107/1500 [00:00<00:11, 116.82it/s]  8%|▊         | 117/1500 [00:01<00:12, 114.88it/s]
+T2S Decoding EOS [140 -> 258]
+0.000	0.283	1.816	0.459
+TTS_FN TORCH INFER 2.759803295135498
+TTS TORCH cost time  2.7612788677215576
+****************************************************************************************************
+INIT FILE TIME 4.0531158447265625e-06
+Set seed to 445552611
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+############ 切分文本 ############
+Actual Input Target Text:
+我们得建重力分离室，我这有星壤，记得用上。滴滴~道具星壤x1传输完成
+Actual Input Target Text (after sentence segmentation):
+['我们得建重力分离室，我这有星壤，记得用上。', '滴滴~道具星壤x1传输完成。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:00<00:00,  6.56it/s]100%|██████████| 2/2 [00:00<00:00,  9.70it/s]
+text before clean_text_inf: 我们得建重力分离室，我这有星壤，记得用上。
+text before normalization: 我们得建重力分离室，我这有星壤，记得用上。
+=====================================text_normalize================================
+text after normalization: 我们得建重力分离室,我这有星壤,记得用上.
+text before g2p: 我们得建重力分离室,我这有星壤,记得用上.
+text after g2p: ['我们得建重力分离室,', '我这有星壤,', '记得用上.']
+seg before custom pinyin: 我们得建重力分离室,
+seg after custom pinyin: 我们得建重力分离室,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '']
+g2pw seg:我们得建重力分离室, pinyins:['wo3', 'men5', 'dei3', 'jian4', 'zhong4', 'li4', 'fen1', 'li2', 'shi4', ',']
+seg before custom pinyin: 我这有星壤,
+seg after custom pinyin: 我这有星壤,
+customer_pin:  ['', '', '', '', '', '']
+g2pw seg:我这有星壤, pinyins:['wo3', 'zhe4', 'you3', 'xing1', 'rang3', ',']
+seg before custom pinyin: 记得用上.
+seg after custom pinyin: 记得用上.
+customer_pin:  ['', '', '', '', '']
+g2pw seg:记得用上. pinyins:['ji4', 'de5', 'yong4', 'shang4', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~道具星壤x1传输完成。
+text before normalization: 滴滴~道具星壤x1传输完成。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…道具星壤一传输完成.
+text before g2p: 滴滴…道具星壤一传输完成.
+text after g2p: ['滴滴…', '道具星壤一传输完成.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 道具星壤一传输完成.
+seg after custom pinyin: 道具星壤一传输完成.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '']
+g2pw seg:道具星壤一传输完成. pinyins:['dao4', 'ju4', 'xing1', 'rang3', 'yi1', 'chuan2', 'shu1', 'wan2', 'cheng2', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['滴滴…道具星壤一传输完成.', '我们得建重力分离室,我这有星壤,记得用上.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  1%|          | 8/1500 [00:00<00:18, 78.62it/s]  1%|          | 18/1500 [00:00<00:16, 88.51it/s]  2%|▏         | 28/1500 [00:00<00:16, 91.52it/s]  3%|▎         | 38/1500 [00:00<00:15, 92.77it/s]  3%|▎         | 48/1500 [00:00<00:15, 93.83it/s]  4%|▍         | 58/1500 [00:00<00:15, 92.79it/s]  5%|▍         | 69/1500 [00:00<00:14, 96.87it/s]  5%|▌         | 81/1500 [00:00<00:13, 103.17it/s]  6%|▌         | 85/1500 [00:00<00:14, 96.39it/s] 
+T2S Decoding EOS [140 -> 226]
+0.000	0.207	0.884	0.234
+TTS_FN TORCH INFER 1.5627562999725342
+TTS TORCH cost time  1.5635418891906738
+****************************************************************************************************
+INIT FILE TIME 5.245208740234375e-06
+Set seed to 1927277825
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+text before clean_text_inf: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+text before normalization: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+=====================================text_normalize================================
+text after normalization: 说是检修,但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+text before g2p: 说是检修,但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+text after g2p: ['说是检修,', '但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?']
+seg before custom pinyin: 说是检修,
+seg after custom pinyin: 说是检修,
+customer_pin:  ['', '', '', '', '']
+g2pw seg:说是检修, pinyins:['shuo1', 'shi4', 'jian3', 'xiu1', ',']
+seg before custom pinyin: 但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+seg after custom pinyin: 但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线? pinyins:['dan4', 'kan4', 'qi3', 'lai2', 'ta1', 'men5', 'si4', 'hu1', 'bing4', 'bu4', 'zhi1', 'dao4', 'zen3', 'me5', 'bai3', 'nong4', 'na4', 'tiao2', 'xing1', 'cha2', 'zhi4', 'zao4', 'de5', 'liu2', 'shui3', 'xian4', '?']
+============================== custom_pinyin
+############ 切分文本 ############
+Actual Input Target Text:
+。建造师，每年初可选政策哦，橙色高级第2、4、6年拿，紫色精英则是在其余年份。祝你星球繁荣！
+Actual Input Target Text (after sentence segmentation):
+['建造师，每年初可选政策哦，橙色高级第2、4、6年拿，紫色精英则是在其余年份。', '祝你星球繁荣！']
+############ 提取文本Bert特征 ############
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:00<00:00,  6.78it/s]100%|██████████| 2/2 [00:00<00:00, 10.53it/s]
+text before clean_text_inf: 建造师，每年初可选政策哦，橙色高级第2、4、6年拿，紫色精英则是在其余年份。
+text before normalization: 建造师，每年初可选政策哦，橙色高级第2、4、6年拿，紫色精英则是在其余年份。
+=====================================text_normalize================================
+text after normalization: 建造师,每年初可选政策哦,橙色高级第二,四,六年拿,紫色精英则是在其余年份.
+text before g2p: 建造师,每年初可选政策哦,橙色高级第二,四,六年拿,紫色精英则是在其余年份.
+text after g2p: ['建造师,', '每年初可选政策哦,', '橙色高级第二,', '四,', '六年拿,', '紫色精英则是在其余年份.']
+seg before custom pinyin: 建造师,
+seg after custom pinyin: 建造师,
+customer_pin:  ['', '', '', '']
+g2pw seg:建造师, pinyins:['jian4', 'zao4', 'shi1', ',']
+seg before custom pinyin: 每年初可选政策哦,
+seg after custom pinyin: 每年初可选政策哦,
+customer_pin:  ['', '', '', '', '', '', '', '', '']
+g2pw seg:每年初可选政策哦, pinyins:['mei3', 'nian2', 'chu1', 'ke3', 'xuan3', 'zheng4', 'ce4', 'o2', ',']
+seg before custom pinyin: 橙色高级第二,
+seg after custom pinyin: 橙色高级第二,
+customer_pin:  ['', '', '', '', '', '', '']
+g2pw seg:橙色高级第二, pinyins:['cheng2', 'se4', 'gao1', 'ji2', 'di4', 'er4', ',']
+seg before custom pinyin: 四,
+seg after custom pinyin: 四,
+customer_pin:  ['', '']
+g2pw seg:四, pinyins:['si4', ',']
+seg before custom pinyin: 六年拿,
+seg after custom pinyin: 六年拿,
+customer_pin:  ['', '', '', '']
+g2pw seg:六年拿, pinyins:['liu4', 'nian2', 'na2', ',']
+seg before custom pinyin: 紫色精英则是在其余年份.
+seg after custom pinyin: 紫色精英则是在其余年份.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:紫色精英则是在其余年份. pinyins:['zi3', 'se4', 'jing1', 'ying1', 'ze2', 'shi4', 'zai4', 'qi2', 'yu2', 'nian2', 'fen4', '.']
+============================== custom_pinyin
+text before clean_text_inf: 祝你星球繁荣！
+text before normalization: 祝你星球繁荣！
+=====================================text_normalize================================
+text after normalization: 祝你星球繁荣!
+text before g2p: 祝你星球繁荣!
+text after g2p: ['祝你星球繁荣!']
+seg before custom pinyin: 祝你星球繁荣!
+seg after custom pinyin: 祝你星球繁荣!
+customer_pin:  ['', '', '', '', '', '', '']
+g2pw seg:祝你星球繁荣! pinyins:['zhu4', 'ni3', 'xing1', 'qiu2', 'fan2', 'rong2', '!']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['祝你星球繁荣!', '建造师,每年初可选政策哦,橙色高级第二,四,六年拿,紫色精英则是在其余年份.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  1%|          | 8/1500 [00:00<00:19, 77.43it/s]  1%|          | 18/1500 [00:00<00:16, 88.48it/s]  2%|▏         | 28/1500 [00:00<00:16, 91.78it/s]  3%|▎         | 40/1500 [00:00<00:14, 102.13it/s]  3%|▎         | 52/1500 [00:00<00:13, 107.14it/s]  4%|▍         | 64/1500 [00:00<00:12, 110.89it/s]  5%|▌         | 76/1500 [00:00<00:12, 113.37it/s]  6%|▌         | 88/1500 [00:00<00:12, 115.08it/s]  7%|▋         | 100/1500 [00:00<00:12, 116.25it/s]  7%|▋         | 112/1500 [00:01<00:11, 116.09it/s]  8%|▊         | 124/1500 [00:01<00:11, 116.77it/s]  9%|▉         | 136/1500 [00:01<00:11, 117.26it/s] 10%|▉         | 148/1500 [00:01<00:11, 117.59it/s] 11%|█         | 160/1500 [00:01<00:11, 116.98it/s] 11%|█▏        | 172/1500 [00:01<00:11, 117.39it/s] 12%|█▏        | 184/1500 [00:01<00:11, 117.70it/s] 13%|█▎        | 196/1500 [00:01<00:11, 117.96it/s] 14%|█▍        | 208/1500 [00:01<00:10, 118.08it/s] 15%|█▍        | 220/1500 [00:01<00:10, 117.42it/s] 15%|█▌        | 232/1500 [00:02<00:10, 117.75it/s] 16%|█▌        | 234/1500 [00:02<00:11, 113.10it/s]
+T2S Decoding EOS [152 -> 387]
+0.501	0.191	2.071	0.231
+TTS_FN TORCH INFER 3.2109005451202393
+TTS TORCH cost time  3.212124824523926
+****************************************************************************************************
+INIT FILE TIME 3.814697265625e-06
+Set seed to 526101016
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+text before clean_text_inf: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+text before normalization: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+=====================================text_normalize================================
+text after normalization: 嘿嘿,似乎本姑娘教了他很多东西,我还挺厉害的嘛.
+text before g2p: 嘿嘿,似乎本姑娘教了他很多东西,我还挺厉害的嘛.
+text after g2p: ['嘿嘿,', '似乎本姑娘教了他很多东西,', '我还挺厉害的嘛.']
+seg before custom pinyin: 嘿嘿,
+seg after custom pinyin: 嘿嘿,
+customer_pin:  ['', '', '']
+g2pw seg:嘿嘿, pinyins:['hei1', 'hei1', ',']
+seg before custom pinyin: 似乎本姑娘教了他很多东西,
+seg after custom pinyin: 似乎本姑娘教了他很多东西,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:似乎本姑娘教了他很多东西, pinyins:['si4', 'hu1', 'ben3', 'gu1', 'niang2', 'jiao1', 'le5', 'ta1', 'hen3', 'duo1', 'dong1', 'xi5', ',']
+seg before custom pinyin: 我还挺厉害的嘛.
+seg after custom pinyin: 我还挺厉害的嘛.
+customer_pin:  ['', '', '', '', '', '', '', '']
+g2pw seg:我还挺厉害的嘛. pinyins:['wo3', 'hai2', 'ting3', 'li4', 'hai4', 'de5', 'ma5', '.']
+============================== custom_pinyin
+############ 切分文本 ############
+Actual Input Target Text:
+我们建重力分离室吧，我找到了移动支架，正好可以用上。滴滴~物资移动支架x1已送给你。滴滴~道具移动支架x1传输完成
+Actual Input Target Text (after sentence segmentation):
+['我们建重力分离室吧，我找到了移动支架，正好可以用上。', '滴滴~物资移动支架x1已送给你。', '滴滴~道具移动支架x1传输完成。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/3 [00:00<?, ?it/s] 33%|███▎      | 1/3 [00:00<00:00,  7.66it/s]100%|██████████| 3/3 [00:00<00:00, 14.00it/s]
+text before clean_text_inf: 我们建重力分离室吧，我找到了移动支架，正好可以用上。
+text before normalization: 我们建重力分离室吧，我找到了移动支架，正好可以用上。
+=====================================text_normalize================================
+text after normalization: 我们建重力分离室吧,我找到了移动支架,正好可以用上.
+text before g2p: 我们建重力分离室吧,我找到了移动支架,正好可以用上.
+text after g2p: ['我们建重力分离室吧,', '我找到了移动支架,', '正好可以用上.']
+seg before custom pinyin: 我们建重力分离室吧,
+seg after custom pinyin: 我们建重力分离室吧,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '']
+g2pw seg:我们建重力分离室吧, pinyins:['wo3', 'men5', 'jian4', 'zhong4', 'li4', 'fen1', 'li2', 'shi4', 'ba5', ',']
+seg before custom pinyin: 我找到了移动支架,
+seg after custom pinyin: 我找到了移动支架,
+customer_pin:  ['', '', '', '', '', '', '', '', '']
+g2pw seg:我找到了移动支架, pinyins:['wo3', 'zhao3', 'dao4', 'le5', 'yi2', 'dong4', 'zhi1', 'jia4', ',']
+seg before custom pinyin: 正好可以用上.
+seg after custom pinyin: 正好可以用上.
+customer_pin:  ['', '', '', '', '', '', '']
+g2pw seg:正好可以用上. pinyins:['zheng4', 'hao3', 'ke3', 'yi3', 'yong4', 'shang4', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~物资移动支架x1已送给你。
+text before normalization: 滴滴~物资移动支架x1已送给你。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…物资移动支架一已送给你.
+text before g2p: 滴滴…物资移动支架一已送给你.
+text after g2p: ['滴滴…', '物资移动支架一已送给你.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 物资移动支架一已送给你.
+seg after custom pinyin: 物资移动支架一已送给你.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:物资移动支架一已送给你. pinyins:['wu4', 'zi1', 'yi2', 'dong4', 'zhi1', 'jia4', 'yi1', 'yi3', 'song4', 'gei3', 'ni3', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~道具移动支架x1传输完成。
+text before normalization: 滴滴~道具移动支架x1传输完成。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…道具移动支架一传输完成.
+text before g2p: 滴滴…道具移动支架一传输完成.
+text after g2p: ['滴滴…', '道具移动支架一传输完成.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 道具移动支架一传输完成.
+seg after custom pinyin: 道具移动支架一传输完成.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:道具移动支架一传输完成. pinyins:['dao4', 'ju4', 'yi2', 'dong4', 'zhi1', 'jia4', 'yi1', 'chuan2', 'shu1', 'wan2', 'cheng2', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['滴滴…物资移动支架一已送给你.', '滴滴…道具移动支架一传输完成.', '我们建重力分离室吧,我找到了移动支架,正好可以用上.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  0%|          | 7/1500 [00:00<00:21, 69.75it/s]  1%|          | 17/1500 [00:00<00:17, 84.55it/s]  2%|▏         | 27/1500 [00:00<00:16, 89.61it/s]  2%|▏         | 37/1500 [00:00<00:15, 91.93it/s]  3%|▎         | 47/1500 [00:00<00:15, 93.29it/s]  4%|▍         | 57/1500 [00:00<00:15, 93.93it/s]  4%|▍         | 67/1500 [00:00<00:15, 94.29it/s]  5%|▌         | 77/1500 [00:00<00:15, 94.76it/s]  6%|▌         | 87/1500 [00:00<00:14, 94.89it/s]  7%|▋         | 99/1500 [00:01<00:13, 102.03it/s]  7%|▋         | 111/1500 [00:01<00:12, 107.01it/s]  8%|▊         | 115/1500 [00:01<00:14, 97.05it/s] 
+T2S Decoding EOS [140 -> 256]
+0.387	0.215	1.187	0.213
+TTS_FN TORCH INFER 2.195955753326416
+TTS TORCH cost time  2.1973936557769775
+****************************************************************************************************
+INIT FILE TIME 4.0531158447265625e-06
+Set seed to 3319435553
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+text before clean_text_inf: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+text before normalization: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+=====================================text_normalize================================
+text after normalization: 说是检修,但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+text before g2p: 说是检修,但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+text after g2p: ['说是检修,', '但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?']
+seg before custom pinyin: 说是检修,
+seg after custom pinyin: 说是检修,
+customer_pin:  ['', '', '', '', '']
+g2pw seg:说是检修, pinyins:['shuo1', 'shi4', 'jian3', 'xiu1', ',']
+seg before custom pinyin: 但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+seg after custom pinyin: 但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线? pinyins:['dan4', 'kan4', 'qi3', 'lai2', 'ta1', 'men5', 'si4', 'hu1', 'bing4', 'bu4', 'zhi1', 'dao4', 'zen3', 'me5', 'bai3', 'nong4', 'na4', 'tiao2', 'xing1', 'cha2', 'zhi4', 'zao4', 'de5', 'liu2', 'shui3', 'xian4', '?']
+============================== custom_pinyin
+############ 切分文本 ############
+Actual Input Target Text:
+。建造师，谢利的预言如星尘般散落荧河，两座基地藏智慧火种，百科全书待你书写，黑暗前夜，我们共筑希望之墙。
+Actual Input Target Text (after sentence segmentation):
+['建造师，谢利的预言如星尘般散落荧河，两座基地藏智慧火种，百科全书待你书写，黑暗前夜，我们共筑希望之墙。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00,  3.88it/s]100%|██████████| 1/1 [00:00<00:00,  3.88it/s]
+text before clean_text_inf: 建造师，谢利的预言如星尘般散落荧河，两座基地藏智慧火种，百科全书待你书写，黑暗前夜，我们共筑希望之墙。
+text before normalization: 建造师，谢利的预言如星尘般散落荧河，两座基地藏智慧火种，百科全书待你书写，黑暗前夜，我们共筑希望之墙。
+=====================================text_normalize================================
+text after normalization: 建造师,谢利的预言如星尘般散落荧河,两座基地藏智慧火种,百科全书待你书写,黑暗前夜,我们共筑希望之墙.
+text before g2p: 建造师,谢利的预言如星尘般散落荧河,两座基地藏智慧火种,百科全书待你书写,黑暗前夜,我们共筑希望之墙.
+text after g2p: ['建造师,', '谢利的预言如星尘般散落荧河,', '两座基地藏智慧火种,', '百科全书待你书写,', '黑暗前夜,', '我们共筑希望之墙.']
+seg before custom pinyin: 建造师,
+seg after custom pinyin: 建造师,
+customer_pin:  ['', '', '', '']
+g2pw seg:建造师, pinyins:['jian4', 'zao4', 'shi1', ',']
+seg before custom pinyin: 谢利的预言如星尘般散落荧河,
+seg after custom pinyin: 谢利的预言如星尘般散落荧河,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:谢利的预言如星尘般散落荧河, pinyins:['xie4', 'li4', 'de5', 'yu4', 'yan2', 'ru2', 'xing1', 'chen2', 'ban1', 'san4', 'luo4', 'ying2', 'he2', ',']
+seg before custom pinyin: 两座基地藏智慧火种,
+seg after custom pinyin: 两座基地藏智慧火种,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '']
+g2pw seg:两座基地藏智慧火种, pinyins:['liang3', 'zuo4', 'ji1', 'di4', 'cang2', 'zhi4', 'hui4', 'huo3', 'zhong3', ',']
+seg before custom pinyin: 百科全书待你书写,
+seg after custom pinyin: 百科全书待你书写,
+customer_pin:  ['', '', '', '', '', '', '', '', '']
+g2pw seg:百科全书待你书写, pinyins:['bai3', 'ke1', 'quan2', 'shu1', 'dai4', 'ni3', 'shu1', 'xie3', ',']
+seg before custom pinyin: 黑暗前夜,
+seg after custom pinyin: 黑暗前夜,
+customer_pin:  ['', '', '', '', '']
+g2pw seg:黑暗前夜, pinyins:['hei1', 'an4', 'qian2', 'ye4', ',']
+seg before custom pinyin: 我们共筑希望之墙.
+seg after custom pinyin: 我们共筑希望之墙.
+customer_pin:  ['', '', '', '', '', '', '', '', '']
+g2pw seg:我们共筑希望之墙. pinyins:['wo3', 'men5', 'gong4', 'zhu4', 'xi1', 'wang4', 'zhi1', 'qiang2', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['建造师,谢利的预言如星尘般散落荧河,两座基地藏智慧火种,百科全书待你书写,黑暗前夜,我们共筑希望之墙.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  1%|          | 11/1500 [00:00<00:13, 106.65it/s]  2%|▏         | 23/1500 [00:00<00:13, 113.31it/s]  2%|▏         | 35/1500 [00:00<00:12, 115.75it/s]  3%|▎         | 47/1500 [00:00<00:12, 115.66it/s]  4%|▍         | 59/1500 [00:00<00:12, 116.49it/s]  5%|▍         | 71/1500 [00:00<00:12, 117.08it/s]  6%|▌         | 83/1500 [00:00<00:12, 117.68it/s]  6%|▋         | 95/1500 [00:00<00:11, 117.64it/s]  7%|▋         | 107/1500 [00:00<00:11, 117.37it/s]  8%|▊         | 119/1500 [00:01<00:11, 117.85it/s]  9%|▊         | 131/1500 [00:01<00:11, 117.85it/s] 10%|▉         | 143/1500 [00:01<00:11, 117.98it/s] 10%|█         | 155/1500 [00:01<00:11, 118.22it/s] 11%|█         | 167/1500 [00:01<00:11, 118.31it/s] 12%|█▏        | 179/1500 [00:01<00:11, 118.47it/s] 13%|█▎        | 191/1500 [00:01<00:11, 118.38it/s] 14%|█▎        | 203/1500 [00:01<00:11, 117.51it/s] 14%|█▍        | 215/1500 [00:01<00:10, 117.50it/s] 15%|█▌        | 227/1500 [00:01<00:10, 117.92it/s] 16%|█▌        | 239/1500 [00:02<00:10, 118.28it/s] 17%|█▋        | 251/1500 [00:02<00:10, 118.44it/s] 18%|█▊        | 263/1500 [00:02<00:10, 117.63it/s] 18%|█▊        | 269/1500 [00:02<00:10, 116.97it/s]
+T2S Decoding EOS [152 -> 422]
+0.478	0.258	2.302	0.233
+TTS_FN TORCH INFER 3.5312857627868652
+TTS TORCH cost time  3.5324881076812744
+****************************************************************************************************
+INIT FILE TIME 4.0531158447265625e-06
+Set seed to 2594846984
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+text before clean_text_inf: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+text before normalization: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+=====================================text_normalize================================
+text after normalization: 嘿嘿,似乎本姑娘教了他很多东西,我还挺厉害的嘛.
+text before g2p: 嘿嘿,似乎本姑娘教了他很多东西,我还挺厉害的嘛.
+text after g2p: ['嘿嘿,', '似乎本姑娘教了他很多东西,', '我还挺厉害的嘛.']
+seg before custom pinyin: 嘿嘿,
+seg after custom pinyin: 嘿嘿,
+customer_pin:  ['', '', '']
+g2pw seg:嘿嘿, pinyins:['hei1', 'hei1', ',']
+seg before custom pinyin: 似乎本姑娘教了他很多东西,
+seg after custom pinyin: 似乎本姑娘教了他很多东西,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:似乎本姑娘教了他很多东西, pinyins:['si4', 'hu1', 'ben3', 'gu1', 'niang2', 'jiao1', 'le5', 'ta1', 'hen3', 'duo1', 'dong1', 'xi5', ',']
+seg before custom pinyin: 我还挺厉害的嘛.
+seg after custom pinyin: 我还挺厉害的嘛.
+customer_pin:  ['', '', '', '', '', '', '', '']
+g2pw seg:我还挺厉害的嘛. pinyins:['wo3', 'hai2', 'ting3', 'li4', 'hai4', 'de5', 'ma5', '.']
+============================== custom_pinyin
+############ 切分文本 ############
+Actual Input Target Text:
+我们选重力分离室的图纸吧，我这儿有复合陶瓷，刚好能用上。滴滴~物资复合陶瓷x1已送给你。滴滴~道具复合陶瓷x1传输完成
+Actual Input Target Text (after sentence segmentation):
+['我们选重力分离室的图纸吧，我这儿有复合陶瓷，刚好能用上。', '滴滴~物资复合陶瓷x1已送给你。', '滴滴~道具复合陶瓷x1传输完成。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/3 [00:00<?, ?it/s] 33%|███▎      | 1/3 [00:00<00:00,  5.83it/s]100%|██████████| 3/3 [00:00<00:00, 11.07it/s]100%|██████████| 3/3 [00:00<00:00, 10.15it/s]
+text before clean_text_inf: 我们选重力分离室的图纸吧，我这儿有复合陶瓷，刚好能用上。
+text before normalization: 我们选重力分离室的图纸吧，我这儿有复合陶瓷，刚好能用上。
+=====================================text_normalize================================
+text after normalization: 我们选重力分离室的图纸吧,我这儿有复合陶瓷,刚好能用上.
+text before g2p: 我们选重力分离室的图纸吧,我这儿有复合陶瓷,刚好能用上.
+text after g2p: ['我们选重力分离室的图纸吧,', '我这儿有复合陶瓷,', '刚好能用上.']
+seg before custom pinyin: 我们选重力分离室的图纸吧,
+seg after custom pinyin: 我们选重力分离室的图纸吧,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:我们选重力分离室的图纸吧, pinyins:['wo3', 'men5', 'xuan3', 'zhong4', 'li4', 'fen1', 'li2', 'shi4', 'de5', 'tu2', 'zhi3', 'ba5', ',']
+seg before custom pinyin: 我这儿有复合陶瓷,
+seg after custom pinyin: 我这儿有复合陶瓷,
+customer_pin:  ['', '', '', '', '', '', '', '', '']
+g2pw seg:我这儿有复合陶瓷, pinyins:['wo3', 'zhe4', 'er1', 'you3', 'fu4', 'he2', 'tao2', 'ci2', ',']
+seg before custom pinyin: 刚好能用上.
+seg after custom pinyin: 刚好能用上.
+customer_pin:  ['', '', '', '', '', '']
+g2pw seg:刚好能用上. pinyins:['gang1', 'hao3', 'neng2', 'yong4', 'shang4', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~物资复合陶瓷x1已送给你。
+text before normalization: 滴滴~物资复合陶瓷x1已送给你。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…物资复合陶瓷一已送给你.
+text before g2p: 滴滴…物资复合陶瓷一已送给你.
+text after g2p: ['滴滴…', '物资复合陶瓷一已送给你.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 物资复合陶瓷一已送给你.
+seg after custom pinyin: 物资复合陶瓷一已送给你.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:物资复合陶瓷一已送给你. pinyins:['wu4', 'zi1', 'fu4', 'he2', 'tao2', 'ci2', 'yi1', 'yi3', 'song4', 'gei3', 'ni3', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~道具复合陶瓷x1传输完成。
+text before normalization: 滴滴~道具复合陶瓷x1传输完成。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…道具复合陶瓷一传输完成.
+text before g2p: 滴滴…道具复合陶瓷一传输完成.
+text after g2p: ['滴滴…', '道具复合陶瓷一传输完成.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 道具复合陶瓷一传输完成.
+seg after custom pinyin: 道具复合陶瓷一传输完成.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:道具复合陶瓷一传输完成. pinyins:['dao4', 'ju4', 'fu4', 'he2', 'tao2', 'ci2', 'yi1', 'chuan2', 'shu1', 'wan2', 'cheng2', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['滴滴…物资复合陶瓷一已送给你.', '滴滴…道具复合陶瓷一传输完成.', '我们选重力分离室的图纸吧,我这儿有复合陶瓷,刚好能用上.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  0%|          | 7/1500 [00:00<00:21, 68.89it/s]  1%|          | 17/1500 [00:00<00:17, 84.81it/s]  2%|▏         | 27/1500 [00:00<00:16, 89.75it/s]  2%|▏         | 37/1500 [00:00<00:16, 91.27it/s]  3%|▎         | 47/1500 [00:00<00:15, 92.78it/s]  4%|▍         | 57/1500 [00:00<00:15, 93.85it/s]  4%|▍         | 67/1500 [00:00<00:15, 94.49it/s]  5%|▌         | 77/1500 [00:00<00:14, 94.90it/s]  6%|▌         | 88/1500 [00:00<00:14, 97.55it/s]  7%|▋         | 100/1500 [00:01<00:13, 103.88it/s]  7%|▋         | 112/1500 [00:01<00:12, 108.29it/s]  8%|▊         | 120/1500 [00:01<00:14, 98.31it/s] 
+T2S Decoding EOS [140 -> 261]
+0.341	0.297	1.223	0.069
+TTS_FN TORCH INFER 2.1295862197875977
+TTS TORCH cost time  2.130770444869995
+****************************************************************************************************
+INIT FILE TIME 1.0728836059570312e-05
+Set seed to 2061926237
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+############ 切分文本 ############
+Actual Input Target Text:
+我们选重力分离室的图纸，我这儿有高强钢，刚好能用上。滴滴~物资高强钢x1已送给你。滴滴~道具高强钢x1传输完成
+Actual Input Target Text (after sentence segmentation):
+['我们选重力分离室的图纸，我这儿有高强钢，刚好能用上。', '滴滴~物资高强钢x1已送给你。', '滴滴~道具高强钢x1传输完成。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/3 [00:00<?, ?it/s] 33%|███▎      | 1/3 [00:00<00:00,  3.54it/s]100%|██████████| 3/3 [00:00<00:00,  7.93it/s]100%|██████████| 3/3 [00:00<00:00,  7.05it/s]
+text before clean_text_inf: 我们选重力分离室的图纸，我这儿有高强钢，刚好能用上。
+text before normalization: 我们选重力分离室的图纸，我这儿有高强钢，刚好能用上。
+=====================================text_normalize================================
+text after normalization: 我们选重力分离室的图纸,我这儿有高强钢,刚好能用上.
+text before g2p: 我们选重力分离室的图纸,我这儿有高强钢,刚好能用上.
+text after g2p: ['我们选重力分离室的图纸,', '我这儿有高强钢,', '刚好能用上.']
+seg before custom pinyin: 我们选重力分离室的图纸,
+seg after custom pinyin: 我们选重力分离室的图纸,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:我们选重力分离室的图纸, pinyins:['wo3', 'men5', 'xuan3', 'zhong4', 'li4', 'fen1', 'li2', 'shi4', 'de5', 'tu2', 'zhi3', ',']
+seg before custom pinyin: 我这儿有高强钢,
+seg after custom pinyin: 我这儿有高强钢,
+customer_pin:  ['', '', '', '', '', '', '', '']
+g2pw seg:我这儿有高强钢, pinyins:['wo3', 'zhe4', 'er1', 'you3', 'gao1', 'qiang2', 'gang1', ',']
+seg before custom pinyin: 刚好能用上.
+seg after custom pinyin: 刚好能用上.
+customer_pin:  ['', '', '', '', '', '']
+g2pw seg:刚好能用上. pinyins:['gang1', 'hao3', 'neng2', 'yong4', 'shang4', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~物资高强钢x1已送给你。
+text before normalization: 滴滴~物资高强钢x1已送给你。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…物资高强钢一已送给你.
+text before g2p: 滴滴…物资高强钢一已送给你.
+text after g2p: ['滴滴…', '物资高强钢一已送给你.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 物资高强钢一已送给你.
+seg after custom pinyin: 物资高强钢一已送给你.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:物资高强钢一已送给你. pinyins:['wu4', 'zi1', 'gao1', 'qiang2', 'gang1', 'yi1', 'yi3', 'song4', 'gei3', 'ni3', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~道具高强钢x1传输完成。
+text before normalization: 滴滴~道具高强钢x1传输完成。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…道具高强钢一传输完成.
+text before g2p: 滴滴…道具高强钢一传输完成.
+text after g2p: ['滴滴…', '道具高强钢一传输完成.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 道具高强钢一传输完成.
+seg after custom pinyin: 道具高强钢一传输完成.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:道具高强钢一传输完成. pinyins:['dao4', 'ju4', 'gao1', 'qiang2', 'gang1', 'yi1', 'chuan2', 'shu1', 'wan2', 'cheng2', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['滴滴…物资高强钢一已送给你.', '滴滴…道具高强钢一传输完成.', '我们选重力分离室的图纸,我这儿有高强钢,刚好能用上.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  0%|          | 7/1500 [00:00<00:23, 64.35it/s]  1%|          | 16/1500 [00:00<00:18, 78.15it/s]  2%|▏         | 26/1500 [00:00<00:17, 84.52it/s]  2%|▏         | 36/1500 [00:00<00:16, 87.31it/s]  3%|▎         | 46/1500 [00:00<00:16, 88.94it/s]  4%|▎         | 56/1500 [00:00<00:16, 89.60it/s]  4%|▍         | 66/1500 [00:00<00:15, 90.19it/s]  5%|▌         | 76/1500 [00:00<00:15, 92.52it/s]  6%|▌         | 88/1500 [00:00<00:14, 98.83it/s]  7%|▋         | 100/1500 [00:01<00:13, 102.90it/s]  7%|▋         | 111/1500 [00:01<00:14, 94.15it/s] 
+T2S Decoding EOS [140 -> 252]
+0.000	0.427	1.205	0.242
+TTS_FN TORCH INFER 2.073855400085449
+TTS TORCH cost time  2.075139284133911
+****************************************************************************************************
+INIT FILE TIME 4.0531158447265625e-06
+Set seed to 2997816764
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+############ 切分文本 ############
+Actual Input Target Text:
+我们选重力分离室的图纸吧，我这有中枢元件，正好能用上。滴滴~物资中枢元件x1已送给你。滴滴~道具中枢元件x1传输完成
+Actual Input Target Text (after sentence segmentation):
+['我们选重力分离室的图纸吧，我这有中枢元件，正好能用上。', '滴滴~物资中枢元件x1已送给你。', '滴滴~道具中枢元件x1传输完成。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/3 [00:00<?, ?it/s] 33%|███▎      | 1/3 [00:00<00:00,  6.21it/s]100%|██████████| 3/3 [00:00<00:00, 12.05it/s]100%|██████████| 3/3 [00:00<00:00, 11.00it/s]
+text before clean_text_inf: 我们选重力分离室的图纸吧，我这有中枢元件，正好能用上。
+text before normalization: 我们选重力分离室的图纸吧，我这有中枢元件，正好能用上。
+=====================================text_normalize================================
+text after normalization: 我们选重力分离室的图纸吧,我这有中枢元件,正好能用上.
+text before g2p: 我们选重力分离室的图纸吧,我这有中枢元件,正好能用上.
+text after g2p: ['我们选重力分离室的图纸吧,', '我这有中枢元件,', '正好能用上.']
+seg before custom pinyin: 我们选重力分离室的图纸吧,
+seg after custom pinyin: 我们选重力分离室的图纸吧,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:我们选重力分离室的图纸吧, pinyins:['wo3', 'men5', 'xuan3', 'zhong4', 'li4', 'fen1', 'li2', 'shi4', 'de5', 'tu2', 'zhi3', 'ba5', ',']
+seg before custom pinyin: 我这有中枢元件,
+seg after custom pinyin: 我这有中枢元件,
+customer_pin:  ['', '', '', '', '', '', '', '']
+g2pw seg:我这有中枢元件, pinyins:['wo3', 'zhe4', 'you3', 'zhong1', 'shu1', 'yuan2', 'jian4', ',']
+seg before custom pinyin: 正好能用上.
+seg after custom pinyin: 正好能用上.
+customer_pin:  ['', '', '', '', '', '']
+g2pw seg:正好能用上. pinyins:['zheng4', 'hao3', 'neng2', 'yong4', 'shang4', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~物资中枢元件x1已送给你。
+text before normalization: 滴滴~物资中枢元件x1已送给你。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…物资中枢元件一已送给你.
+text before g2p: 滴滴…物资中枢元件一已送给你.
+text after g2p: ['滴滴…', '物资中枢元件一已送给你.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 物资中枢元件一已送给你.
+seg after custom pinyin: 物资中枢元件一已送给你.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:物资中枢元件一已送给你. pinyins:['wu4', 'zi1', 'zhong1', 'shu1', 'yuan2', 'jian4', 'yi1', 'yi3', 'song4', 'gei3', 'ni3', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~道具中枢元件x1传输完成。
+text before normalization: 滴滴~道具中枢元件x1传输完成。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…道具中枢元件一传输完成.
+text before g2p: 滴滴…道具中枢元件一传输完成.
+text after g2p: ['滴滴…', '道具中枢元件一传输完成.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 道具中枢元件一传输完成.
+seg after custom pinyin: 道具中枢元件一传输完成.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:道具中枢元件一传输完成. pinyins:['dao4', 'ju4', 'zhong1', 'shu1', 'yuan2', 'jian4', 'yi1', 'chuan2', 'shu1', 'wan2', 'cheng2', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['滴滴…物资中枢元件一已送给你.', '滴滴…道具中枢元件一传输完成.', '我们选重力分离室的图纸吧,我这有中枢元件,正好能用上.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  0%|          | 7/1500 [00:00<00:23, 64.35it/s]  1%|          | 17/1500 [00:00<00:18, 80.47it/s]  2%|▏         | 27/1500 [00:00<00:17, 85.70it/s]  2%|▏         | 37/1500 [00:00<00:16, 87.86it/s]  3%|▎         | 47/1500 [00:00<00:16, 89.16it/s]  4%|▍         | 57/1500 [00:00<00:16, 89.61it/s]  4%|▍         | 67/1500 [00:00<00:15, 90.24it/s]  5%|▌         | 77/1500 [00:00<00:15, 90.56it/s]  6%|▌         | 88/1500 [00:00<00:14, 95.39it/s]  7%|▋         | 100/1500 [00:01<00:13, 100.89it/s]  7%|▋         | 112/1500 [00:01<00:13, 104.77it/s]  8%|▊         | 124/1500 [00:01<00:12, 107.65it/s]  8%|▊         | 124/1500 [00:01<00:14, 95.12it/s] 
+T2S Decoding EOS [140 -> 265]
+0.000	0.274	1.306	0.245
+TTS_FN TORCH INFER 2.1009068489074707
+TTS TORCH cost time  2.1021668910980225
+****************************************************************************************************
+INIT FILE TIME 4.291534423828125e-06
+Set seed to 2423462363
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+############ 切分文本 ############
+Actual Input Target Text:
+我们选重力分离室的图纸，我这儿有高强钢，正好能用上。滴滴~物资高强钢x1已送给你。滴滴~道具高强钢x1传输完成
+Actual Input Target Text (after sentence segmentation):
+['我们选重力分离室的图纸，我这儿有高强钢，正好能用上。', '滴滴~物资高强钢x1已送给你。', '滴滴~道具高强钢x1传输完成。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/3 [00:00<?, ?it/s] 33%|███▎      | 1/3 [00:00<00:00,  6.01it/s]100%|██████████| 3/3 [00:00<00:00, 11.46it/s]100%|██████████| 3/3 [00:00<00:00, 10.50it/s]
+text before clean_text_inf: 我们选重力分离室的图纸，我这儿有高强钢，正好能用上。
+text before normalization: 我们选重力分离室的图纸，我这儿有高强钢，正好能用上。
+=====================================text_normalize================================
+text after normalization: 我们选重力分离室的图纸,我这儿有高强钢,正好能用上.
+text before g2p: 我们选重力分离室的图纸,我这儿有高强钢,正好能用上.
+text after g2p: ['我们选重力分离室的图纸,', '我这儿有高强钢,', '正好能用上.']
+seg before custom pinyin: 我们选重力分离室的图纸,
+seg after custom pinyin: 我们选重力分离室的图纸,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:我们选重力分离室的图纸, pinyins:['wo3', 'men5', 'xuan3', 'zhong4', 'li4', 'fen1', 'li2', 'shi4', 'de5', 'tu2', 'zhi3', ',']
+seg before custom pinyin: 我这儿有高强钢,
+seg after custom pinyin: 我这儿有高强钢,
+customer_pin:  ['', '', '', '', '', '', '', '']
+g2pw seg:我这儿有高强钢, pinyins:['wo3', 'zhe4', 'er1', 'you3', 'gao1', 'qiang2', 'gang1', ',']
+seg before custom pinyin: 正好能用上.
+seg after custom pinyin: 正好能用上.
+customer_pin:  ['', '', '', '', '', '']
+g2pw seg:正好能用上. pinyins:['zheng4', 'hao3', 'neng2', 'yong4', 'shang4', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~物资高强钢x1已送给你。
+text before normalization: 滴滴~物资高强钢x1已送给你。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…物资高强钢一已送给你.
+text before g2p: 滴滴…物资高强钢一已送给你.
+text after g2p: ['滴滴…', '物资高强钢一已送给你.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 物资高强钢一已送给你.
+seg after custom pinyin: 物资高强钢一已送给你.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:物资高强钢一已送给你. pinyins:['wu4', 'zi1', 'gao1', 'qiang2', 'gang1', 'yi1', 'yi3', 'song4', 'gei3', 'ni3', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~道具高强钢x1传输完成。
+text before normalization: 滴滴~道具高强钢x1传输完成。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…道具高强钢一传输完成.
+text before g2p: 滴滴…道具高强钢一传输完成.
+text after g2p: ['滴滴…', '道具高强钢一传输完成.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 道具高强钢一传输完成.
+seg after custom pinyin: 道具高强钢一传输完成.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:道具高强钢一传输完成. pinyins:['dao4', 'ju4', 'gao1', 'qiang2', 'gang1', 'yi1', 'chuan2', 'shu1', 'wan2', 'cheng2', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['滴滴…物资高强钢一已送给你.', '滴滴…道具高强钢一传输完成.', '我们选重力分离室的图纸,我这儿有高强钢,正好能用上.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  0%|          | 7/1500 [00:00<00:22, 65.84it/s]  1%|          | 17/1500 [00:00<00:18, 81.03it/s]  2%|▏         | 27/1500 [00:00<00:17, 85.94it/s]  2%|▏         | 37/1500 [00:00<00:16, 88.16it/s]  3%|▎         | 47/1500 [00:00<00:16, 89.44it/s]  4%|▍         | 57/1500 [00:00<00:16, 90.01it/s]  4%|▍         | 66/1500 [00:00<00:15, 89.79it/s]  5%|▌         | 76/1500 [00:00<00:15, 90.19it/s]  6%|▌         | 86/1500 [00:00<00:15, 90.50it/s]  7%|▋         | 98/1500 [00:01<00:14, 97.45it/s]  7%|▋         | 110/1500 [00:01<00:13, 101.72it/s]  8%|▊         | 121/1500 [00:01<00:14, 93.57it/s] 
+T2S Decoding EOS [140 -> 262]
+0.000	0.287	1.296	0.235
+TTS_FN TORCH INFER 2.022125005722046
+TTS TORCH cost time  2.0234529972076416
+****************************************************************************************************
+INIT FILE TIME 4.291534423828125e-06
+Set seed to 57937383
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+############ 切分文本 ############
+Actual Input Target Text:
+我们选重力分离室的图纸吧，我这儿刚好有高强钢，能派上用场。滴滴~道具高强钢x1传输完成
+Actual Input Target Text (after sentence segmentation):
+['我们选重力分离室的图纸吧，我这儿刚好有高强钢，能派上用场。', '滴滴~道具高强钢x1传输完成。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:00<00:00,  4.37it/s]100%|██████████| 2/2 [00:00<00:00,  6.68it/s]
+text before clean_text_inf: 我们选重力分离室的图纸吧，我这儿刚好有高强钢，能派上用场。
+text before normalization: 我们选重力分离室的图纸吧，我这儿刚好有高强钢，能派上用场。
+=====================================text_normalize================================
+text after normalization: 我们选重力分离室的图纸吧,我这儿刚好有高强钢,能派上用场.
+text before g2p: 我们选重力分离室的图纸吧,我这儿刚好有高强钢,能派上用场.
+text after g2p: ['我们选重力分离室的图纸吧,', '我这儿刚好有高强钢,', '能派上用场.']
+seg before custom pinyin: 我们选重力分离室的图纸吧,
+seg after custom pinyin: 我们选重力分离室的图纸吧,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:我们选重力分离室的图纸吧, pinyins:['wo3', 'men5', 'xuan3', 'zhong4', 'li4', 'fen1', 'li2', 'shi4', 'de5', 'tu2', 'zhi3', 'ba5', ',']
+seg before custom pinyin: 我这儿刚好有高强钢,
+seg after custom pinyin: 我这儿刚好有高强钢,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '']
+g2pw seg:我这儿刚好有高强钢, pinyins:['wo3', 'zhe4', 'er1', 'gang1', 'hao3', 'you3', 'gao1', 'qiang2', 'gang1', ',']
+seg before custom pinyin: 能派上用场.
+seg after custom pinyin: 能派上用场.
+customer_pin:  ['', '', '', '', '', '']
+g2pw seg:能派上用场. pinyins:['neng2', 'pai4', 'shang4', 'yong4', 'chang3', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~道具高强钢x1传输完成。
+text before normalization: 滴滴~道具高强钢x1传输完成。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…道具高强钢一传输完成.
+text before g2p: 滴滴…道具高强钢一传输完成.
+text after g2p: ['滴滴…', '道具高强钢一传输完成.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 道具高强钢一传输完成.
+seg after custom pinyin: 道具高强钢一传输完成.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:道具高强钢一传输完成. pinyins:['dao4', 'ju4', 'gao1', 'qiang2', 'gang1', 'yi1', 'chuan2', 'shu1', 'wan2', 'cheng2', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['滴滴…道具高强钢一传输完成.', '我们选重力分离室的图纸吧,我这儿刚好有高强钢,能派上用场.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  1%|          | 8/1500 [00:00<00:19, 75.97it/s]  1%|          | 18/1500 [00:00<00:17, 85.60it/s]  2%|▏         | 28/1500 [00:00<00:16, 88.64it/s]  3%|▎         | 38/1500 [00:00<00:16, 90.08it/s]  3%|▎         | 48/1500 [00:00<00:16, 90.27it/s]  4%|▍         | 58/1500 [00:00<00:15, 90.94it/s]  5%|▍         | 68/1500 [00:00<00:15, 91.45it/s]  5%|▌         | 78/1500 [00:00<00:15, 91.59it/s]  6%|▌         | 90/1500 [00:00<00:14, 97.63it/s]  7%|▋         | 102/1500 [00:01<00:13, 102.56it/s]  8%|▊         | 114/1500 [00:01<00:13, 105.27it/s]  8%|▊         | 122/1500 [00:01<00:14, 96.20it/s] 
+T2S Decoding EOS [140 -> 263]
+0.000	0.300	1.270	0.233
+TTS_FN TORCH INFER 2.002901554107666
+TTS TORCH cost time  2.004066228866577
+****************************************************************************************************
+INIT FILE TIME 5.245208740234375e-06
+Set seed to 347374008
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+text before clean_text_inf: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+text before normalization: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+=====================================text_normalize================================
+text after normalization: 说是检修,但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+text before g2p: 说是检修,但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+text after g2p: ['说是检修,', '但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?']
+seg before custom pinyin: 说是检修,
+seg after custom pinyin: 说是检修,
+customer_pin:  ['', '', '', '', '']
+g2pw seg:说是检修, pinyins:['shuo1', 'shi4', 'jian3', 'xiu1', ',']
+seg before custom pinyin: 但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+seg after custom pinyin: 但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线? pinyins:['dan4', 'kan4', 'qi3', 'lai2', 'ta1', 'men5', 'si4', 'hu1', 'bing4', 'bu4', 'zhi1', 'dao4', 'zen3', 'me5', 'bai3', 'nong4', 'na4', 'tiao2', 'xing1', 'cha2', 'zhi4', 'zao4', 'de5', 'liu2', 'shui3', 'xian4', '?']
+============================== custom_pinyin
+############ 切分文本 ############
+Actual Input Target Text:
+。建造师，记得常备制氧材料哦，防护中枢可离不开星壤、稀有壤、复合矿和古老细菌呢。
+Actual Input Target Text (after sentence segmentation):
+['建造师，记得常备制氧材料哦，防护中枢可离不开星壤、稀有壤、复合矿和古老细菌呢。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00,  6.05it/s]100%|██████████| 1/1 [00:00<00:00,  6.04it/s]
+text before clean_text_inf: 建造师，记得常备制氧材料哦，防护中枢可离不开星壤、稀有壤、复合矿和古老细菌呢。
+text before normalization: 建造师，记得常备制氧材料哦，防护中枢可离不开星壤、稀有壤、复合矿和古老细菌呢。
+=====================================text_normalize================================
+text after normalization: 建造师,记得常备制氧材料哦,防护中枢可离不开星壤,稀有壤,复合矿和古老细菌呢.
+text before g2p: 建造师,记得常备制氧材料哦,防护中枢可离不开星壤,稀有壤,复合矿和古老细菌呢.
+text after g2p: ['建造师,', '记得常备制氧材料哦,', '防护中枢可离不开星壤,', '稀有壤,', '复合矿和古老细菌呢.']
+seg before custom pinyin: 建造师,
+seg after custom pinyin: 建造师,
+customer_pin:  ['', '', '', '']
+g2pw seg:建造师, pinyins:['jian4', 'zao4', 'shi1', ',']
+seg before custom pinyin: 记得常备制氧材料哦,
+seg after custom pinyin: 记得常备制氧材料哦,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '']
+g2pw seg:记得常备制氧材料哦, pinyins:['ji4', 'de5', 'chang2', 'bei4', 'zhi4', 'yang3', 'cai2', 'liao4', 'o2', ',']
+seg before custom pinyin: 防护中枢可离不开星壤,
+seg after custom pinyin: 防护中枢可离不开星壤,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:防护中枢可离不开星壤, pinyins:['fang2', 'hu4', 'zhong1', 'shu1', 'ke3', 'li2', 'bu4', 'kai1', 'xing1', 'rang3', ',']
+seg before custom pinyin: 稀有壤,
+seg after custom pinyin: 稀有壤,
+customer_pin:  ['', '', '', '']
+g2pw seg:稀有壤, pinyins:['xi1', 'you3', 'rang3', ',']
+seg before custom pinyin: 复合矿和古老细菌呢.
+seg after custom pinyin: 复合矿和古老细菌呢.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '']
+g2pw seg:复合矿和古老细菌呢. pinyins:['fu4', 'he2', 'kuang4', 'he2', 'gu3', 'lao3', 'xi4', 'jun1', 'ne5', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['建造师,记得常备制氧材料哦,防护中枢可离不开星壤,稀有壤,复合矿和古老细菌呢.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  1%|          | 11/1500 [00:00<00:14, 103.56it/s]  2%|▏         | 23/1500 [00:00<00:13, 110.96it/s]  2%|▏         | 35/1500 [00:00<00:12, 113.40it/s]  3%|▎         | 47/1500 [00:00<00:12, 114.43it/s]  4%|▍         | 59/1500 [00:00<00:12, 114.75it/s]  5%|▍         | 71/1500 [00:00<00:12, 115.14it/s]  6%|▌         | 83/1500 [00:00<00:12, 114.88it/s]  6%|▋         | 95/1500 [00:00<00:12, 115.35it/s]  7%|▋         | 107/1500 [00:00<00:12, 115.39it/s]  8%|▊         | 119/1500 [00:01<00:11, 115.63it/s]  9%|▊         | 131/1500 [00:01<00:11, 115.62it/s] 10%|▉         | 143/1500 [00:01<00:11, 115.81it/s] 10%|█         | 155/1500 [00:01<00:11, 115.77it/s] 11%|█         | 167/1500 [00:01<00:11, 115.90it/s] 12%|█▏        | 179/1500 [00:01<00:11, 115.86it/s] 13%|█▎        | 191/1500 [00:01<00:11, 115.76it/s] 14%|█▎        | 203/1500 [00:01<00:11, 115.85it/s] 14%|█▎        | 203/1500 [00:01<00:11, 114.50it/s]
+T2S Decoding EOS [152 -> 356]
+0.502	0.166	1.775	0.226
+TTS_FN TORCH INFER 2.861933946609497
+TTS TORCH cost time  2.862811803817749
+****************************************************************************************************
+INIT FILE TIME 3.814697265625e-06
+Set seed to 181455294
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+text before clean_text_inf: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+text before normalization: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+=====================================text_normalize================================
+text after normalization: 嘿嘿,似乎本姑娘教了他很多东西,我还挺厉害的嘛.
+text before g2p: 嘿嘿,似乎本姑娘教了他很多东西,我还挺厉害的嘛.
+text after g2p: ['嘿嘿,', '似乎本姑娘教了他很多东西,', '我还挺厉害的嘛.']
+seg before custom pinyin: 嘿嘿,
+seg after custom pinyin: 嘿嘿,
+customer_pin:  ['', '', '']
+g2pw seg:嘿嘿, pinyins:['hei1', 'hei1', ',']
+seg before custom pinyin: 似乎本姑娘教了他很多东西,
+seg after custom pinyin: 似乎本姑娘教了他很多东西,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:似乎本姑娘教了他很多东西, pinyins:['si4', 'hu1', 'ben3', 'gu1', 'niang2', 'jiao1', 'le5', 'ta1', 'hen3', 'duo1', 'dong1', 'xi5', ',']
+seg before custom pinyin: 我还挺厉害的嘛.
+seg after custom pinyin: 我还挺厉害的嘛.
+customer_pin:  ['', '', '', '', '', '', '', '']
+g2pw seg:我还挺厉害的嘛. pinyins:['wo3', 'hai2', 'ting3', 'li4', 'hai4', 'de5', 'ma5', '.']
+============================== custom_pinyin
+############ 切分文本 ############
+Actual Input Target Text:
+我们选重力分离室的图纸，对吧？我这有卫星天线，正好能用上。滴滴~物资卫星天线x1已送给你啦。滴滴~道具卫星天线x1传输完成
+Actual Input Target Text (after sentence segmentation):
+['我们选重力分离室的图纸，对吧？我这有卫星天线，正好能用上。', '滴滴~物资卫星天线x1已送给你啦。', '滴滴~道具卫星天线x1传输完成。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/3 [00:00<?, ?it/s] 33%|███▎      | 1/3 [00:00<00:00,  6.01it/s]100%|██████████| 3/3 [00:00<00:00, 11.46it/s]100%|██████████| 3/3 [00:00<00:00, 10.50it/s]
+text before clean_text_inf: 我们选重力分离室的图纸，对吧？我这有卫星天线，正好能用上。
+text before normalization: 我们选重力分离室的图纸，对吧？我这有卫星天线，正好能用上。
+=====================================text_normalize================================
+text after normalization: 我们选重力分离室的图纸,对吧?我这有卫星天线,正好能用上.
+text before g2p: 我们选重力分离室的图纸,对吧?我这有卫星天线,正好能用上.
+text after g2p: ['我们选重力分离室的图纸,', '对吧?', '我这有卫星天线,', '正好能用上.']
+seg before custom pinyin: 我们选重力分离室的图纸,
+seg after custom pinyin: 我们选重力分离室的图纸,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:我们选重力分离室的图纸, pinyins:['wo3', 'men5', 'xuan3', 'zhong4', 'li4', 'fen1', 'li2', 'shi4', 'de5', 'tu2', 'zhi3', ',']
+seg before custom pinyin: 对吧?
+seg after custom pinyin: 对吧?
+customer_pin:  ['', '', '']
+g2pw seg:对吧? pinyins:['dui4', 'ba5', '?']
+seg before custom pinyin: 我这有卫星天线,
+seg after custom pinyin: 我这有卫星天线,
+customer_pin:  ['', '', '', '', '', '', '', '']
+g2pw seg:我这有卫星天线, pinyins:['wo3', 'zhe4', 'you3', 'wei4', 'xing1', 'tian1', 'xian4', ',']
+seg before custom pinyin: 正好能用上.
+seg after custom pinyin: 正好能用上.
+customer_pin:  ['', '', '', '', '', '']
+g2pw seg:正好能用上. pinyins:['zheng4', 'hao3', 'neng2', 'yong4', 'shang4', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~物资卫星天线x1已送给你啦。
+text before normalization: 滴滴~物资卫星天线x1已送给你啦。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…物资卫星天线一已送给你啦.
+text before g2p: 滴滴…物资卫星天线一已送给你啦.
+text after g2p: ['滴滴…', '物资卫星天线一已送给你啦.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 物资卫星天线一已送给你啦.
+seg after custom pinyin: 物资卫星天线一已送给你啦.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:物资卫星天线一已送给你啦. pinyins:['wu4', 'zi1', 'wei4', 'xing1', 'tian1', 'xian4', 'yi1', 'yi3', 'song4', 'gei3', 'ni3', 'la5', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~道具卫星天线x1传输完成。
+text before normalization: 滴滴~道具卫星天线x1传输完成。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…道具卫星天线一传输完成.
+text before g2p: 滴滴…道具卫星天线一传输完成.
+text after g2p: ['滴滴…', '道具卫星天线一传输完成.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 道具卫星天线一传输完成.
+seg after custom pinyin: 道具卫星天线一传输完成.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:道具卫星天线一传输完成. pinyins:['dao4', 'ju4', 'wei4', 'xing1', 'tian1', 'xian4', 'yi1', 'chuan2', 'shu1', 'wan2', 'cheng2', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['滴滴…道具卫星天线一传输完成.', '滴滴…物资卫星天线一已送给你啦.', '我们选重力分离室的图纸,对吧?我这有卫星天线,正好能用上.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  0%|          | 7/1500 [00:00<00:22, 65.25it/s]  1%|          | 17/1500 [00:00<00:18, 80.76it/s]  2%|▏         | 26/1500 [00:00<00:17, 84.47it/s]  2%|▏         | 36/1500 [00:00<00:16, 87.25it/s]  3%|▎         | 45/1500 [00:00<00:16, 87.89it/s]  4%|▎         | 55/1500 [00:00<00:16, 89.07it/s]  4%|▍         | 65/1500 [00:00<00:15, 89.72it/s]  5%|▌         | 75/1500 [00:00<00:15, 90.17it/s]  6%|▌         | 85/1500 [00:00<00:15, 90.48it/s]  6%|▋         | 95/1500 [00:01<00:15, 93.02it/s]  7%|▋         | 107/1500 [00:01<00:14, 99.28it/s]  8%|▊         | 119/1500 [00:01<00:13, 103.57it/s]  9%|▊         | 131/1500 [00:01<00:12, 106.65it/s]  9%|▉         | 137/1500 [00:01<00:14, 94.58it/s] 
+T2S Decoding EOS [140 -> 278]
+0.354	0.287	1.451	0.247
+TTS_FN TORCH INFER 2.590441942214966
+TTS TORCH cost time  2.592237949371338
+****************************************************************************************************
+INIT FILE TIME 4.5299530029296875e-06
+Set seed to 27588638
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+############ 切分文本 ############
+Actual Input Target Text:
+我们正需要重力分离室的图纸，对吧？找到了中枢元件，正好派上用场。滴滴~物资中枢元件x1已送给你啦。滴滴~道具中枢元件x1传输完成
+Actual Input Target Text (after sentence segmentation):
+['我们正需要重力分离室的图纸，对吧？找到了中枢元件，正好派上用场。', '滴滴~物资中枢元件x1已送给你啦。', '滴滴~道具中枢元件x1传输完成。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/3 [00:00<?, ?it/s] 33%|███▎      | 1/3 [00:00<00:00,  4.81it/s]100%|██████████| 3/3 [00:00<00:00, 10.18it/s]100%|██████████| 3/3 [00:00<00:00,  9.15it/s]
+text before clean_text_inf: 我们正需要重力分离室的图纸，对吧？找到了中枢元件，正好派上用场。
+text before normalization: 我们正需要重力分离室的图纸，对吧？找到了中枢元件，正好派上用场。
+=====================================text_normalize================================
+text after normalization: 我们正需要重力分离室的图纸,对吧?找到了中枢元件,正好派上用场.
+text before g2p: 我们正需要重力分离室的图纸,对吧?找到了中枢元件,正好派上用场.
+text after g2p: ['我们正需要重力分离室的图纸,', '对吧?', '找到了中枢元件,', '正好派上用场.']
+seg before custom pinyin: 我们正需要重力分离室的图纸,
+seg after custom pinyin: 我们正需要重力分离室的图纸,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:我们正需要重力分离室的图纸, pinyins:['wo3', 'men5', 'zheng4', 'xu1', 'yao4', 'zhong4', 'li4', 'fen1', 'li2', 'shi4', 'de5', 'tu2', 'zhi3', ',']
+seg before custom pinyin: 对吧?
+seg after custom pinyin: 对吧?
+customer_pin:  ['', '', '']
+g2pw seg:对吧? pinyins:['dui4', 'ba5', '?']
+seg before custom pinyin: 找到了中枢元件,
+seg after custom pinyin: 找到了中枢元件,
+customer_pin:  ['', '', '', '', '', '', '', '']
+g2pw seg:找到了中枢元件, pinyins:['zhao3', 'dao4', 'le5', 'zhong1', 'shu1', 'yuan2', 'jian4', ',']
+seg before custom pinyin: 正好派上用场.
+seg after custom pinyin: 正好派上用场.
+customer_pin:  ['', '', '', '', '', '', '']
+g2pw seg:正好派上用场. pinyins:['zheng4', 'hao3', 'pai4', 'shang4', 'yong4', 'chang3', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~物资中枢元件x1已送给你啦。
+text before normalization: 滴滴~物资中枢元件x1已送给你啦。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…物资中枢元件一已送给你啦.
+text before g2p: 滴滴…物资中枢元件一已送给你啦.
+text after g2p: ['滴滴…', '物资中枢元件一已送给你啦.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 物资中枢元件一已送给你啦.
+seg after custom pinyin: 物资中枢元件一已送给你啦.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:物资中枢元件一已送给你啦. pinyins:['wu4', 'zi1', 'zhong1', 'shu1', 'yuan2', 'jian4', 'yi1', 'yi3', 'song4', 'gei3', 'ni3', 'la5', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~道具中枢元件x1传输完成。
+text before normalization: 滴滴~道具中枢元件x1传输完成。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…道具中枢元件一传输完成.
+text before g2p: 滴滴…道具中枢元件一传输完成.
+text after g2p: ['滴滴…', '道具中枢元件一传输完成.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 道具中枢元件一传输完成.
+seg after custom pinyin: 道具中枢元件一传输完成.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:道具中枢元件一传输完成. pinyins:['dao4', 'ju4', 'zhong1', 'shu1', 'yuan2', 'jian4', 'yi1', 'chuan2', 'shu1', 'wan2', 'cheng2', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['滴滴…道具中枢元件一传输完成.', '滴滴…物资中枢元件一已送给你啦.', '我们正需要重力分离室的图纸,对吧?找到了中枢元件,正好派上用场.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  0%|          | 7/1500 [00:00<00:22, 66.15it/s]  1%|          | 17/1500 [00:00<00:18, 81.27it/s]  2%|▏         | 27/1500 [00:00<00:17, 85.92it/s]  2%|▏         | 37/1500 [00:00<00:16, 87.95it/s]  3%|▎         | 46/1500 [00:00<00:16, 88.04it/s]  4%|▎         | 56/1500 [00:00<00:16, 89.01it/s]  4%|▍         | 66/1500 [00:00<00:15, 89.80it/s]  5%|▌         | 76/1500 [00:00<00:15, 90.21it/s]  6%|▌         | 87/1500 [00:00<00:15, 93.92it/s]  7%|▋         | 99/1500 [00:01<00:14, 99.85it/s]  7%|▋         | 111/1500 [00:01<00:13, 103.51it/s]  8%|▊         | 123/1500 [00:01<00:13, 105.91it/s]  9%|▉         | 133/1500 [00:01<00:14, 95.56it/s] 
+T2S Decoding EOS [140 -> 274]
+0.000	0.329	1.394	0.251
+TTS_FN TORCH INFER 2.1939899921417236
+TTS TORCH cost time  2.19549822807312
+****************************************************************************************************
+INIT FILE TIME 5.9604644775390625e-06
+Set seed to 1576715375
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+text before clean_text_inf: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+text before normalization: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+=====================================text_normalize================================
+text after normalization: 说是检修,但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+text before g2p: 说是检修,但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+text after g2p: ['说是检修,', '但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?']
+seg before custom pinyin: 说是检修,
+seg after custom pinyin: 说是检修,
+customer_pin:  ['', '', '', '', '']
+g2pw seg:说是检修, pinyins:['shuo1', 'shi4', 'jian3', 'xiu1', ',']
+seg before custom pinyin: 但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+seg after custom pinyin: 但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线? pinyins:['dan4', 'kan4', 'qi3', 'lai2', 'ta1', 'men5', 'si4', 'hu1', 'bing4', 'bu4', 'zhi1', 'dao4', 'zen3', 'me5', 'bai3', 'nong4', 'na4', 'tiao2', 'xing1', 'cha2', 'zhi4', 'zao4', 'de5', 'liu2', 'shui3', 'xian4', '?']
+============================== custom_pinyin
+############ 切分文本 ############
+Actual Input Target Text:
+。建造师，记得哦，采集资源得在对应建筑范围内，别跑太远啦！
+Actual Input Target Text (after sentence segmentation):
+['建造师，记得哦，采集资源得在对应建筑范围内，别跑太远啦！']
+############ 提取文本Bert特征 ############
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00,  7.07it/s]100%|██████████| 1/1 [00:00<00:00,  7.06it/s]
+text before clean_text_inf: 建造师，记得哦，采集资源得在对应建筑范围内，别跑太远啦！
+text before normalization: 建造师，记得哦，采集资源得在对应建筑范围内，别跑太远啦！
+=====================================text_normalize================================
+text after normalization: 建造师,记得哦,采集资源得在对应建筑范围内,别跑太远啦!
+text before g2p: 建造师,记得哦,采集资源得在对应建筑范围内,别跑太远啦!
+text after g2p: ['建造师,', '记得哦,', '采集资源得在对应建筑范围内,', '别跑太远啦!']
+seg before custom pinyin: 建造师,
+seg after custom pinyin: 建造师,
+customer_pin:  ['', '', '', '']
+g2pw seg:建造师, pinyins:['jian4', 'zao4', 'shi1', ',']
+seg before custom pinyin: 记得哦,
+seg after custom pinyin: 记得哦,
+customer_pin:  ['', '', '', '']
+g2pw seg:记得哦, pinyins:['ji4', 'de5', 'o2', ',']
+seg before custom pinyin: 采集资源得在对应建筑范围内,
+seg after custom pinyin: 采集资源得在对应建筑范围内,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:采集资源得在对应建筑范围内, pinyins:['cai3', 'ji2', 'zi1', 'yuan2', 'dei3', 'zai4', 'dui4', 'ying4', 'jian4', 'zhu4', 'fan4', 'wei2', 'nei4', ',']
+seg before custom pinyin: 别跑太远啦!
+seg after custom pinyin: 别跑太远啦!
+customer_pin:  ['', '', '', '', '', '']
+g2pw seg:别跑太远啦! pinyins:['bie2', 'pao3', 'tai4', 'yuan3', 'la5', '!']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['建造师,记得哦,采集资源得在对应建筑范围内,别跑太远啦!']
+  0%|          | 0/1500 [00:00<?, ?it/s]  1%|          | 11/1500 [00:00<00:14, 102.57it/s]  2%|▏         | 23/1500 [00:00<00:13, 109.24it/s]  2%|▏         | 35/1500 [00:00<00:13, 109.96it/s]  3%|▎         | 47/1500 [00:00<00:13, 111.27it/s]  4%|▍         | 59/1500 [00:00<00:12, 111.50it/s]  5%|▍         | 71/1500 [00:00<00:12, 112.33it/s]  6%|▌         | 83/1500 [00:00<00:12, 112.64it/s]  6%|▋         | 95/1500 [00:00<00:12, 112.84it/s]  7%|▋         | 107/1500 [00:00<00:12, 113.06it/s]  8%|▊         | 119/1500 [00:01<00:12, 112.55it/s]  9%|▊         | 131/1500 [00:01<00:12, 112.96it/s]  9%|▉         | 141/1500 [00:01<00:12, 111.30it/s]
+T2S Decoding EOS [152 -> 294]
+0.519	0.142	1.269	0.251
+TTS_FN TORCH INFER 2.377636194229126
+TTS TORCH cost time  2.378232479095459
+****************************************************************************************************
+INIT FILE TIME 4.76837158203125e-06
+Set seed to 2730697781
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+text before clean_text_inf: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+text before normalization: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+=====================================text_normalize================================
+text after normalization: 嘿嘿,似乎本姑娘教了他很多东西,我还挺厉害的嘛.
+text before g2p: 嘿嘿,似乎本姑娘教了他很多东西,我还挺厉害的嘛.
+text after g2p: ['嘿嘿,', '似乎本姑娘教了他很多东西,', '我还挺厉害的嘛.']
+seg before custom pinyin: 嘿嘿,
+seg after custom pinyin: 嘿嘿,
+customer_pin:  ['', '', '']
+g2pw seg:嘿嘿, pinyins:['hei1', 'hei1', ',']
+seg before custom pinyin: 似乎本姑娘教了他很多东西,
+seg after custom pinyin: 似乎本姑娘教了他很多东西,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:似乎本姑娘教了他很多东西, pinyins:['si4', 'hu1', 'ben3', 'gu1', 'niang2', 'jiao1', 'le5', 'ta1', 'hen3', 'duo1', 'dong1', 'xi5', ',']
+seg before custom pinyin: 我还挺厉害的嘛.
+seg after custom pinyin: 我还挺厉害的嘛.
+customer_pin:  ['', '', '', '', '', '', '', '']
+g2pw seg:我还挺厉害的嘛. pinyins:['wo3', 'hai2', 'ting3', 'li4', 'hai4', 'de5', 'ma5', '.']
+============================== custom_pinyin
+############ 切分文本 ############
+Actual Input Target Text:
+我们得选重力分离室的图纸，记得用我给的防辐射板哦。滴滴~物资防辐射板x1已送给你啦。滴滴~道具防辐射板x1传输完成
+Actual Input Target Text (after sentence segmentation):
+['我们得选重力分离室的图纸，记得用我给的防辐射板哦。', '滴滴~物资防辐射板x1已送给你啦。', '滴滴~道具防辐射板x1传输完成。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/3 [00:00<?, ?it/s] 33%|███▎      | 1/3 [00:00<00:00,  6.43it/s]100%|██████████| 3/3 [00:00<00:00, 11.69it/s]100%|██████████| 3/3 [00:00<00:00, 10.80it/s]
+text before clean_text_inf: 我们得选重力分离室的图纸，记得用我给的防辐射板哦。
+text before normalization: 我们得选重力分离室的图纸，记得用我给的防辐射板哦。
+=====================================text_normalize================================
+text after normalization: 我们得选重力分离室的图纸,记得用我给的防辐射板哦.
+text before g2p: 我们得选重力分离室的图纸,记得用我给的防辐射板哦.
+text after g2p: ['我们得选重力分离室的图纸,', '记得用我给的防辐射板哦.']
+seg before custom pinyin: 我们得选重力分离室的图纸,
+seg after custom pinyin: 我们得选重力分离室的图纸,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:我们得选重力分离室的图纸, pinyins:['wo3', 'men5', 'dei3', 'xuan3', 'zhong4', 'li4', 'fen1', 'li2', 'shi4', 'de5', 'tu2', 'zhi3', ',']
+seg before custom pinyin: 记得用我给的防辐射板哦.
+seg after custom pinyin: 记得用我给的防辐射板哦.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:记得用我给的防辐射板哦. pinyins:['ji4', 'de5', 'yong4', 'wo3', 'gei3', 'de5', 'fang2', 'fu2', 'she4', 'ban3', 'o2', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~物资防辐射板x1已送给你啦。
+text before normalization: 滴滴~物资防辐射板x1已送给你啦。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…物资防辐射板一已送给你啦.
+text before g2p: 滴滴…物资防辐射板一已送给你啦.
+text after g2p: ['滴滴…', '物资防辐射板一已送给你啦.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 物资防辐射板一已送给你啦.
+seg after custom pinyin: 物资防辐射板一已送给你啦.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:物资防辐射板一已送给你啦. pinyins:['wu4', 'zi1', 'fang2', 'fu2', 'she4', 'ban3', 'yi1', 'yi3', 'song4', 'gei3', 'ni3', 'la5', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~道具防辐射板x1传输完成。
+text before normalization: 滴滴~道具防辐射板x1传输完成。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…道具防辐射板一传输完成.
+text before g2p: 滴滴…道具防辐射板一传输完成.
+text after g2p: ['滴滴…', '道具防辐射板一传输完成.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 道具防辐射板一传输完成.
+seg after custom pinyin: 道具防辐射板一传输完成.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:道具防辐射板一传输完成. pinyins:['dao4', 'ju4', 'fang2', 'fu2', 'she4', 'ban3', 'yi1', 'chuan2', 'shu1', 'wan2', 'cheng2', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['滴滴…道具防辐射板一传输完成.', '滴滴…物资防辐射板一已送给你啦.', '我们得选重力分离室的图纸,记得用我给的防辐射板哦.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  0%|          | 7/1500 [00:00<00:22, 66.54it/s]  1%|          | 16/1500 [00:00<00:18, 79.79it/s]  2%|▏         | 26/1500 [00:00<00:17, 85.46it/s]  2%|▏         | 36/1500 [00:00<00:16, 88.01it/s]  3%|▎         | 46/1500 [00:00<00:16, 89.27it/s]  4%|▎         | 56/1500 [00:00<00:16, 89.96it/s]  4%|▍         | 66/1500 [00:00<00:15, 90.32it/s]  5%|▌         | 76/1500 [00:00<00:15, 90.18it/s]  6%|▌         | 86/1500 [00:00<00:15, 90.57it/s]  7%|▋         | 98/1500 [00:01<00:14, 97.53it/s]  7%|▋         | 110/1500 [00:01<00:13, 102.45it/s]  7%|▋         | 111/1500 [00:01<00:15, 92.36it/s] 
+T2S Decoding EOS [140 -> 252]
+0.383	0.279	1.204	0.249
+TTS_FN TORCH INFER 2.3138697147369385
+TTS TORCH cost time  2.3150570392608643
+****************************************************************************************************
+INIT FILE TIME 4.5299530029296875e-06
+Set seed to 1050734427
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+############ 切分文本 ############
+Actual Input Target Text:
+我们选重力分离室的图纸吧，我这有高强钢，正好可以用上。滴滴~物资高强钢x1已送给你啦。滴滴~道具高强钢x1传输完成
+Actual Input Target Text (after sentence segmentation):
+['我们选重力分离室的图纸吧，我这有高强钢，正好可以用上。', '滴滴~物资高强钢x1已送给你啦。', '滴滴~道具高强钢x1传输完成。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/3 [00:00<?, ?it/s] 33%|███▎      | 1/3 [00:00<00:00,  5.56it/s]100%|██████████| 3/3 [00:00<00:00, 10.44it/s]100%|██████████| 3/3 [00:00<00:00,  9.59it/s]
+text before clean_text_inf: 我们选重力分离室的图纸吧，我这有高强钢，正好可以用上。
+text before normalization: 我们选重力分离室的图纸吧，我这有高强钢，正好可以用上。
+=====================================text_normalize================================
+text after normalization: 我们选重力分离室的图纸吧,我这有高强钢,正好可以用上.
+text before g2p: 我们选重力分离室的图纸吧,我这有高强钢,正好可以用上.
+text after g2p: ['我们选重力分离室的图纸吧,', '我这有高强钢,', '正好可以用上.']
+seg before custom pinyin: 我们选重力分离室的图纸吧,
+seg after custom pinyin: 我们选重力分离室的图纸吧,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:我们选重力分离室的图纸吧, pinyins:['wo3', 'men5', 'xuan3', 'zhong4', 'li4', 'fen1', 'li2', 'shi4', 'de5', 'tu2', 'zhi3', 'ba5', ',']
+seg before custom pinyin: 我这有高强钢,
+seg after custom pinyin: 我这有高强钢,
+customer_pin:  ['', '', '', '', '', '', '']
+g2pw seg:我这有高强钢, pinyins:['wo3', 'zhe4', 'you3', 'gao1', 'qiang2', 'gang1', ',']
+seg before custom pinyin: 正好可以用上.
+seg after custom pinyin: 正好可以用上.
+customer_pin:  ['', '', '', '', '', '', '']
+g2pw seg:正好可以用上. pinyins:['zheng4', 'hao3', 'ke3', 'yi3', 'yong4', 'shang4', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~物资高强钢x1已送给你啦。
+text before normalization: 滴滴~物资高强钢x1已送给你啦。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…物资高强钢一已送给你啦.
+text before g2p: 滴滴…物资高强钢一已送给你啦.
+text after g2p: ['滴滴…', '物资高强钢一已送给你啦.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 物资高强钢一已送给你啦.
+seg after custom pinyin: 物资高强钢一已送给你啦.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:物资高强钢一已送给你啦. pinyins:['wu4', 'zi1', 'gao1', 'qiang2', 'gang1', 'yi1', 'yi3', 'song4', 'gei3', 'ni3', 'la5', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~道具高强钢x1传输完成。
+text before normalization: 滴滴~道具高强钢x1传输完成。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…道具高强钢一传输完成.
+text before g2p: 滴滴…道具高强钢一传输完成.
+text after g2p: ['滴滴…', '道具高强钢一传输完成.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 道具高强钢一传输完成.
+seg after custom pinyin: 道具高强钢一传输完成.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:道具高强钢一传输完成. pinyins:['dao4', 'ju4', 'gao1', 'qiang2', 'gang1', 'yi1', 'chuan2', 'shu1', 'wan2', 'cheng2', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['滴滴…道具高强钢一传输完成.', '滴滴…物资高强钢一已送给你啦.', '我们选重力分离室的图纸吧,我这有高强钢,正好可以用上.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  0%|          | 7/1500 [00:00<00:21, 68.47it/s]  1%|          | 17/1500 [00:00<00:17, 83.53it/s]  2%|▏         | 27/1500 [00:00<00:16, 88.31it/s]  2%|▏         | 37/1500 [00:00<00:16, 90.27it/s]  3%|▎         | 47/1500 [00:00<00:15, 91.57it/s]  4%|▍         | 57/1500 [00:00<00:15, 92.14it/s]  4%|▍         | 67/1500 [00:00<00:15, 92.64it/s]  5%|▌         | 77/1500 [00:00<00:15, 92.81it/s]  6%|▌         | 88/1500 [00:00<00:14, 95.87it/s]  7%|▋         | 100/1500 [00:01<00:13, 101.24it/s]  7%|▋         | 112/1500 [00:01<00:13, 105.72it/s]  8%|▊         | 124/1500 [00:01<00:12, 109.05it/s]  8%|▊         | 124/1500 [00:01<00:14, 96.97it/s] 
+T2S Decoding EOS [140 -> 265]
+0.000	0.314	1.281	0.067
+TTS_FN TORCH INFER 1.8886747360229492
+TTS TORCH cost time  1.8898768424987793
+****************************************************************************************************
+INIT FILE TIME 4.5299530029296875e-06
+Set seed to 1658982716
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 好啦，大家都打起精神来！越到这种时候，我们就越要多传递传递信心呀！
+text before clean_text_inf: 好啦，大家都打起精神来！越到这种时候，我们就越要多传递传递信心呀！
+text before normalization: 好啦，大家都打起精神来！越到这种时候，我们就越要多传递传递信心呀！
+=====================================text_normalize================================
+text after normalization: 好啦,大家都打起精神来!越到这种时候,我们就越要多传递传递信心呀!
+text before g2p: 好啦,大家都打起精神来!越到这种时候,我们就越要多传递传递信心呀!
+text after g2p: ['好啦,', '大家都打起精神来!', '越到这种时候,', '我们就越要多传递传递信心呀!']
+seg before custom pinyin: 好啦,
+seg after custom pinyin: 好啦,
+customer_pin:  ['', '', '']
+g2pw seg:好啦, pinyins:['hao3', 'la5', ',']
+seg before custom pinyin: 大家都打起精神来!
+seg after custom pinyin: 大家都打起精神来!
+customer_pin:  ['', '', '', '', '', '', '', '', '']
+g2pw seg:大家都打起精神来! pinyins:['da4', 'jia1', 'dou1', 'da3', 'qi3', 'jing1', 'shen2', 'lai2', '!']
+seg before custom pinyin: 越到这种时候,
+seg after custom pinyin: 越到这种时候,
+customer_pin:  ['', '', '', '', '', '', '']
+g2pw seg:越到这种时候, pinyins:['yue4', 'dao4', 'zhe4', 'zhong3', 'shi2', 'hou4', ',']
+seg before custom pinyin: 我们就越要多传递传递信心呀!
+seg after custom pinyin: 我们就越要多传递传递信心呀!
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:我们就越要多传递传递信心呀! pinyins:['wo3', 'men5', 'jiu4', 'yue4', 'yao4', 'duo1', 'chuan2', 'di4', 'chuan2', 'di4', 'xin4', 'xin1', 'ya5', '!']
+============================== custom_pinyin
+############ 切分文本 ############
+Actual Input Target Text:
+我们得用捕猎基地去兽肉的资源地点获取兽肉，记得吗？
+Actual Input Target Text (after sentence segmentation):
+['我们得用捕猎基地去兽肉的资源地点获取兽肉，记得吗？']
+############ 提取文本Bert特征 ############
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00,  5.07it/s]100%|██████████| 1/1 [00:00<00:00,  5.07it/s]
+text before clean_text_inf: 我们得用捕猎基地去兽肉的资源地点获取兽肉，记得吗？
+text before normalization: 我们得用捕猎基地去兽肉的资源地点获取兽肉，记得吗？
+=====================================text_normalize================================
+text after normalization: 我们得用捕猎基地去兽肉的资源地点获取兽肉,记得吗?
+text before g2p: 我们得用捕猎基地去兽肉的资源地点获取兽肉,记得吗?
+text after g2p: ['我们得用捕猎基地去兽肉的资源地点获取兽肉,', '记得吗?']
+seg before custom pinyin: 我们得用捕猎基地去兽肉的资源地点获取兽肉,
+seg after custom pinyin: 我们得用捕猎基地去兽肉的资源地点获取兽肉,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:我们得用捕猎基地去兽肉的资源地点获取兽肉, pinyins:['wo3', 'men5', 'dei3', 'yong4', 'bu3', 'lie4', 'ji1', 'di4', 'qu4', 'shou4', 'rou4', 'de5', 'zi1', 'yuan2', 'di4', 'dian3', 'huo4', 'qu3', 'shou4', 'rou4', ',']
+seg before custom pinyin: 记得吗?
+seg after custom pinyin: 记得吗?
+customer_pin:  ['', '', '', '']
+g2pw seg:记得吗? pinyins:['ji4', 'de5', 'ma5', '?']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['我们得用捕猎基地去兽肉的资源地点获取兽肉,记得吗?']
+  0%|          | 0/1500 [00:00<?, ?it/s]  1%|          | 11/1500 [00:00<00:14, 104.12it/s]  2%|▏         | 23/1500 [00:00<00:13, 111.46it/s]  2%|▏         | 35/1500 [00:00<00:12, 113.61it/s]  3%|▎         | 47/1500 [00:00<00:12, 114.52it/s]  4%|▍         | 59/1500 [00:00<00:12, 115.26it/s]  5%|▍         | 71/1500 [00:00<00:12, 115.56it/s]  6%|▌         | 83/1500 [00:00<00:12, 115.60it/s]  6%|▋         | 95/1500 [00:00<00:12, 115.82it/s]  7%|▋         | 105/1500 [00:00<00:12, 113.67it/s]
+T2S Decoding EOS [170 -> 276]
+0.430	0.198	0.926	0.236
+TTS_FN TORCH INFER 2.0028271675109863
+TTS TORCH cost time  2.0033490657806396
+****************************************************************************************************
+INIT FILE TIME 4.76837158203125e-06
+Set seed to 578314680
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+text before clean_text_inf: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+text before normalization: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+=====================================text_normalize================================
+text after normalization: 嘿嘿,似乎本姑娘教了他很多东西,我还挺厉害的嘛.
+text before g2p: 嘿嘿,似乎本姑娘教了他很多东西,我还挺厉害的嘛.
+text after g2p: ['嘿嘿,', '似乎本姑娘教了他很多东西,', '我还挺厉害的嘛.']
+seg before custom pinyin: 嘿嘿,
+seg after custom pinyin: 嘿嘿,
+customer_pin:  ['', '', '']
+g2pw seg:嘿嘿, pinyins:['hei1', 'hei1', ',']
+seg before custom pinyin: 似乎本姑娘教了他很多东西,
+seg after custom pinyin: 似乎本姑娘教了他很多东西,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:似乎本姑娘教了他很多东西, pinyins:['si4', 'hu1', 'ben3', 'gu1', 'niang2', 'jiao1', 'le5', 'ta1', 'hen3', 'duo1', 'dong1', 'xi5', ',']
+seg before custom pinyin: 我还挺厉害的嘛.
+seg after custom pinyin: 我还挺厉害的嘛.
+customer_pin:  ['', '', '', '', '', '', '', '']
+g2pw seg:我还挺厉害的嘛. pinyins:['wo3', 'hai2', 'ting3', 'li4', 'hai4', 'de5', 'ma5', '.']
+============================== custom_pinyin
+############ 切分文本 ############
+Actual Input Target Text:
+我们选重力分离室的图纸，我找到复合陶瓷了，正适合用。滴滴~物资复合陶瓷x1已送给你啦。滴滴~道具复合陶瓷x1传输完成
+Actual Input Target Text (after sentence segmentation):
+['我们选重力分离室的图纸，我找到复合陶瓷了，正适合用。', '滴滴~物资复合陶瓷x1已送给你啦。', '滴滴~道具复合陶瓷x1传输完成。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/3 [00:00<?, ?it/s] 33%|███▎      | 1/3 [00:00<00:00,  6.28it/s]100%|██████████| 3/3 [00:00<00:00, 10.69it/s]100%|██████████| 3/3 [00:00<00:00,  9.98it/s]
+text before clean_text_inf: 我们选重力分离室的图纸，我找到复合陶瓷了，正适合用。
+text before normalization: 我们选重力分离室的图纸，我找到复合陶瓷了，正适合用。
+=====================================text_normalize================================
+text after normalization: 我们选重力分离室的图纸,我找到复合陶瓷了,正适合用.
+text before g2p: 我们选重力分离室的图纸,我找到复合陶瓷了,正适合用.
+text after g2p: ['我们选重力分离室的图纸,', '我找到复合陶瓷了,', '正适合用.']
+seg before custom pinyin: 我们选重力分离室的图纸,
+seg after custom pinyin: 我们选重力分离室的图纸,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:我们选重力分离室的图纸, pinyins:['wo3', 'men5', 'xuan3', 'zhong4', 'li4', 'fen1', 'li2', 'shi4', 'de5', 'tu2', 'zhi3', ',']
+seg before custom pinyin: 我找到复合陶瓷了,
+seg after custom pinyin: 我找到复合陶瓷了,
+customer_pin:  ['', '', '', '', '', '', '', '', '']
+g2pw seg:我找到复合陶瓷了, pinyins:['wo3', 'zhao3', 'dao4', 'fu4', 'he2', 'tao2', 'ci2', 'le5', ',']
+seg before custom pinyin: 正适合用.
+seg after custom pinyin: 正适合用.
+customer_pin:  ['', '', '', '', '']
+g2pw seg:正适合用. pinyins:['zheng4', 'shi4', 'he2', 'yong4', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~物资复合陶瓷x1已送给你啦。
+text before normalization: 滴滴~物资复合陶瓷x1已送给你啦。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…物资复合陶瓷一已送给你啦.
+text before g2p: 滴滴…物资复合陶瓷一已送给你啦.
+text after g2p: ['滴滴…', '物资复合陶瓷一已送给你啦.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 物资复合陶瓷一已送给你啦.
+seg after custom pinyin: 物资复合陶瓷一已送给你啦.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:物资复合陶瓷一已送给你啦. pinyins:['wu4', 'zi1', 'fu4', 'he2', 'tao2', 'ci2', 'yi1', 'yi3', 'song4', 'gei3', 'ni3', 'la5', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~道具复合陶瓷x1传输完成。
+text before normalization: 滴滴~道具复合陶瓷x1传输完成。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…道具复合陶瓷一传输完成.
+text before g2p: 滴滴…道具复合陶瓷一传输完成.
+text after g2p: ['滴滴…', '道具复合陶瓷一传输完成.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 道具复合陶瓷一传输完成.
+seg after custom pinyin: 道具复合陶瓷一传输完成.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:道具复合陶瓷一传输完成. pinyins:['dao4', 'ju4', 'fu4', 'he2', 'tao2', 'ci2', 'yi1', 'chuan2', 'shu1', 'wan2', 'cheng2', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['滴滴…道具复合陶瓷一传输完成.', '滴滴…物资复合陶瓷一已送给你啦.', '我们选重力分离室的图纸,我找到复合陶瓷了,正适合用.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  0%|          | 7/1500 [00:00<00:21, 68.34it/s]  1%|          | 17/1500 [00:00<00:17, 83.56it/s]  2%|▏         | 27/1500 [00:00<00:16, 88.27it/s]  2%|▏         | 37/1500 [00:00<00:16, 90.36it/s]  3%|▎         | 47/1500 [00:00<00:15, 91.59it/s]  4%|▍         | 57/1500 [00:00<00:15, 92.21it/s]  4%|▍         | 67/1500 [00:00<00:15, 91.91it/s]  5%|▌         | 77/1500 [00:00<00:15, 92.61it/s]  6%|▌         | 87/1500 [00:00<00:15, 92.73it/s]  7%|▋         | 98/1500 [00:01<00:14, 96.12it/s]  7%|▋         | 110/1500 [00:01<00:13, 102.06it/s]  7%|▋         | 112/1500 [00:01<00:14, 93.67it/s] 
+T2S Decoding EOS [140 -> 253]
+0.370	0.302	1.198	0.237
+TTS_FN TORCH INFER 2.3250434398651123
+TTS TORCH cost time  2.326301336288452
+****************************************************************************************************
+INIT FILE TIME 4.5299530029296875e-06
+Set seed to 2631473442
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+text before clean_text_inf: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+text before normalization: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+=====================================text_normalize================================
+text after normalization: 说是检修,但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+text before g2p: 说是检修,但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+text after g2p: ['说是检修,', '但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?']
+seg before custom pinyin: 说是检修,
+seg after custom pinyin: 说是检修,
+customer_pin:  ['', '', '', '', '']
+g2pw seg:说是检修, pinyins:['shuo1', 'shi4', 'jian3', 'xiu1', ',']
+seg before custom pinyin: 但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+seg after custom pinyin: 但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线? pinyins:['dan4', 'kan4', 'qi3', 'lai2', 'ta1', 'men5', 'si4', 'hu1', 'bing4', 'bu4', 'zhi1', 'dao4', 'zen3', 'me5', 'bai3', 'nong4', 'na4', 'tiao2', 'xing1', 'cha2', 'zhi4', 'zao4', 'de5', 'liu2', 'shui3', 'xian4', '?']
+============================== custom_pinyin
+############ 切分文本 ############
+############ 提取文本Bert特征 ############
+0it [00:00, ?it/s]0it [00:00, ?it/s]
+TTS_FN TORCH INFER 0.5146939754486084
+TTS TORCH cost time  0.5148181915283203
+****************************************************************************************************
+INIT FILE TIME 4.76837158203125e-06
+Set seed to 2425334342
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+############ 切分文本 ############
+Actual Input Target Text:
+我们遇到图纸选择的问题了，记得选重力分离室哦。对了，我这儿有防辐射板，正好能用上，已送给你啦。滴滴~道具防辐射板x1传输完成
+Actual Input Target Text (after sentence segmentation):
+['我们遇到图纸选择的问题了，记得选重力分离室哦。', '对了，我这儿有防辐射板，正好能用上，已送给你啦。', '滴滴~道具防辐射板x1传输完成。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/3 [00:00<?, ?it/s] 33%|███▎      | 1/3 [00:00<00:00,  6.84it/s] 67%|██████▋   | 2/3 [00:00<00:00,  6.88it/s]100%|██████████| 3/3 [00:00<00:00,  8.60it/s]
+text before clean_text_inf: 我们遇到图纸选择的问题了，记得选重力分离室哦。
+text before normalization: 我们遇到图纸选择的问题了，记得选重力分离室哦。
+=====================================text_normalize================================
+text after normalization: 我们遇到图纸选择的问题了,记得选重力分离室哦.
+text before g2p: 我们遇到图纸选择的问题了,记得选重力分离室哦.
+text after g2p: ['我们遇到图纸选择的问题了,', '记得选重力分离室哦.']
+seg before custom pinyin: 我们遇到图纸选择的问题了,
+seg after custom pinyin: 我们遇到图纸选择的问题了,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:我们遇到图纸选择的问题了, pinyins:['wo3', 'men5', 'yu4', 'dao4', 'tu2', 'zhi3', 'xuan3', 'ze2', 'de5', 'wen4', 'ti2', 'le5', ',']
+seg before custom pinyin: 记得选重力分离室哦.
+seg after custom pinyin: 记得选重力分离室哦.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '']
+g2pw seg:记得选重力分离室哦. pinyins:['ji4', 'de5', 'xuan3', 'zhong4', 'li4', 'fen1', 'li2', 'shi4', 'o2', '.']
+============================== custom_pinyin
+text before clean_text_inf: 对了，我这儿有防辐射板，正好能用上，已送给你啦。
+text before normalization: 对了，我这儿有防辐射板，正好能用上，已送给你啦。
+=====================================text_normalize================================
+text after normalization: 对了,我这儿有防辐射板,正好能用上,已送给你啦.
+text before g2p: 对了,我这儿有防辐射板,正好能用上,已送给你啦.
+text after g2p: ['对了,', '我这儿有防辐射板,', '正好能用上,', '已送给你啦.']
+seg before custom pinyin: 对了,
+seg after custom pinyin: 对了,
+customer_pin:  ['', '', '']
+g2pw seg:对了, pinyins:['dui4', 'le5', ',']
+seg before custom pinyin: 我这儿有防辐射板,
+seg after custom pinyin: 我这儿有防辐射板,
+customer_pin:  ['', '', '', '', '', '', '', '', '']
+g2pw seg:我这儿有防辐射板, pinyins:['wo3', 'zhe4', 'er1', 'you3', 'fang2', 'fu2', 'she4', 'ban3', ',']
+seg before custom pinyin: 正好能用上,
+seg after custom pinyin: 正好能用上,
+customer_pin:  ['', '', '', '', '', '']
+g2pw seg:正好能用上, pinyins:['zheng4', 'hao3', 'neng2', 'yong4', 'shang4', ',']
+seg before custom pinyin: 已送给你啦.
+seg after custom pinyin: 已送给你啦.
+customer_pin:  ['', '', '', '', '', '']
+g2pw seg:已送给你啦. pinyins:['yi3', 'song4', 'gei3', 'ni3', 'la5', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~道具防辐射板x1传输完成。
+text before normalization: 滴滴~道具防辐射板x1传输完成。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…道具防辐射板一传输完成.
+text before g2p: 滴滴…道具防辐射板一传输完成.
+text after g2p: ['滴滴…', '道具防辐射板一传输完成.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 道具防辐射板一传输完成.
+seg after custom pinyin: 道具防辐射板一传输完成.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:道具防辐射板一传输完成. pinyins:['dao4', 'ju4', 'fang2', 'fu2', 'she4', 'ban3', 'yi1', 'chuan2', 'shu1', 'wan2', 'cheng2', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['滴滴…道具防辐射板一传输完成.', '我们遇到图纸选择的问题了,记得选重力分离室哦.', '对了,我这儿有防辐射板,正好能用上,已送给你啦.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  0%|          | 7/1500 [00:00<00:21, 68.11it/s]  1%|          | 17/1500 [00:00<00:17, 83.67it/s]  2%|▏         | 27/1500 [00:00<00:16, 88.32it/s]  2%|▏         | 37/1500 [00:00<00:16, 90.19it/s]  3%|▎         | 47/1500 [00:00<00:15, 91.40it/s]  4%|▍         | 57/1500 [00:00<00:15, 91.92it/s]  4%|▍         | 67/1500 [00:00<00:15, 92.45it/s]  5%|▌         | 77/1500 [00:00<00:15, 92.15it/s]  6%|▌         | 87/1500 [00:00<00:15, 92.86it/s]  6%|▋         | 97/1500 [00:01<00:14, 94.43it/s]  7%|▋         | 107/1500 [00:01<00:15, 92.55it/s]
+T2S Decoding EOS [152 -> 260]
+0.000	0.350	1.159	0.247
+TTS_FN TORCH INFER 1.9537651538848877
+TTS TORCH cost time  1.9552361965179443
+****************************************************************************************************
+INIT FILE TIME 5.0067901611328125e-06
+Set seed to 2427075790
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+############ 切分文本 ############
+Actual Input Target Text:
+。建造师，解锁卡片后建星际交易所，右上角就能开贸易航线，物资交易更便捷哦。
+Actual Input Target Text (after sentence segmentation):
+['建造师，解锁卡片后建星际交易所，右上角就能开贸易航线，物资交易更便捷哦。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00,  6.71it/s]100%|██████████| 1/1 [00:00<00:00,  6.70it/s]
+text before clean_text_inf: 建造师，解锁卡片后建星际交易所，右上角就能开贸易航线，物资交易更便捷哦。
+text before normalization: 建造师，解锁卡片后建星际交易所，右上角就能开贸易航线，物资交易更便捷哦。
+=====================================text_normalize================================
+text after normalization: 建造师,解锁卡片后建星际交易所,右上角就能开贸易航线,物资交易更便捷哦.
+text before g2p: 建造师,解锁卡片后建星际交易所,右上角就能开贸易航线,物资交易更便捷哦.
+text after g2p: ['建造师,', '解锁卡片后建星际交易所,', '右上角就能开贸易航线,', '物资交易更便捷哦.']
+seg before custom pinyin: 建造师,
+seg after custom pinyin: 建造师,
+customer_pin:  ['', '', '', '']
+g2pw seg:建造师, pinyins:['jian4', 'zao4', 'shi1', ',']
+seg before custom pinyin: 解锁卡片后建星际交易所,
+seg after custom pinyin: 解锁卡片后建星际交易所,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:解锁卡片后建星际交易所, pinyins:['jie3', 'suo3', 'ka3', 'pian4', 'hou4', 'jian4', 'xing1', 'ji4', 'jiao1', 'yi4', 'suo3', ',']
+seg before custom pinyin: 右上角就能开贸易航线,
+seg after custom pinyin: 右上角就能开贸易航线,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:右上角就能开贸易航线, pinyins:['you4', 'shang4', 'jiao3', 'jiu4', 'neng2', 'kai1', 'mao4', 'yi4', 'hang2', 'xian4', ',']
+seg before custom pinyin: 物资交易更便捷哦.
+seg after custom pinyin: 物资交易更便捷哦.
+customer_pin:  ['', '', '', '', '', '', '', '', '']
+g2pw seg:物资交易更便捷哦. pinyins:['wu4', 'zi1', 'jiao1', 'yi4', 'geng4', 'bian4', 'jie2', 'o2', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['建造师,解锁卡片后建星际交易所,右上角就能开贸易航线,物资交易更便捷哦.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  1%|          | 11/1500 [00:00<00:14, 104.81it/s]  2%|▏         | 23/1500 [00:00<00:13, 111.70it/s]  2%|▏         | 35/1500 [00:00<00:12, 113.91it/s]  3%|▎         | 47/1500 [00:00<00:12, 115.07it/s]  4%|▍         | 59/1500 [00:00<00:12, 115.56it/s]  5%|▍         | 71/1500 [00:00<00:12, 115.76it/s]  6%|▌         | 83/1500 [00:00<00:12, 116.12it/s]  6%|▋         | 95/1500 [00:00<00:12, 115.46it/s]  7%|▋         | 107/1500 [00:00<00:12, 115.72it/s]  8%|▊         | 119/1500 [00:01<00:11, 115.96it/s]  9%|▊         | 131/1500 [00:01<00:11, 116.13it/s] 10%|▉         | 143/1500 [00:01<00:11, 116.07it/s] 10%|█         | 155/1500 [00:01<00:11, 116.19it/s] 11%|█         | 167/1500 [00:01<00:11, 116.16it/s] 11%|█▏        | 171/1500 [00:01<00:11, 114.74it/s]
+T2S Decoding EOS [152 -> 324]
+0.000	0.150	1.492	0.251
+TTS_FN TORCH INFER 2.0867249965667725
+TTS TORCH cost time  2.087829351425171
+****************************************************************************************************
+INIT FILE TIME 4.291534423828125e-06
+Set seed to 488750794
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+text before clean_text_inf: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+text before normalization: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+=====================================text_normalize================================
+text after normalization: 嘿嘿,似乎本姑娘教了他很多东西,我还挺厉害的嘛.
+text before g2p: 嘿嘿,似乎本姑娘教了他很多东西,我还挺厉害的嘛.
+text after g2p: ['嘿嘿,', '似乎本姑娘教了他很多东西,', '我还挺厉害的嘛.']
+seg before custom pinyin: 嘿嘿,
+seg after custom pinyin: 嘿嘿,
+customer_pin:  ['', '', '']
+g2pw seg:嘿嘿, pinyins:['hei1', 'hei1', ',']
+seg before custom pinyin: 似乎本姑娘教了他很多东西,
+seg after custom pinyin: 似乎本姑娘教了他很多东西,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:似乎本姑娘教了他很多东西, pinyins:['si4', 'hu1', 'ben3', 'gu1', 'niang2', 'jiao1', 'le5', 'ta1', 'hen3', 'duo1', 'dong1', 'xi5', ',']
+seg before custom pinyin: 我还挺厉害的嘛.
+seg after custom pinyin: 我还挺厉害的嘛.
+customer_pin:  ['', '', '', '', '', '', '', '']
+g2pw seg:我还挺厉害的嘛. pinyins:['wo3', 'hai2', 'ting3', 'li4', 'hai4', 'de5', 'ma5', '.']
+============================== custom_pinyin
+############ 切分文本 ############
+Actual Input Target Text:
+我们又碰到图纸选择难题，选重力分离室吧。看，我找到了移动支架，刚好能帮上忙，已送给你了。滴滴~道具移动支架x1传输完成
+Actual Input Target Text (after sentence segmentation):
+['我们又碰到图纸选择难题，选重力分离室吧。', '看，我找到了移动支架，刚好能帮上忙，已送给你了。', '滴滴~道具移动支架x1传输完成。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/3 [00:00<?, ?it/s] 67%|██████▋   | 2/3 [00:00<00:00, 10.29it/s]100%|██████████| 3/3 [00:00<00:00, 12.39it/s]
+text before clean_text_inf: 我们又碰到图纸选择难题，选重力分离室吧。
+text before normalization: 我们又碰到图纸选择难题，选重力分离室吧。
+=====================================text_normalize================================
+text after normalization: 我们又碰到图纸选择难题,选重力分离室吧.
+text before g2p: 我们又碰到图纸选择难题,选重力分离室吧.
+text after g2p: ['我们又碰到图纸选择难题,', '选重力分离室吧.']
+seg before custom pinyin: 我们又碰到图纸选择难题,
+seg after custom pinyin: 我们又碰到图纸选择难题,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:我们又碰到图纸选择难题, pinyins:['wo3', 'men5', 'you4', 'peng4', 'dao4', 'tu2', 'zhi3', 'xuan3', 'ze2', 'nan2', 'ti2', ',']
+seg before custom pinyin: 选重力分离室吧.
+seg after custom pinyin: 选重力分离室吧.
+customer_pin:  ['', '', '', '', '', '', '', '']
+g2pw seg:选重力分离室吧. pinyins:['xuan3', 'zhong4', 'li4', 'fen1', 'li2', 'shi4', 'ba5', '.']
+============================== custom_pinyin
+text before clean_text_inf: 看，我找到了移动支架，刚好能帮上忙，已送给你了。
+text before normalization: 看，我找到了移动支架，刚好能帮上忙，已送给你了。
+=====================================text_normalize================================
+text after normalization: 看,我找到了移动支架,刚好能帮上忙,已送给你了.
+text before g2p: 看,我找到了移动支架,刚好能帮上忙,已送给你了.
+text after g2p: ['看,', '我找到了移动支架,', '刚好能帮上忙,', '已送给你了.']
+seg before custom pinyin: 看,
+seg after custom pinyin: 看,
+customer_pin:  ['', '']
+g2pw seg:看, pinyins:['kan4', ',']
+seg before custom pinyin: 我找到了移动支架,
+seg after custom pinyin: 我找到了移动支架,
+customer_pin:  ['', '', '', '', '', '', '', '', '']
+g2pw seg:我找到了移动支架, pinyins:['wo3', 'zhao3', 'dao4', 'le5', 'yi2', 'dong4', 'zhi1', 'jia4', ',']
+seg before custom pinyin: 刚好能帮上忙,
+seg after custom pinyin: 刚好能帮上忙,
+customer_pin:  ['', '', '', '', '', '', '']
+g2pw seg:刚好能帮上忙, pinyins:['gang1', 'hao3', 'neng2', 'bang1', 'shang4', 'mang2', ',']
+seg before custom pinyin: 已送给你了.
+seg after custom pinyin: 已送给你了.
+customer_pin:  ['', '', '', '', '', '']
+g2pw seg:已送给你了. pinyins:['yi3', 'song4', 'gei3', 'ni3', 'le5', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~道具移动支架x1传输完成。
+text before normalization: 滴滴~道具移动支架x1传输完成。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…道具移动支架一传输完成.
+text before g2p: 滴滴…道具移动支架一传输完成.
+text after g2p: ['滴滴…', '道具移动支架一传输完成.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 道具移动支架一传输完成.
+seg after custom pinyin: 道具移动支架一传输完成.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:道具移动支架一传输完成. pinyins:['dao4', 'ju4', 'yi2', 'dong4', 'zhi1', 'jia4', 'yi1', 'chuan2', 'shu1', 'wan2', 'cheng2', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['滴滴…道具移动支架一传输完成.', '我们又碰到图纸选择难题,选重力分离室吧.', '看,我找到了移动支架,刚好能帮上忙,已送给你了.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  0%|          | 7/1500 [00:00<00:22, 67.72it/s]  1%|          | 17/1500 [00:00<00:17, 83.06it/s]  2%|▏         | 27/1500 [00:00<00:16, 87.88it/s]  2%|▏         | 37/1500 [00:00<00:16, 90.13it/s]  3%|▎         | 47/1500 [00:00<00:15, 91.45it/s]  4%|▍         | 57/1500 [00:00<00:15, 92.21it/s]  4%|▍         | 67/1500 [00:00<00:15, 92.73it/s]  5%|▌         | 77/1500 [00:00<00:15, 92.84it/s]  6%|▌         | 87/1500 [00:00<00:15, 93.35it/s]  7%|▋         | 98/1500 [00:01<00:15, 92.41it/s]
+T2S Decoding EOS [140 -> 239]
+0.348	0.243	1.063	0.249
+TTS_FN TORCH INFER 2.1005303859710693
+TTS TORCH cost time  2.1016972064971924
+****************************************************************************************************
+INIT FILE TIME 4.76837158203125e-06
+Set seed to 2744238276
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+############ 切分文本 ############
+Actual Input Target Text:
+我们这次还是选重力分离室，对了，这里有防辐射板，正好你需要，我已经给你了。滴滴~道具防辐射板x1传输完成。滴滴~道具防辐射板x1传输完成
+Actual Input Target Text (after sentence segmentation):
+['我们这次还是选重力分离室，对了，这里有防辐射板，正好你需要，我已经给你了。', '滴滴~道具防辐射板x1传输完成。', '滴滴~道具防辐射板x1传输完成。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/3 [00:00<?, ?it/s] 33%|███▎      | 1/3 [00:00<00:00,  4.73it/s]100%|██████████| 3/3 [00:00<00:00, 10.25it/s]100%|██████████| 3/3 [00:00<00:00,  9.17it/s]
+text before clean_text_inf: 我们这次还是选重力分离室，对了，这里有防辐射板，正好你需要，我已经给你了。
+text before normalization: 我们这次还是选重力分离室，对了，这里有防辐射板，正好你需要，我已经给你了。
+=====================================text_normalize================================
+text after normalization: 我们这次还是选重力分离室,对了,这里有防辐射板,正好你需要,我已经给你了.
+text before g2p: 我们这次还是选重力分离室,对了,这里有防辐射板,正好你需要,我已经给你了.
+text after g2p: ['我们这次还是选重力分离室,', '对了,', '这里有防辐射板,', '正好你需要,', '我已经给你了.']
+seg before custom pinyin: 我们这次还是选重力分离室,
+seg after custom pinyin: 我们这次还是选重力分离室,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:我们这次还是选重力分离室, pinyins:['wo3', 'men5', 'zhe4', 'ci4', 'hai2', 'shi4', 'xuan3', 'zhong4', 'li4', 'fen1', 'li2', 'shi4', ',']
+seg before custom pinyin: 对了,
+seg after custom pinyin: 对了,
+customer_pin:  ['', '', '']
+g2pw seg:对了, pinyins:['dui4', 'le5', ',']
+seg before custom pinyin: 这里有防辐射板,
+seg after custom pinyin: 这里有防辐射板,
+customer_pin:  ['', '', '', '', '', '', '', '']
+g2pw seg:这里有防辐射板, pinyins:['zhe4', 'li3', 'you3', 'fang2', 'fu2', 'she4', 'ban3', ',']
+seg before custom pinyin: 正好你需要,
+seg after custom pinyin: 正好你需要,
+customer_pin:  ['', '', '', '', '', '']
+g2pw seg:正好你需要, pinyins:['zheng4', 'hao3', 'ni3', 'xu1', 'yao4', ',']
+seg before custom pinyin: 我已经给你了.
+seg after custom pinyin: 我已经给你了.
+customer_pin:  ['', '', '', '', '', '', '']
+g2pw seg:我已经给你了. pinyins:['wo3', 'yi3', 'jing1', 'gei3', 'ni3', 'le5', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~道具防辐射板x1传输完成。
+text before normalization: 滴滴~道具防辐射板x1传输完成。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…道具防辐射板一传输完成.
+text before g2p: 滴滴…道具防辐射板一传输完成.
+text after g2p: ['滴滴…', '道具防辐射板一传输完成.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 道具防辐射板一传输完成.
+seg after custom pinyin: 道具防辐射板一传输完成.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:道具防辐射板一传输完成. pinyins:['dao4', 'ju4', 'fang2', 'fu2', 'she4', 'ban3', 'yi1', 'chuan2', 'shu1', 'wan2', 'cheng2', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~道具防辐射板x1传输完成。
+text before normalization: 滴滴~道具防辐射板x1传输完成。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…道具防辐射板一传输完成.
+text before g2p: 滴滴…道具防辐射板一传输完成.
+text after g2p: ['滴滴…', '道具防辐射板一传输完成.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 道具防辐射板一传输完成.
+seg after custom pinyin: 道具防辐射板一传输完成.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:道具防辐射板一传输完成. pinyins:['dao4', 'ju4', 'fang2', 'fu2', 'she4', 'ban3', 'yi1', 'chuan2', 'shu1', 'wan2', 'cheng2', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['滴滴…道具防辐射板一传输完成.', '滴滴…道具防辐射板一传输完成.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  1%|          | 8/1500 [00:00<00:19, 78.02it/s]  1%|          | 18/1500 [00:00<00:16, 88.24it/s]  2%|▏         | 28/1500 [00:00<00:16, 91.43it/s]  3%|▎         | 38/1500 [00:00<00:15, 92.84it/s]  3%|▎         | 48/1500 [00:00<00:15, 93.30it/s]  4%|▍         | 58/1500 [00:00<00:15, 93.88it/s]  5%|▍         | 68/1500 [00:00<00:15, 94.23it/s]  5%|▌         | 77/1500 [00:00<00:15, 93.08it/s]
+T2S Decoding EOS [140 -> 218]
+Processed text from the frontend (per sentence): ['我们这次还是选重力分离室,对了,这里有防辐射板,正好你需要,我已经给你了.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  1%|          | 11/1500 [00:00<00:14, 105.92it/s]  2%|▏         | 23/1500 [00:00<00:13, 112.41it/s]  2%|▏         | 35/1500 [00:00<00:12, 114.40it/s]  3%|▎         | 47/1500 [00:00<00:12, 115.38it/s]  4%|▍         | 59/1500 [00:00<00:12, 115.63it/s]  5%|▍         | 71/1500 [00:00<00:12, 115.92it/s]  6%|▌         | 83/1500 [00:00<00:12, 116.34it/s]  6%|▋         | 95/1500 [00:00<00:12, 116.48it/s]  7%|▋         | 107/1500 [00:00<00:11, 116.56it/s]  8%|▊         | 119/1500 [00:01<00:11, 116.73it/s]  9%|▊         | 131/1500 [00:01<00:11, 116.79it/s] 10%|▉         | 143/1500 [00:01<00:11, 116.83it/s] 10%|█         | 155/1500 [00:01<00:11, 116.76it/s] 11%|█         | 167/1500 [00:01<00:11, 116.92it/s] 11%|█▏        | 171/1500 [00:01<00:11, 115.12it/s]
+T2S Decoding EOS [140 -> 312]
+0.000	0.328	2.317	0.159
+TTS_FN TORCH INFER 3.0643115043640137
+TTS TORCH cost time  3.0656111240386963
+****************************************************************************************************
+INIT FILE TIME 4.5299530029296875e-06
+Set seed to 948823082
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+############ 切分文本 ############
+Actual Input Target Text:
+我们选重力分离室吧，我这有防辐射板，刚好适合你，已送给你了。滴滴~道具防辐射板x1传输完成
+Actual Input Target Text (after sentence segmentation):
+['我们选重力分离室吧，我这有防辐射板，刚好适合你，已送给你了。', '滴滴~道具防辐射板x1传输完成。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:00<00:00,  5.99it/s]100%|██████████| 2/2 [00:00<00:00,  8.89it/s]
+text before clean_text_inf: 我们选重力分离室吧，我这有防辐射板，刚好适合你，已送给你了。
+text before normalization: 我们选重力分离室吧，我这有防辐射板，刚好适合你，已送给你了。
+=====================================text_normalize================================
+text after normalization: 我们选重力分离室吧,我这有防辐射板,刚好适合你,已送给你了.
+text before g2p: 我们选重力分离室吧,我这有防辐射板,刚好适合你,已送给你了.
+text after g2p: ['我们选重力分离室吧,', '我这有防辐射板,', '刚好适合你,', '已送给你了.']
+seg before custom pinyin: 我们选重力分离室吧,
+seg after custom pinyin: 我们选重力分离室吧,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '']
+g2pw seg:我们选重力分离室吧, pinyins:['wo3', 'men5', 'xuan3', 'zhong4', 'li4', 'fen1', 'li2', 'shi4', 'ba5', ',']
+seg before custom pinyin: 我这有防辐射板,
+seg after custom pinyin: 我这有防辐射板,
+customer_pin:  ['', '', '', '', '', '', '', '']
+g2pw seg:我这有防辐射板, pinyins:['wo3', 'zhe4', 'you3', 'fang2', 'fu2', 'she4', 'ban3', ',']
+seg before custom pinyin: 刚好适合你,
+seg after custom pinyin: 刚好适合你,
+customer_pin:  ['', '', '', '', '', '']
+g2pw seg:刚好适合你, pinyins:['gang1', 'hao3', 'shi4', 'he2', 'ni3', ',']
+seg before custom pinyin: 已送给你了.
+seg after custom pinyin: 已送给你了.
+customer_pin:  ['', '', '', '', '', '']
+g2pw seg:已送给你了. pinyins:['yi3', 'song4', 'gei3', 'ni3', 'le5', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~道具防辐射板x1传输完成。
+text before normalization: 滴滴~道具防辐射板x1传输完成。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…道具防辐射板一传输完成.
+text before g2p: 滴滴…道具防辐射板一传输完成.
+text after g2p: ['滴滴…', '道具防辐射板一传输完成.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 道具防辐射板一传输完成.
+seg after custom pinyin: 道具防辐射板一传输完成.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:道具防辐射板一传输完成. pinyins:['dao4', 'ju4', 'fang2', 'fu2', 'she4', 'ban3', 'yi1', 'chuan2', 'shu1', 'wan2', 'cheng2', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['滴滴…道具防辐射板一传输完成.', '我们选重力分离室吧,我这有防辐射板,刚好适合你,已送给你了.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  1%|          | 8/1500 [00:00<00:19, 75.04it/s]  1%|          | 18/1500 [00:00<00:17, 86.00it/s]  2%|▏         | 28/1500 [00:00<00:16, 89.95it/s]  3%|▎         | 38/1500 [00:00<00:15, 91.79it/s]  3%|▎         | 48/1500 [00:00<00:15, 91.95it/s]  4%|▍         | 58/1500 [00:00<00:15, 92.81it/s]  5%|▍         | 68/1500 [00:00<00:15, 93.46it/s]  5%|▌         | 78/1500 [00:00<00:14, 95.16it/s]  6%|▌         | 90/1500 [00:00<00:13, 101.55it/s]  7%|▋         | 102/1500 [00:01<00:13, 105.92it/s]  7%|▋         | 110/1500 [00:01<00:14, 97.27it/s] 
+T2S Decoding EOS [140 -> 251]
+0.000	0.226	1.133	0.245
+TTS_FN TORCH INFER 1.800370454788208
+TTS TORCH cost time  1.8011751174926758
+****************************************************************************************************
+INIT FILE TIME 4.291534423828125e-06
+Set seed to 4246237975
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+############ 切分文本 ############
+Actual Input Target Text:
+我们选重力分离室吧，我找到了星壤，对你有帮助哦。滴滴~道具星壤x1传输完成
+Actual Input Target Text (after sentence segmentation):
+['我们选重力分离室吧，我找到了星壤，对你有帮助哦。', '滴滴~道具星壤x1传输完成。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:00<00:00,  7.58it/s]100%|██████████| 2/2 [00:00<00:00,  9.85it/s]
+text before clean_text_inf: 我们选重力分离室吧，我找到了星壤，对你有帮助哦。
+text before normalization: 我们选重力分离室吧，我找到了星壤，对你有帮助哦。
+=====================================text_normalize================================
+text after normalization: 我们选重力分离室吧,我找到了星壤,对你有帮助哦.
+text before g2p: 我们选重力分离室吧,我找到了星壤,对你有帮助哦.
+text after g2p: ['我们选重力分离室吧,', '我找到了星壤,', '对你有帮助哦.']
+seg before custom pinyin: 我们选重力分离室吧,
+seg after custom pinyin: 我们选重力分离室吧,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '']
+g2pw seg:我们选重力分离室吧, pinyins:['wo3', 'men5', 'xuan3', 'zhong4', 'li4', 'fen1', 'li2', 'shi4', 'ba5', ',']
+seg before custom pinyin: 我找到了星壤,
+seg after custom pinyin: 我找到了星壤,
+customer_pin:  ['', '', '', '', '', '', '']
+g2pw seg:我找到了星壤, pinyins:['wo3', 'zhao3', 'dao4', 'le5', 'xing1', 'rang3', ',']
+seg before custom pinyin: 对你有帮助哦.
+seg after custom pinyin: 对你有帮助哦.
+customer_pin:  ['', '', '', '', '', '', '']
+g2pw seg:对你有帮助哦. pinyins:['dui4', 'ni3', 'you3', 'bang1', 'zhu4', 'o2', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~道具星壤x1传输完成。
+text before normalization: 滴滴~道具星壤x1传输完成。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…道具星壤一传输完成.
+text before g2p: 滴滴…道具星壤一传输完成.
+text after g2p: ['滴滴…', '道具星壤一传输完成.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 道具星壤一传输完成.
+seg after custom pinyin: 道具星壤一传输完成.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '']
+g2pw seg:道具星壤一传输完成. pinyins:['dao4', 'ju4', 'xing1', 'rang3', 'yi1', 'chuan2', 'shu1', 'wan2', 'cheng2', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['滴滴…道具星壤一传输完成.', '我们选重力分离室吧,我找到了星壤,对你有帮助哦.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  1%|          | 8/1500 [00:00<00:19, 77.54it/s]  1%|          | 18/1500 [00:00<00:16, 87.77it/s]  2%|▏         | 28/1500 [00:00<00:16, 90.45it/s]  3%|▎         | 38/1500 [00:00<00:15, 92.16it/s]  3%|▎         | 48/1500 [00:00<00:15, 93.08it/s]  4%|▍         | 58/1500 [00:00<00:15, 93.62it/s]  5%|▍         | 68/1500 [00:00<00:15, 94.06it/s]  5%|▌         | 78/1500 [00:00<00:14, 95.65it/s]  6%|▌         | 90/1500 [00:00<00:13, 102.36it/s]  7%|▋         | 98/1500 [00:01<00:14, 96.28it/s] 
+T2S Decoding EOS [140 -> 239]
+0.000	0.204	1.020	0.073
+TTS_FN TORCH INFER 1.491692304611206
+TTS TORCH cost time  1.4925949573516846
+****************************************************************************************************
+INIT FILE TIME 5.4836273193359375e-06
+Set seed to 1316486913
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+############ 切分文本 ############
+Actual Input Target Text:
+我们选重力分离室，对吧？我这儿有防辐射板，正好能帮上忙。滴滴~防辐射板x1已送达。滴滴~道具防辐射板x1传输完成
+Actual Input Target Text (after sentence segmentation):
+['我们选重力分离室，对吧？我这儿有防辐射板，正好能帮上忙。', '滴滴~防辐射板x1已送达。', '滴滴~道具防辐射板x1传输完成。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/3 [00:00<?, ?it/s] 33%|███▎      | 1/3 [00:00<00:00,  5.75it/s]100%|██████████| 3/3 [00:00<00:00, 11.01it/s]
+text before clean_text_inf: 我们选重力分离室，对吧？我这儿有防辐射板，正好能帮上忙。
+text before normalization: 我们选重力分离室，对吧？我这儿有防辐射板，正好能帮上忙。
+=====================================text_normalize================================
+text after normalization: 我们选重力分离室,对吧?我这儿有防辐射板,正好能帮上忙.
+text before g2p: 我们选重力分离室,对吧?我这儿有防辐射板,正好能帮上忙.
+text after g2p: ['我们选重力分离室,', '对吧?', '我这儿有防辐射板,', '正好能帮上忙.']
+seg before custom pinyin: 我们选重力分离室,
+seg after custom pinyin: 我们选重力分离室,
+customer_pin:  ['', '', '', '', '', '', '', '', '']
+g2pw seg:我们选重力分离室, pinyins:['wo3', 'men5', 'xuan3', 'zhong4', 'li4', 'fen1', 'li2', 'shi4', ',']
+seg before custom pinyin: 对吧?
+seg after custom pinyin: 对吧?
+customer_pin:  ['', '', '']
+g2pw seg:对吧? pinyins:['dui4', 'ba5', '?']
+seg before custom pinyin: 我这儿有防辐射板,
+seg after custom pinyin: 我这儿有防辐射板,
+customer_pin:  ['', '', '', '', '', '', '', '', '']
+g2pw seg:我这儿有防辐射板, pinyins:['wo3', 'zhe4', 'er1', 'you3', 'fang2', 'fu2', 'she4', 'ban3', ',']
+seg before custom pinyin: 正好能帮上忙.
+seg after custom pinyin: 正好能帮上忙.
+customer_pin:  ['', '', '', '', '', '', '']
+g2pw seg:正好能帮上忙. pinyins:['zheng4', 'hao3', 'neng2', 'bang1', 'shang4', 'mang2', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~防辐射板x1已送达。
+text before normalization: 滴滴~防辐射板x1已送达。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…防辐射板一已送达.
+text before g2p: 滴滴…防辐射板一已送达.
+text after g2p: ['滴滴…', '防辐射板一已送达.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 防辐射板一已送达.
+seg after custom pinyin: 防辐射板一已送达.
+customer_pin:  ['', '', '', '', '', '', '', '', '']
+g2pw seg:防辐射板一已送达. pinyins:['fang2', 'fu2', 'she4', 'ban3', 'yi1', 'yi3', 'song4', 'da2', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~道具防辐射板x1传输完成。
+text before normalization: 滴滴~道具防辐射板x1传输完成。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…道具防辐射板一传输完成.
+text before g2p: 滴滴…道具防辐射板一传输完成.
+text after g2p: ['滴滴…', '道具防辐射板一传输完成.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 道具防辐射板一传输完成.
+seg after custom pinyin: 道具防辐射板一传输完成.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:道具防辐射板一传输完成. pinyins:['dao4', 'ju4', 'fang2', 'fu2', 'she4', 'ban3', 'yi1', 'chuan2', 'shu1', 'wan2', 'cheng2', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['滴滴…防辐射板一已送达.', '滴滴…道具防辐射板一传输完成.', '我们选重力分离室,对吧?我这儿有防辐射板,正好能帮上忙.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  0%|          | 4/1500 [00:00<00:38, 38.49it/s]  1%|          | 14/1500 [00:00<00:20, 71.41it/s]  2%|▏         | 24/1500 [00:00<00:18, 80.99it/s]  2%|▏         | 34/1500 [00:00<00:17, 86.06it/s]  3%|▎         | 44/1500 [00:00<00:16, 88.76it/s]  4%|▎         | 54/1500 [00:00<00:15, 90.43it/s]  4%|▍         | 64/1500 [00:00<00:15, 91.49it/s]  5%|▍         | 74/1500 [00:00<00:15, 92.00it/s]  6%|▌         | 84/1500 [00:00<00:15, 92.79it/s]  6%|▋         | 94/1500 [00:01<00:15, 93.19it/s]  7%|▋         | 106/1500 [00:01<00:13, 100.18it/s]  8%|▊         | 118/1500 [00:01<00:13, 105.06it/s]  8%|▊         | 126/1500 [00:01<00:14, 93.23it/s] 
+T2S Decoding EOS [140 -> 267]
+0.000	0.273	1.354	0.254
+TTS_FN TORCH INFER 2.080947160720825
+TTS TORCH cost time  2.0823874473571777
+****************************************************************************************************
+INIT FILE TIME 5.0067901611328125e-06
+Set seed to 1424726897
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+text before clean_text_inf: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+text before normalization: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+=====================================text_normalize================================
+text after normalization: 说是检修,但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+text before g2p: 说是检修,但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+text after g2p: ['说是检修,', '但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?']
+seg before custom pinyin: 说是检修,
+seg after custom pinyin: 说是检修,
+customer_pin:  ['', '', '', '', '']
+g2pw seg:说是检修, pinyins:['shuo1', 'shi4', 'jian3', 'xiu1', ',']
+seg before custom pinyin: 但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+seg after custom pinyin: 但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线? pinyins:['dan4', 'kan4', 'qi3', 'lai2', 'ta1', 'men5', 'si4', 'hu1', 'bing4', 'bu4', 'zhi1', 'dao4', 'zen3', 'me5', 'bai3', 'nong4', 'na4', 'tiao2', 'xing1', 'cha2', 'zhi4', 'zao4', 'de5', 'liu2', 'shui3', 'xian4', '?']
+============================== custom_pinyin
+############ 切分文本 ############
+Actual Input Target Text:
+。建造师，记得哦，采集资源得在对应建筑范围内，这样才能高效收集呢！
+Actual Input Target Text (after sentence segmentation):
+['建造师，记得哦，采集资源得在对应建筑范围内，这样才能高效收集呢！']
+############ 提取文本Bert特征 ############
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00,  6.99it/s]100%|██████████| 1/1 [00:00<00:00,  6.98it/s]
+text before clean_text_inf: 建造师，记得哦，采集资源得在对应建筑范围内，这样才能高效收集呢！
+text before normalization: 建造师，记得哦，采集资源得在对应建筑范围内，这样才能高效收集呢！
+=====================================text_normalize================================
+text after normalization: 建造师,记得哦,采集资源得在对应建筑范围内,这样才能高效收集呢!
+text before g2p: 建造师,记得哦,采集资源得在对应建筑范围内,这样才能高效收集呢!
+text after g2p: ['建造师,', '记得哦,', '采集资源得在对应建筑范围内,', '这样才能高效收集呢!']
+seg before custom pinyin: 建造师,
+seg after custom pinyin: 建造师,
+customer_pin:  ['', '', '', '']
+g2pw seg:建造师, pinyins:['jian4', 'zao4', 'shi1', ',']
+seg before custom pinyin: 记得哦,
+seg after custom pinyin: 记得哦,
+customer_pin:  ['', '', '', '']
+g2pw seg:记得哦, pinyins:['ji4', 'de5', 'o2', ',']
+seg before custom pinyin: 采集资源得在对应建筑范围内,
+seg after custom pinyin: 采集资源得在对应建筑范围内,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:采集资源得在对应建筑范围内, pinyins:['cai3', 'ji2', 'zi1', 'yuan2', 'dei3', 'zai4', 'dui4', 'ying4', 'jian4', 'zhu4', 'fan4', 'wei2', 'nei4', ',']
+seg before custom pinyin: 这样才能高效收集呢!
+seg after custom pinyin: 这样才能高效收集呢!
+customer_pin:  ['', '', '', '', '', '', '', '', '', '']
+g2pw seg:这样才能高效收集呢! pinyins:['zhe4', 'yang4', 'cai2', 'neng2', 'gao1', 'xiao4', 'shou1', 'ji2', 'ne5', '!']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['建造师,记得哦,采集资源得在对应建筑范围内,这样才能高效收集呢!']
+  0%|          | 0/1500 [00:00<?, ?it/s]  1%|          | 11/1500 [00:00<00:14, 104.46it/s]  2%|▏         | 23/1500 [00:00<00:13, 110.92it/s]  2%|▏         | 35/1500 [00:00<00:12, 113.38it/s]  3%|▎         | 47/1500 [00:00<00:12, 114.34it/s]  4%|▍         | 59/1500 [00:00<00:12, 114.80it/s]  5%|▍         | 71/1500 [00:00<00:12, 115.26it/s]  6%|▌         | 83/1500 [00:00<00:12, 115.55it/s]  6%|▋         | 95/1500 [00:00<00:12, 115.65it/s]  7%|▋         | 107/1500 [00:00<00:12, 115.14it/s]  8%|▊         | 119/1500 [00:01<00:11, 115.19it/s]  9%|▊         | 131/1500 [00:01<00:11, 115.51it/s] 10%|▉         | 143/1500 [00:01<00:11, 115.25it/s] 10%|▉         | 148/1500 [00:01<00:11, 113.91it/s]
+T2S Decoding EOS [152 -> 301]
+0.505	0.144	1.307	0.257
+TTS_FN TORCH INFER 2.4050261974334717
+TTS TORCH cost time  2.405649423599243
+****************************************************************************************************
+INIT FILE TIME 4.5299530029296875e-06
+Set seed to 168416687
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+text before clean_text_inf: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+text before normalization: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+=====================================text_normalize================================
+text after normalization: 嘿嘿,似乎本姑娘教了他很多东西,我还挺厉害的嘛.
+text before g2p: 嘿嘿,似乎本姑娘教了他很多东西,我还挺厉害的嘛.
+text after g2p: ['嘿嘿,', '似乎本姑娘教了他很多东西,', '我还挺厉害的嘛.']
+seg before custom pinyin: 嘿嘿,
+seg after custom pinyin: 嘿嘿,
+customer_pin:  ['', '', '']
+g2pw seg:嘿嘿, pinyins:['hei1', 'hei1', ',']
+seg before custom pinyin: 似乎本姑娘教了他很多东西,
+seg after custom pinyin: 似乎本姑娘教了他很多东西,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:似乎本姑娘教了他很多东西, pinyins:['si4', 'hu1', 'ben3', 'gu1', 'niang2', 'jiao1', 'le5', 'ta1', 'hen3', 'duo1', 'dong1', 'xi5', ',']
+seg before custom pinyin: 我还挺厉害的嘛.
+seg after custom pinyin: 我还挺厉害的嘛.
+customer_pin:  ['', '', '', '', '', '', '', '']
+g2pw seg:我还挺厉害的嘛. pinyins:['wo3', 'hai2', 'ting3', 'li4', 'hai4', 'de5', 'ma5', '.']
+============================== custom_pinyin
+############ 切分文本 ############
+Actual Input Target Text:
+我们选重力分离室的图纸，对吧？我这有卫星天线，刚好能用上。滴滴~卫星天线x1已送达。滴滴~道具卫星天线x1传输完成
+Actual Input Target Text (after sentence segmentation):
+['我们选重力分离室的图纸，对吧？我这有卫星天线，刚好能用上。', '滴滴~卫星天线x1已送达。', '滴滴~道具卫星天线x1传输完成。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/3 [00:00<?, ?it/s] 33%|███▎      | 1/3 [00:00<00:00,  6.32it/s]100%|██████████| 3/3 [00:00<00:00, 11.84it/s]
+text before clean_text_inf: 我们选重力分离室的图纸，对吧？我这有卫星天线，刚好能用上。
+text before normalization: 我们选重力分离室的图纸，对吧？我这有卫星天线，刚好能用上。
+=====================================text_normalize================================
+text after normalization: 我们选重力分离室的图纸,对吧?我这有卫星天线,刚好能用上.
+text before g2p: 我们选重力分离室的图纸,对吧?我这有卫星天线,刚好能用上.
+text after g2p: ['我们选重力分离室的图纸,', '对吧?', '我这有卫星天线,', '刚好能用上.']
+seg before custom pinyin: 我们选重力分离室的图纸,
+seg after custom pinyin: 我们选重力分离室的图纸,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:我们选重力分离室的图纸, pinyins:['wo3', 'men5', 'xuan3', 'zhong4', 'li4', 'fen1', 'li2', 'shi4', 'de5', 'tu2', 'zhi3', ',']
+seg before custom pinyin: 对吧?
+seg after custom pinyin: 对吧?
+customer_pin:  ['', '', '']
+g2pw seg:对吧? pinyins:['dui4', 'ba5', '?']
+seg before custom pinyin: 我这有卫星天线,
+seg after custom pinyin: 我这有卫星天线,
+customer_pin:  ['', '', '', '', '', '', '', '']
+g2pw seg:我这有卫星天线, pinyins:['wo3', 'zhe4', 'you3', 'wei4', 'xing1', 'tian1', 'xian4', ',']
+seg before custom pinyin: 刚好能用上.
+seg after custom pinyin: 刚好能用上.
+customer_pin:  ['', '', '', '', '', '']
+g2pw seg:刚好能用上. pinyins:['gang1', 'hao3', 'neng2', 'yong4', 'shang4', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~卫星天线x1已送达。
+text before normalization: 滴滴~卫星天线x1已送达。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…卫星天线一已送达.
+text before g2p: 滴滴…卫星天线一已送达.
+text after g2p: ['滴滴…', '卫星天线一已送达.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 卫星天线一已送达.
+seg after custom pinyin: 卫星天线一已送达.
+customer_pin:  ['', '', '', '', '', '', '', '', '']
+g2pw seg:卫星天线一已送达. pinyins:['wei4', 'xing1', 'tian1', 'xian4', 'yi1', 'yi3', 'song4', 'da2', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~道具卫星天线x1传输完成。
+text before normalization: 滴滴~道具卫星天线x1传输完成。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…道具卫星天线一传输完成.
+text before g2p: 滴滴…道具卫星天线一传输完成.
+text after g2p: ['滴滴…', '道具卫星天线一传输完成.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 道具卫星天线一传输完成.
+seg after custom pinyin: 道具卫星天线一传输完成.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:道具卫星天线一传输完成. pinyins:['dao4', 'ju4', 'wei4', 'xing1', 'tian1', 'xian4', 'yi1', 'chuan2', 'shu1', 'wan2', 'cheng2', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['滴滴…卫星天线一已送达.', '滴滴…道具卫星天线一传输完成.', '我们选重力分离室的图纸,对吧?我这有卫星天线,刚好能用上.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  0%|          | 7/1500 [00:00<00:22, 66.90it/s]  1%|          | 17/1500 [00:00<00:17, 82.73it/s]  2%|▏         | 27/1500 [00:00<00:16, 87.72it/s]  2%|▏         | 37/1500 [00:00<00:16, 89.90it/s]  3%|▎         | 47/1500 [00:00<00:15, 91.28it/s]  4%|▍         | 57/1500 [00:00<00:15, 90.67it/s]  4%|▍         | 67/1500 [00:00<00:15, 91.48it/s]  5%|▌         | 77/1500 [00:00<00:15, 92.12it/s]  6%|▌         | 87/1500 [00:00<00:15, 92.63it/s]  7%|▋         | 98/1500 [00:01<00:14, 95.71it/s]  7%|▋         | 110/1500 [00:01<00:13, 101.94it/s]  8%|▊         | 122/1500 [00:01<00:12, 106.37it/s]  9%|▉         | 134/1500 [00:01<00:12, 109.55it/s] 10%|▉         | 144/1500 [00:01<00:13, 97.64it/s] 
+T2S Decoding EOS [140 -> 285]
+0.353	0.254	1.484	0.257
+TTS_FN TORCH INFER 2.5916640758514404
+TTS TORCH cost time  2.592970609664917
+****************************************************************************************************
+INIT FILE TIME 4.291534423828125e-06
+Set seed to 2236110073
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+############ 切分文本 ############
+Actual Input Target Text:
+我们正需要重力分离室的图纸，对吧？看，我找到了移动支架，正好可以用上。已送给你了哦。滴滴~道具移动支架x1传输完成
+Actual Input Target Text (after sentence segmentation):
+['我们正需要重力分离室的图纸，对吧？看，我找到了移动支架，正好可以用上。', '已送给你了哦。', '滴滴~道具移动支架x1传输完成。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/3 [00:00<?, ?it/s] 33%|███▎      | 1/3 [00:00<00:00,  4.58it/s]100%|██████████| 3/3 [00:00<00:00,  9.57it/s]
+text before clean_text_inf: 我们正需要重力分离室的图纸，对吧？看，我找到了移动支架，正好可以用上。
+text before normalization: 我们正需要重力分离室的图纸，对吧？看，我找到了移动支架，正好可以用上。
+=====================================text_normalize================================
+text after normalization: 我们正需要重力分离室的图纸,对吧?看,我找到了移动支架,正好可以用上.
+text before g2p: 我们正需要重力分离室的图纸,对吧?看,我找到了移动支架,正好可以用上.
+text after g2p: ['我们正需要重力分离室的图纸,', '对吧?', '看,', '我找到了移动支架,', '正好可以用上.']
+seg before custom pinyin: 我们正需要重力分离室的图纸,
+seg after custom pinyin: 我们正需要重力分离室的图纸,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:我们正需要重力分离室的图纸, pinyins:['wo3', 'men5', 'zheng4', 'xu1', 'yao4', 'zhong4', 'li4', 'fen1', 'li2', 'shi4', 'de5', 'tu2', 'zhi3', ',']
+seg before custom pinyin: 对吧?
+seg after custom pinyin: 对吧?
+customer_pin:  ['', '', '']
+g2pw seg:对吧? pinyins:['dui4', 'ba5', '?']
+seg before custom pinyin: 看,
+seg after custom pinyin: 看,
+customer_pin:  ['', '']
+g2pw seg:看, pinyins:['kan4', ',']
+seg before custom pinyin: 我找到了移动支架,
+seg after custom pinyin: 我找到了移动支架,
+customer_pin:  ['', '', '', '', '', '', '', '', '']
+g2pw seg:我找到了移动支架, pinyins:['wo3', 'zhao3', 'dao4', 'le5', 'yi2', 'dong4', 'zhi1', 'jia4', ',']
+seg before custom pinyin: 正好可以用上.
+seg after custom pinyin: 正好可以用上.
+customer_pin:  ['', '', '', '', '', '', '']
+g2pw seg:正好可以用上. pinyins:['zheng4', 'hao3', 'ke3', 'yi3', 'yong4', 'shang4', '.']
+============================== custom_pinyin
+text before clean_text_inf: 已送给你了哦。
+text before normalization: 已送给你了哦。
+=====================================text_normalize================================
+text after normalization: 已送给你了哦.
+text before g2p: 已送给你了哦.
+text after g2p: ['已送给你了哦.']
+seg before custom pinyin: 已送给你了哦.
+seg after custom pinyin: 已送给你了哦.
+customer_pin:  ['', '', '', '', '', '', '']
+g2pw seg:已送给你了哦. pinyins:['yi3', 'song4', 'gei3', 'ni3', 'le5', 'o2', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~道具移动支架x1传输完成。
+text before normalization: 滴滴~道具移动支架x1传输完成。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…道具移动支架一传输完成.
+text before g2p: 滴滴…道具移动支架一传输完成.
+text after g2p: ['滴滴…', '道具移动支架一传输完成.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 道具移动支架一传输完成.
+seg after custom pinyin: 道具移动支架一传输完成.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:道具移动支架一传输完成. pinyins:['dao4', 'ju4', 'yi2', 'dong4', 'zhi1', 'jia4', 'yi1', 'chuan2', 'shu1', 'wan2', 'cheng2', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['已送给你了哦.', '滴滴…道具移动支架一传输完成.', '我们正需要重力分离室的图纸,对吧?看,我找到了移动支架,正好可以用上.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  0%|          | 7/1500 [00:00<00:21, 68.38it/s]  1%|          | 17/1500 [00:00<00:17, 83.79it/s]  2%|▏         | 27/1500 [00:00<00:16, 88.35it/s]  2%|▏         | 37/1500 [00:00<00:16, 91.04it/s]  3%|▎         | 47/1500 [00:00<00:15, 92.42it/s]  4%|▍         | 57/1500 [00:00<00:15, 92.33it/s]  4%|▍         | 67/1500 [00:00<00:15, 93.06it/s]  5%|▌         | 77/1500 [00:00<00:15, 93.63it/s]  6%|▌         | 88/1500 [00:00<00:14, 97.03it/s]  7%|▋         | 100/1500 [00:01<00:13, 102.85it/s]  7%|▋         | 112/1500 [00:01<00:12, 106.83it/s]  8%|▊         | 124/1500 [00:01<00:12, 109.72it/s]  9%|▉         | 136/1500 [00:01<00:12, 111.65it/s] 10%|▉         | 148/1500 [00:01<00:11, 113.09it/s] 11%|█         | 160/1500 [00:01<00:11, 114.04it/s] 11%|█         | 161/1500 [00:01<00:13, 101.40it/s]
+T2S Decoding EOS [140 -> 302]
+0.000	0.315	1.590	0.246
+TTS_FN TORCH INFER 2.372284412384033
+TTS TORCH cost time  2.373471975326538
+****************************************************************************************************
+INIT FILE TIME 5.4836273193359375e-06
+Set seed to 2342275606
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+text before clean_text_inf: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+text before normalization: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+=====================================text_normalize================================
+text after normalization: 说是检修,但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+text before g2p: 说是检修,但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+text after g2p: ['说是检修,', '但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?']
+seg before custom pinyin: 说是检修,
+seg after custom pinyin: 说是检修,
+customer_pin:  ['', '', '', '', '']
+g2pw seg:说是检修, pinyins:['shuo1', 'shi4', 'jian3', 'xiu1', ',']
+seg before custom pinyin: 但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+seg after custom pinyin: 但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线? pinyins:['dan4', 'kan4', 'qi3', 'lai2', 'ta1', 'men5', 'si4', 'hu1', 'bing4', 'bu4', 'zhi1', 'dao4', 'zen3', 'me5', 'bai3', 'nong4', 'na4', 'tiao2', 'xing1', 'cha2', 'zhi4', 'zao4', 'de5', 'liu2', 'shui3', 'xian4', '?']
+============================== custom_pinyin
+############ 切分文本 ############
+Actual Input Target Text:
+。建造师，早年间的‘文明三角地’，三族共荣，共享科技，那0.3光速的航行极限，虽慢，却铺就了荧河联盟的基石呢。
+Actual Input Target Text (after sentence segmentation):
+['建造师，早年间的‘文明三角地’，三族共荣，共享科技，那0.3光速的航行极限，虽慢，却铺就了荧河联盟的基石呢。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00,  3.70it/s]100%|██████████| 1/1 [00:00<00:00,  3.69it/s]
+text before clean_text_inf: 建造师，早年间的‘文明三角地’，三族共荣，共享科技，那0.3光速的航行极限，虽慢，却铺就了荧河联盟的基石呢。
+text before normalization: 建造师，早年间的‘文明三角地’，三族共荣，共享科技，那0.3光速的航行极限，虽慢，却铺就了荧河联盟的基石呢。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 建造师,早年间的文明三角地,三族共荣,共享科技,那零点三光速的航行极限,虽慢,却铺就了荧河联盟的基石呢.
+text before g2p: 建造师,早年间的文明三角地,三族共荣,共享科技,那零点三光速的航行极限,虽慢,却铺就了荧河联盟的基石呢.
+text after g2p: ['建造师,', '早年间的文明三角地,', '三族共荣,', '共享科技,', '那零点三光速的航行极限,', '虽慢,', '却铺就了荧河联盟的基石呢.']
+seg before custom pinyin: 建造师,
+seg after custom pinyin: 建造师,
+customer_pin:  ['', '', '', '']
+g2pw seg:建造师, pinyins:['jian4', 'zao4', 'shi1', ',']
+seg before custom pinyin: 早年间的文明三角地,
+seg after custom pinyin: 早年间的文明三角地,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '']
+g2pw seg:早年间的文明三角地, pinyins:['zao3', 'nian2', 'jian1', 'de5', 'wen2', 'ming2', 'san1', 'jiao3', 'di4', ',']
+seg before custom pinyin: 三族共荣,
+seg after custom pinyin: 三族共荣,
+customer_pin:  ['', '', '', '', '']
+g2pw seg:三族共荣, pinyins:['san1', 'zu2', 'gong4', 'rong2', ',']
+seg before custom pinyin: 共享科技,
+seg after custom pinyin: 共享科技,
+customer_pin:  ['', '', '', '', '']
+g2pw seg:共享科技, pinyins:['gong4', 'xiang3', 'ke1', 'ji4', ',']
+seg before custom pinyin: 那零点三光速的航行极限,
+seg after custom pinyin: 那零点三光速的航行极限,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:那零点三光速的航行极限, pinyins:['na4', 'ling2', 'dian3', 'san1', 'guang1', 'su4', 'de5', 'hang2', 'xing2', 'ji2', 'xian4', ',']
+seg before custom pinyin: 虽慢,
+seg after custom pinyin: 虽慢,
+customer_pin:  ['', '', '']
+g2pw seg:虽慢, pinyins:['sui1', 'man4', ',']
+seg before custom pinyin: 却铺就了荧河联盟的基石呢.
+seg after custom pinyin: 却铺就了荧河联盟的基石呢.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:却铺就了荧河联盟的基石呢. pinyins:['que4', 'pu1', 'jiu4', 'le5', 'ying2', 'he2', 'lian2', 'meng2', 'de5', 'ji1', 'shi2', 'ne5', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['建造师,早年间的文明三角地,三族共荣,共享科技,那零点三光速的航行极限,虽慢,却铺就了荧河联盟的基石呢.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  1%|          | 11/1500 [00:00<00:14, 104.06it/s]  2%|▏         | 23/1500 [00:00<00:13, 111.09it/s]  2%|▏         | 35/1500 [00:00<00:13, 112.25it/s]  3%|▎         | 47/1500 [00:00<00:12, 113.60it/s]  4%|▍         | 59/1500 [00:00<00:12, 114.59it/s]  5%|▍         | 71/1500 [00:00<00:12, 115.17it/s]  6%|▌         | 83/1500 [00:00<00:12, 115.29it/s]  6%|▋         | 95/1500 [00:00<00:12, 115.49it/s]  7%|▋         | 107/1500 [00:00<00:12, 115.62it/s]  8%|▊         | 119/1500 [00:01<00:11, 115.85it/s]  9%|▊         | 131/1500 [00:01<00:11, 115.99it/s] 10%|▉         | 143/1500 [00:01<00:11, 115.94it/s] 10%|█         | 155/1500 [00:01<00:11, 116.08it/s] 11%|█         | 167/1500 [00:01<00:11, 116.13it/s] 12%|█▏        | 179/1500 [00:01<00:11, 115.32it/s] 13%|█▎        | 191/1500 [00:01<00:11, 115.48it/s] 14%|█▎        | 203/1500 [00:01<00:11, 115.34it/s] 14%|█▍        | 215/1500 [00:01<00:11, 115.56it/s] 15%|█▌        | 227/1500 [00:01<00:11, 115.72it/s] 16%|█▌        | 239/1500 [00:02<00:10, 115.76it/s] 17%|█▋        | 251/1500 [00:02<00:10, 115.98it/s] 18%|█▊        | 263/1500 [00:02<00:10, 116.07it/s] 18%|█▊        | 271/1500 [00:02<00:10, 114.84it/s]
+T2S Decoding EOS [152 -> 424]
+0.493	0.272	2.362	0.259
+TTS_FN TORCH INFER 3.5830740928649902
+TTS TORCH cost time  3.5842020511627197
+****************************************************************************************************
+INIT FILE TIME 4.0531158447265625e-06
+Set seed to 501564440
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+text before clean_text_inf: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+text before normalization: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+=====================================text_normalize================================
+text after normalization: 嘿嘿,似乎本姑娘教了他很多东西,我还挺厉害的嘛.
+text before g2p: 嘿嘿,似乎本姑娘教了他很多东西,我还挺厉害的嘛.
+text after g2p: ['嘿嘿,', '似乎本姑娘教了他很多东西,', '我还挺厉害的嘛.']
+seg before custom pinyin: 嘿嘿,
+seg after custom pinyin: 嘿嘿,
+customer_pin:  ['', '', '']
+g2pw seg:嘿嘿, pinyins:['hei1', 'hei1', ',']
+seg before custom pinyin: 似乎本姑娘教了他很多东西,
+seg after custom pinyin: 似乎本姑娘教了他很多东西,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:似乎本姑娘教了他很多东西, pinyins:['si4', 'hu1', 'ben3', 'gu1', 'niang2', 'jiao1', 'le5', 'ta1', 'hen3', 'duo1', 'dong1', 'xi5', ',']
+seg before custom pinyin: 我还挺厉害的嘛.
+seg after custom pinyin: 我还挺厉害的嘛.
+customer_pin:  ['', '', '', '', '', '', '', '']
+g2pw seg:我还挺厉害的嘛. pinyins:['wo3', 'hai2', 'ting3', 'li4', 'hai4', 'de5', 'ma5', '.']
+============================== custom_pinyin
+############ 切分文本 ############
+Actual Input Target Text:
+我们这次该选重力分离室的图纸啦，我这儿有星壤，正好能用上，已送给你了。滴滴~道具星壤x1传输完成
+Actual Input Target Text (after sentence segmentation):
+['我们这次该选重力分离室的图纸啦，我这儿有星壤，正好能用上，已送给你了。', '滴滴~道具星壤x1传输完成。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:00<00:00,  4.58it/s]100%|██████████| 2/2 [00:00<00:00,  7.19it/s]
+text before clean_text_inf: 我们这次该选重力分离室的图纸啦，我这儿有星壤，正好能用上，已送给你了。
+text before normalization: 我们这次该选重力分离室的图纸啦，我这儿有星壤，正好能用上，已送给你了。
+=====================================text_normalize================================
+text after normalization: 我们这次该选重力分离室的图纸啦,我这儿有星壤,正好能用上,已送给你了.
+text before g2p: 我们这次该选重力分离室的图纸啦,我这儿有星壤,正好能用上,已送给你了.
+text after g2p: ['我们这次该选重力分离室的图纸啦,', '我这儿有星壤,', '正好能用上,', '已送给你了.']
+seg before custom pinyin: 我们这次该选重力分离室的图纸啦,
+seg after custom pinyin: 我们这次该选重力分离室的图纸啦,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:我们这次该选重力分离室的图纸啦, pinyins:['wo3', 'men5', 'zhe4', 'ci4', 'gai1', 'xuan3', 'zhong4', 'li4', 'fen1', 'li2', 'shi4', 'de5', 'tu2', 'zhi3', 'la5', ',']
+seg before custom pinyin: 我这儿有星壤,
+seg after custom pinyin: 我这儿有星壤,
+customer_pin:  ['', '', '', '', '', '', '']
+g2pw seg:我这儿有星壤, pinyins:['wo3', 'zhe4', 'er1', 'you3', 'xing1', 'rang3', ',']
+seg before custom pinyin: 正好能用上,
+seg after custom pinyin: 正好能用上,
+customer_pin:  ['', '', '', '', '', '']
+g2pw seg:正好能用上, pinyins:['zheng4', 'hao3', 'neng2', 'yong4', 'shang4', ',']
+seg before custom pinyin: 已送给你了.
+seg after custom pinyin: 已送给你了.
+customer_pin:  ['', '', '', '', '', '']
+g2pw seg:已送给你了. pinyins:['yi3', 'song4', 'gei3', 'ni3', 'le5', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~道具星壤x1传输完成。
+text before normalization: 滴滴~道具星壤x1传输完成。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…道具星壤一传输完成.
+text before g2p: 滴滴…道具星壤一传输完成.
+text after g2p: ['滴滴…', '道具星壤一传输完成.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 道具星壤一传输完成.
+seg after custom pinyin: 道具星壤一传输完成.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '']
+g2pw seg:道具星壤一传输完成. pinyins:['dao4', 'ju4', 'xing1', 'rang3', 'yi1', 'chuan2', 'shu1', 'wan2', 'cheng2', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['滴滴…道具星壤一传输完成.', '我们这次该选重力分离室的图纸啦,我这儿有星壤,正好能用上,已送给你了.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  1%|          | 8/1500 [00:00<00:19, 77.29it/s]  1%|          | 18/1500 [00:00<00:16, 87.55it/s]  2%|▏         | 28/1500 [00:00<00:16, 90.68it/s]  3%|▎         | 38/1500 [00:00<00:15, 92.23it/s]  3%|▎         | 48/1500 [00:00<00:15, 92.30it/s]  4%|▍         | 58/1500 [00:00<00:15, 93.05it/s]  5%|▍         | 68/1500 [00:00<00:15, 93.60it/s]  5%|▌         | 79/1500 [00:00<00:14, 97.15it/s]  6%|▌         | 91/1500 [00:00<00:13, 103.09it/s]  7%|▋         | 103/1500 [00:01<00:13, 107.14it/s]  8%|▊         | 115/1500 [00:01<00:12, 109.88it/s]  8%|▊         | 127/1500 [00:01<00:12, 111.86it/s]  9%|▉         | 136/1500 [00:01<00:13, 101.16it/s]
+T2S Decoding EOS [140 -> 277]
+0.389	0.279	1.347	0.263
+TTS_FN TORCH INFER 2.4771740436553955
+TTS TORCH cost time  2.478212356567383
+****************************************************************************************************
+INIT FILE TIME 4.291534423828125e-06
+Set seed to 2295628682
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。
+############ 切分文本 ############
+Actual Input Target Text:
+我们得选重力分离室图纸，我这有地质钻头，刚好能用上，已送给你了。滴滴~道具地质钻头x1传输完成。记得建哦！滴滴~道具地质钻头x1传输完成
+Actual Input Target Text (after sentence segmentation):
+['我们得选重力分离室图纸，我这有地质钻头，刚好能用上，已送给你了。', '滴滴~道具地质钻头x1传输完成。', '记得建哦！滴滴~道具地质钻头x1传输完成。']
+############ 提取文本Bert特征 ############
+  0%|          | 0/3 [00:00<?, ?it/s] 33%|███▎      | 1/3 [00:00<00:00,  5.18it/s]100%|██████████| 3/3 [00:00<00:00,  8.09it/s]100%|██████████| 3/3 [00:00<00:00,  7.65it/s]
+text before clean_text_inf: 我们得选重力分离室图纸，我这有地质钻头，刚好能用上，已送给你了。
+text before normalization: 我们得选重力分离室图纸，我这有地质钻头，刚好能用上，已送给你了。
+=====================================text_normalize================================
+text after normalization: 我们得选重力分离室图纸,我这有地质钻头,刚好能用上,已送给你了.
+text before g2p: 我们得选重力分离室图纸,我这有地质钻头,刚好能用上,已送给你了.
+text after g2p: ['我们得选重力分离室图纸,', '我这有地质钻头,', '刚好能用上,', '已送给你了.']
+seg before custom pinyin: 我们得选重力分离室图纸,
+seg after custom pinyin: 我们得选重力分离室图纸,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:我们得选重力分离室图纸, pinyins:['wo3', 'men5', 'dei3', 'xuan3', 'zhong4', 'li4', 'fen1', 'li2', 'shi4', 'tu2', 'zhi3', ',']
+seg before custom pinyin: 我这有地质钻头,
+seg after custom pinyin: 我这有地质钻头,
+customer_pin:  ['', '', '', '', '', '', '', '']
+g2pw seg:我这有地质钻头, pinyins:['wo3', 'zhe4', 'you3', 'di4', 'zhi4', 'zuan1', 'tou2', ',']
+seg before custom pinyin: 刚好能用上,
+seg after custom pinyin: 刚好能用上,
+customer_pin:  ['', '', '', '', '', '']
+g2pw seg:刚好能用上, pinyins:['gang1', 'hao3', 'neng2', 'yong4', 'shang4', ',']
+seg before custom pinyin: 已送给你了.
+seg after custom pinyin: 已送给你了.
+customer_pin:  ['', '', '', '', '', '']
+g2pw seg:已送给你了. pinyins:['yi3', 'song4', 'gei3', 'ni3', 'le5', '.']
+============================== custom_pinyin
+text before clean_text_inf: 滴滴~道具地质钻头x1传输完成。
+text before normalization: 滴滴~道具地质钻头x1传输完成。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 滴滴…道具地质钻头一传输完成.
+text before g2p: 滴滴…道具地质钻头一传输完成.
+text after g2p: ['滴滴…', '道具地质钻头一传输完成.']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 道具地质钻头一传输完成.
+seg after custom pinyin: 道具地质钻头一传输完成.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:道具地质钻头一传输完成. pinyins:['dao4', 'ju4', 'di4', 'zhi4', 'zuan1', 'tou2', 'yi1', 'chuan2', 'shu1', 'wan2', 'cheng2', '.']
+============================== custom_pinyin
+text before clean_text_inf: 记得建哦！滴滴~道具地质钻头x1传输完成。
+text before normalization: 记得建哦！滴滴~道具地质钻头x1传输完成。
+=====================================text_normalize================================
+text_normalize 后长度不一致
+text after normalization: 记得建哦!滴滴…道具地质钻头一传输完成.
+text before g2p: 记得建哦!滴滴…道具地质钻头一传输完成.
+text after g2p: ['记得建哦!', '滴滴…', '道具地质钻头一传输完成.']
+seg before custom pinyin: 记得建哦!
+seg after custom pinyin: 记得建哦!
+customer_pin:  ['', '', '', '', '']
+g2pw seg:记得建哦! pinyins:['ji4', 'de5', 'jian4', 'o2', '!']
+seg before custom pinyin: 滴滴…
+seg after custom pinyin: 滴滴…
+customer_pin:  ['', '', '']
+g2pw seg:滴滴… pinyins:['di1', 'di1', '…']
+seg before custom pinyin: 道具地质钻头一传输完成.
+seg after custom pinyin: 道具地质钻头一传输完成.
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:道具地质钻头一传输完成. pinyins:['dao4', 'ju4', 'di4', 'zhi4', 'zuan1', 'tou2', 'yi1', 'chuan2', 'shu1', 'wan2', 'cheng2', '.']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['滴滴…道具地质钻头一传输完成.', '记得建哦!滴滴…道具地质钻头一传输完成.', '我们得选重力分离室图纸,我这有地质钻头,刚好能用上,已送给你了.']
+  0%|          | 0/1500 [00:00<?, ?it/s]  0%|          | 7/1500 [00:00<00:22, 67.77it/s]  1%|          | 17/1500 [00:00<00:17, 83.42it/s]  2%|▏         | 27/1500 [00:00<00:16, 88.29it/s]  2%|▏         | 37/1500 [00:00<00:16, 90.53it/s]  3%|▎         | 47/1500 [00:00<00:15, 91.85it/s]  4%|▍         | 57/1500 [00:00<00:15, 92.66it/s]  4%|▍         | 67/1500 [00:00<00:15, 93.20it/s]  5%|▌         | 77/1500 [00:00<00:15, 93.48it/s]  6%|▌         | 87/1500 [00:00<00:15, 93.72it/s]  6%|▋         | 97/1500 [00:01<00:14, 94.06it/s]  7%|▋         | 107/1500 [00:01<00:14, 94.30it/s]  8%|▊         | 117/1500 [00:01<00:14, 94.40it/s]  9%|▊         | 129/1500 [00:01<00:13, 99.72it/s]  9%|▉         | 139/1500 [00:01<00:14, 94.46it/s]
+T2S Decoding EOS [140 -> 280]
+0.000	0.393	1.474	0.260
+TTS_FN TORCH INFER 2.324939250946045
+TTS TORCH cost time  2.3265795707702637
+****************************************************************************************************
+INIT FILE TIME 4.5299530029296875e-06
+Set seed to 4211556126
+并行推理模式已开启
+分桶处理模式已开启
+Actual Input Reference Text: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+text before clean_text_inf: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+text before normalization: 说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？
+=====================================text_normalize================================
+text after normalization: 说是检修,但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+text before g2p: 说是检修,但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+text after g2p: ['说是检修,', '但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?']
+seg before custom pinyin: 说是检修,
+seg after custom pinyin: 说是检修,
+customer_pin:  ['', '', '', '', '']
+g2pw seg:说是检修, pinyins:['shuo1', 'shi4', 'jian3', 'xiu1', ',']
+seg before custom pinyin: 但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+seg after custom pinyin: 但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线?
+customer_pin:  ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+g2pw seg:但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线? pinyins:['dan4', 'kan4', 'qi3', 'lai2', 'ta1', 'men5', 'si4', 'hu1', 'bing4', 'bu4', 'zhi1', 'dao4', 'zen3', 'me5', 'bai3', 'nong4', 'na4', 'tiao2', 'xing1', 'cha2', 'zhi4', 'zao4', 'de5', 'liu2', 'shui3', 'xian4', '?']
+============================== custom_pinyin
+############ 切分文本 ############
+Actual Input Target Text:
+我们的工人有些恐慌，四个磁干扰真棘手，但你总能想出办法，对吧？
+Actual Input Target Text (after sentence segmentation):
+['我们的工人有些恐慌，四个磁干扰真棘手，但你总能想出办法，对吧？']
+############ 提取文本Bert特征 ############
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00,  7.42it/s]100%|██████████| 1/1 [00:00<00:00,  7.41it/s]
+text before clean_text_inf: 我们的工人有些恐慌，四个磁干扰真棘手，但你总能想出办法，对吧？
+text before normalization: 我们的工人有些恐慌，四个磁干扰真棘手，但你总能想出办法，对吧？
+=====================================text_normalize================================
+text after normalization: 我们的工人有些恐慌,四个磁干扰真棘手,但你总能想出办法,对吧?
+text before g2p: 我们的工人有些恐慌,四个磁干扰真棘手,但你总能想出办法,对吧?
+text after g2p: ['我们的工人有些恐慌,', '四个磁干扰真棘手,', '但你总能想出办法,', '对吧?']
+seg before custom pinyin: 我们的工人有些恐慌,
+seg after custom pinyin: 我们的工人有些恐慌,
+customer_pin:  ['', '', '', '', '', '', '', '', '', '']
+g2pw seg:我们的工人有些恐慌, pinyins:['wo3', 'men5', 'de5', 'gong1', 'ren2', 'you3', 'xie1', 'kong3', 'huang1', ',']
+seg before custom pinyin: 四个磁干扰真棘手,
+seg after custom pinyin: 四个磁干扰真棘手,
+customer_pin:  ['', '', '', '', '', '', '', '', '']
+g2pw seg:四个磁干扰真棘手, pinyins:['si4', 'ge5', 'ci2', 'gan1', 'rao3', 'zhen1', 'ji2', 'shou3', ',']
+seg before custom pinyin: 但你总能想出办法,
+seg after custom pinyin: 但你总能想出办法,
+customer_pin:  ['', '', '', '', '', '', '', '', '']
+g2pw seg:但你总能想出办法, pinyins:['dan4', 'ni3', 'zong3', 'neng2', 'xiang3', 'chu1', 'ban4', 'fa3', ',']
+seg before custom pinyin: 对吧?
+seg after custom pinyin: 对吧?
+customer_pin:  ['', '', '']
+g2pw seg:对吧? pinyins:['dui4', 'ba5', '?']
+============================== custom_pinyin
+############ 推理 ############
+Processed text from the frontend (per sentence): ['我们的工人有些恐慌,四个磁干扰真棘手,但你总能想出办法,对吧?']
+  0%|          | 0/1500 [00:00<?, ?it/s]  1%|          | 11/1500 [00:00<00:14, 104.52it/s]  2%|▏         | 23/1500 [00:00<00:13, 111.63it/s]  2%|▏         | 35/1500 [00:00<00:12, 113.66it/s]  3%|▎         | 47/1500 [00:00<00:12, 114.79it/s]  4%|▍         | 59/1500 [00:00<00:12, 115.59it/s]  5%|▍         | 71/1500 [00:00<00:12, 115.65it/s]  6%|▌         | 83/1500 [00:00<00:12, 115.90it/s]

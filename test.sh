@@ -1,0 +1,1 @@
+python api.py -dr "/data1/ziyiliu/tts/GPT-SoVITS/refs/Sanyueqi/archive_mar7th_6.wav" -dt "名字是我自己取的，大家也叫我三月、小三月…你呢？你想叫我什么？" -dl "zh"

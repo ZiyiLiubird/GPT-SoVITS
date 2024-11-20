@@ -35,11 +35,16 @@ def clean_text(text, language, version=None):
             return clean_special(text, language, special_s, target_symbol, version)
     language_module = __import__("text."+language_module_map[language],fromlist=[language_module_map[language]])
     if hasattr(language_module,"text_normalize"):
+        print(f"text before normalization: {text}")
         norm_text = language_module.text_normalize(text)
+        print(f"text after normalization: {norm_text}")
     else:
         norm_text=text
     if language == "zh" or language=="yue":##########
         phones, word2ph = language_module.g2p(norm_text)
+        if hasattr(language_module,"clean_custom_pinyin"):
+            print("="*30, "custom_pinyin")
+            norm_text=language_module.clean_custom_pinyin(norm_text)
         assert len(phones) == sum(word2ph)
         assert len(norm_text) == len(word2ph)
     elif language == "en":

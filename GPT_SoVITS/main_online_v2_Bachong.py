@@ -23,13 +23,11 @@ class TTSResponse(BaseModel):  # 定义一个类用作返回值
 class TTSRequest(BaseModel):  # 定义一个类用作参数
     text: str
     speaker: str = ""
-    speed_factor: float = 1.1
-    batch_size: int = 100
+    speed_factor: float = 1.0
     sdp_ratio: float = 0.5
     noise_scale: float = 0.6
     noise_scale_w: float = 0.9
     language: str = "ZH"
-    emotion: Optional[str] = "Happy"
     length_scale: float = 1.0
     top_k: int = 15
     temperature: float = 1.0
@@ -44,9 +42,8 @@ app = FastAPI()
 
 from pytorch_tts_engine_v2 import PyTorchTTSEngine
 
-ref_wav_path = "/data1/ziyiliu/tts/GPT-SoVITS/logs/Ningguang/raw/vo_dialog_DLEQ001_ningguang_01.wav"
-prompt_text = "北斗正在孤云阁那边帮我打捞散落的群玉阁藏品。你们若有兴趣，可以去看看。"
-
+ref_wav_path = "/data1/ziyiliu/tts/GPT-SoVITS/refs/Bachong/vo_dialog_DPEQ003_yaeMiko_02.wav"
+prompt_text = "我还不会吃人呢！但有个作家老觉得不交稿我就会变成妖狐吃掉他，你说这有道理吗？"
 
 # ref_wav_path_dict = {
 #     "Happy": "/data1/ziyiliu/tts/GPT-SoVITS/refs/Xiangling/vo_card_xiangling_freetalk_01.wav",
@@ -55,9 +52,10 @@ prompt_text = "北斗正在孤云阁那边帮我打捞散落的群玉阁藏品�
 # ref_wav_prompt_path_dict = {
 #     "Happy": "哇，这么多人都在这里玩牌…他们的肚子会不会饿了呀？",
 #     "Sad": "你打牌的技术是找谁学的呀，也教教我嘛。"
-# } 
+# }
+
 prompt_language = i18n("中文")
-how_to_cut = i18n("按标点符号切")
+how_to_cut = i18n("按中文句号。切")
 
 torch_engine = PyTorchTTSEngine(ref_wav_path=ref_wav_path,
                                 ref_text=prompt_text,
@@ -68,8 +66,8 @@ text_language = i18n("中文")
 top_k = 15
 temperature = 1.0
 
-sovits_path = "/data1/ziyiliu/tts/GPT-SoVITS/SoVITS_weights_v2/Ningguang_e15_s630.pth"
-gpt_path = "/data1/ziyiliu/tts/GPT-SoVITS/GPT_weights_v2/Ningguang-e10.ckpt"
+sovits_path = "/data1/ziyiliu/tts/GPT-SoVITS/SoVITS_weights_v2/Bachong_e24_s888.pth"
+gpt_path = "/data1/ziyiliu/tts/GPT-SoVITS/GPT_weights_v2/Bachong-e35.ckpt"
 
 torch_engine.change_sovits_weights(sovits_path=sovits_path, prompt_language=prompt_language, text_language=text_language)
 torch_engine.change_gpt_weights(gpt_path=gpt_path)
@@ -94,7 +92,6 @@ async def tts_torch(param: TTSRequest):
     top_p = 1
     emotion = param.emotion
     speed_factor = param.speed_factor
-    batch_size = param.batch_size
 
     print("INIT FILE TIME",time.time()-start_time)
     # res =  torch_engine.tts_fn(text, speaker, sdp_ratio, noise_scale, noise_scale_w, length_scale, language, reference_audio, emotion, prompt_mode, style_text, style_weight)
@@ -106,7 +103,7 @@ async def tts_torch(param: TTSRequest):
                                 top_k=top_k,
                                 top_p=1,
                                 speed_factor=speed_factor,
-                                batch_size=batch_size,
+                                batch_size=60,
                                 temperature=temperature,
                                 )
     item, seed = next(item)

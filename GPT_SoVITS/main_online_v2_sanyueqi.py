@@ -1,6 +1,6 @@
 import os, sys
 from os.path import dirname
-
+from typing import Dict
 from fastapi import FastAPI
 from typing import Optional, List, Union
 import base64
@@ -14,26 +14,28 @@ sys.path.append(dirname(dirname(__file__)))
 
 from tools.i18n.i18n import I18nAuto, scan_language_list
 
+with open("/data1/ziyiliu/tts/GPT-SoVITS/GPT_SoVITS/database.json", "r") as f:
+    database : Dict = json.load(f)
+
 
 class TTSResponse(BaseModel):  # 定义一个类用作返回值
     #现在没有使用，因为audio太大会导致转pydantic速度太慢
     audio: str 
     sampling_rate: int
 
+
 class TTSRequest(BaseModel):  # 定义一个类用作参数
     text: str
     speaker: str = ""
-    speed_factor: float = 1.1
-    batch_size: int = 100
+    speed_factor: float = 1.0
     sdp_ratio: float = 0.5
     noise_scale: float = 0.6
     noise_scale_w: float = 0.9
     language: str = "ZH"
-    emotion: Optional[str] = "Happy"
     length_scale: float = 1.0
     top_k: int = 15
     temperature: float = 1.0
-    emotion: str = "Happy"
+    emotion: str = "Relax"
 
 language = os.environ.get("language", "Auto")
 language = sys.argv[-1] if sys.argv[-1] in scan_language_list() else language
@@ -44,20 +46,27 @@ app = FastAPI()
 
 from pytorch_tts_engine_v2 import PyTorchTTSEngine
 
-ref_wav_path = "/data1/ziyiliu/tts/GPT-SoVITS/logs/Ningguang/raw/vo_dialog_DLEQ001_ningguang_01.wav"
-prompt_text = "北斗正在孤云阁那边帮我打捞散落的群玉阁藏品。你们若有兴趣，可以去看看。"
+ref_wav_path = "/data1/ziyiliu/tts/GPT-SoVITS/refs/Sanyueqi/archive_mar7th_6.wav"
+prompt_text = "名字是我自己取的，大家也叫我三月、小三月…你呢？你想叫我什么？"
 
 
-# ref_wav_path_dict = {
-#     "Happy": "/data1/ziyiliu/tts/GPT-SoVITS/refs/Xiangling/vo_card_xiangling_freetalk_01.wav",
-#     "Sad": "/data1/ziyiliu/tts/GPT-SoVITS/refs/Xiangling/vo_card_xiangling_endOfGame_fail_01.wav"
-# }
-# ref_wav_prompt_path_dict = {
-#     "Happy": "哇，这么多人都在这里玩牌…他们的肚子会不会饿了呀？",
-#     "Sad": "你打牌的技术是找谁学的呀，也教教我嘛。"
-# } 
+ref_wav_path_dict = {
+    "Happy": "/data1/ziyiliu/tts/GPT-SoVITS/refs/Sanyueqi/Happy/Side0_al_mar7th_108.wav",
+    "Nervous": "/data1/ziyiliu/tts/GPT-SoVITS/refs/Sanyueqi/Nervous/side3_yz_mar7th_155.wav",
+    "Upset": "/data1/ziyiliu/tts/GPT-SoVITS/refs/Sanyueqi/Upset/chapter0_8_mar7th_135.wav",
+    "Relax": "/data1/ziyiliu/tts/GPT-SoVITS/refs/Sanyueqi/Relax/chapter2_9_mar7th_259.wav",
+}
+
+ref_wav_prompt_path_dict = {
+    "Happy": "嘿嘿，似乎本姑娘教了他很多东西，我还挺厉害的嘛。",
+    "Nervous": "好啦，大家都打起精神来！越到这种时候，我们就越要多传递传递信心呀！",
+    "Upset": "被冰雪覆盖的星球…我想找的答案会在这里吗……",
+    "Relax": "说是检修，但看起来他们似乎并不知道怎么摆弄那条星槎制造的流水线？"
+} 
+
+
 prompt_language = i18n("中文")
-how_to_cut = i18n("按标点符号切")
+how_to_cut = i18n("按中文句号。切") #i18n("按标点符号切")
 
 torch_engine = PyTorchTTSEngine(ref_wav_path=ref_wav_path,
                                 ref_text=prompt_text,
@@ -68,8 +77,8 @@ text_language = i18n("中文")
 top_k = 15
 temperature = 1.0
 
-sovits_path = "/data1/ziyiliu/tts/GPT-SoVITS/SoVITS_weights_v2/Ningguang_e15_s630.pth"
-gpt_path = "/data1/ziyiliu/tts/GPT-SoVITS/GPT_weights_v2/Ningguang-e10.ckpt"
+sovits_path = "/data1/ziyiliu/tts/GPT-SoVITS/SoVITS_weights_v2/Sanyueqi_e24_s960.pth"
+gpt_path = "/data1/ziyiliu/tts/GPT-SoVITS/GPT_weights_v2/Sanyueqi-e30.ckpt"
 
 torch_engine.change_sovits_weights(sovits_path=sovits_path, prompt_language=prompt_language, text_language=text_language)
 torch_engine.change_gpt_weights(gpt_path=gpt_path)
@@ -94,19 +103,20 @@ async def tts_torch(param: TTSRequest):
     top_p = 1
     emotion = param.emotion
     speed_factor = param.speed_factor
-    batch_size = param.batch_size
-
+    for key, value in database.items():
+        if key in text:
+            text = text.replace(key, value)
     print("INIT FILE TIME",time.time()-start_time)
     # res =  torch_engine.tts_fn(text, speaker, sdp_ratio, noise_scale, noise_scale_w, length_scale, language, reference_audio, emotion, prompt_mode, style_text, style_weight)
     item = torch_engine.inference(text=text,
                                 text_lang=text_language,
-                                ref_audio_path=ref_wav_path,
-                                prompt_text=prompt_text,
+                                ref_audio_path=ref_wav_path_dict[emotion],
+                                prompt_text=ref_wav_prompt_path_dict[emotion],
                                 prompt_lang=prompt_language,
                                 top_k=top_k,
                                 top_p=1,
                                 speed_factor=speed_factor,
-                                batch_size=batch_size,
+                                batch_size=60,
                                 temperature=temperature,
                                 )
     item, seed = next(item)

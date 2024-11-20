@@ -31,6 +31,7 @@ app = FastAPI()
 
 from pytorch_tts_engine import PyTorchTTSEngine
 
+
 ref_wav_path = "/data1/ziyiliu/tts/GPT-SoVITS/logs/Ningguang/raw/vo_dialog_DLEQ001_ningguang_01.wav"
 prompt_text = "北斗正在孤云阁那边帮我打捞散落的群玉阁藏品。你们若有兴趣，可以去看看。"
 prompt_language = i18n("中文")

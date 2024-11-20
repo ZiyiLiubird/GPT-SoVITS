@@ -747,7 +747,7 @@ class TTS:
                     print(i18n("音频文件不存在，跳过：{}").format(path))
                     continue
                 self.prompt_cache["refer_spec"].append(self._get_ref_spec(path))
-                
+
         if not no_prompt_text:
             prompt_text = prompt_text.strip("\n")
             if (prompt_text[-1] not in splits): prompt_text += "。" if prompt_lang != "en" else "."

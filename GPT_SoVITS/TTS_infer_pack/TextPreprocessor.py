@@ -128,13 +128,13 @@ class TextPreprocessor:
             while "  " in formattext:
                 formattext = formattext.replace("  ", " ")
             if language == "zh":
-                if re.search(r'[A-Za-z]', formattext):
-                    formattext = re.sub(r'[a-z]', lambda x: x.group(0).upper(), formattext)
-                    formattext = chinese.mix_text_normalize(formattext)
-                    return self.get_phones_and_bert(formattext,"zh",version)
-                else:
-                    phones, word2ph, norm_text = self.clean_text_inf(formattext, language, version)
-                    bert = self.get_bert_feature(norm_text, word2ph).to(self.device)
+                # if re.search(r'[A-Za-z]', formattext):
+                #     formattext = re.sub(r'[a-z]', lambda x: x.group(0).upper(), formattext)
+                #     formattext = chinese.mix_text_normalize(formattext)
+                #     return self.get_phones_and_bert(formattext,"zh",version)
+                # else:
+                phones, word2ph, norm_text = self.clean_text_inf(formattext, language, version)
+                bert = self.get_bert_feature(norm_text, word2ph).to(self.device)
             elif language == "yue" and re.search(r'[A-Za-z]', formattext):
                     formattext = re.sub(r'[a-z]', lambda x: x.group(0).upper(), formattext)
                     formattext = chinese.mix_text_normalize(formattext)
@@ -159,16 +159,27 @@ class TextPreprocessor:
                         tmp["lang"] = "yue"
                     langlist.append(tmp["lang"])
                     textlist.append(tmp["text"])
-            else:
-                for tmp in LangSegment.getTexts(text):
-                    if tmp["lang"] == "en":
-                        langlist.append(tmp["lang"])
-                    else:
-                        # 因无法区别中日韩文汉字,以用户输入为准
-                        langlist.append(language)
-                    textlist.append(tmp["text"])
-            # print(textlist)
-            # print(langlist)
+            # elif language == "zh":
+            #     if re.search(r'[A-Za-z]', text):
+            #         text = re.sub(r'[a-z]', lambda x: x.group(0).upper(), text)
+            #         formattext = chinese.mix_text_normalize(text)
+            #         return self.get_phones_and_bert(formattext,"zh",version)
+            #     else:
+            #         phones, word2ph, norm_text = self.clean_text_inf(text, language, version)
+            #         bert = self.get_bert_feature(norm_text, word2ph).to(device)
+            #     pass
+            # else:
+                # for tmp in LangSegment.getTexts(text):
+                #     if tmp["lang"] == "en":
+                #         langlist.append(tmp["lang"])
+                #     else:
+                #         # 因无法区别中日韩文汉字,以用户输入为准
+                #         langlist.append(language)
+                #     textlist.append(tmp["text"])
+            textlist.append(text)
+            langlist.append(language)
+            print(f"textlist: ", textlist)
+            print(f"langlist", langlist)
             phones_list = []
             bert_list = []
             norm_text_list = []
@@ -205,6 +216,7 @@ class TextPreprocessor:
         return phone_level_feature.T
     
     def clean_text_inf(self, text:str, language:str, version:str="v2"):
+        print(f"text before clean_text_inf: {text}")
         phones, word2ph, norm_text = clean_text(text, language, version)
         phones = cleaned_text_to_sequence(phones, version)
         return phones, word2ph, norm_text

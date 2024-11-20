@@ -3,9 +3,9 @@ custom:
   cnhuhbert_base_path: /data1/ziyiliu/tts/GPT-SoVITS/GPT_SoVITS/pretrained_models/chinese-hubert-base
   device: cuda
   is_half: true
-  t2s_weights_path: /data1/ziyiliu/tts/GPT-SoVITS/GPT_weights_v2/Ningguang-e10.ckpt
+  t2s_weights_path: /data1/ziyiliu/tts/GPT-SoVITS/GPT_weights_v2/Sanyueqi-e30.ckpt
   version: v2
-  vits_weights_path: /data1/ziyiliu/tts/GPT-SoVITS/SoVITS_weights_v2/Ningguang_e15_s630.pth
+  vits_weights_path: /data1/ziyiliu/tts/GPT-SoVITS/SoVITS_weights_v2/Sanyueqi_e24_s960.pth
 default:
   bert_base_path: GPT_SoVITS/pretrained_models/chinese-roberta-wwm-ext-large
   cnhuhbert_base_path: GPT_SoVITS/pretrained_models/chinese-hubert-base

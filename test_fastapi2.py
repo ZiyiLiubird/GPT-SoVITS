@@ -13,26 +13,23 @@ import json
 import ray
 
 
+
+
+
+
 def compute(index):
 
     # url="http://wa-tts.parametrix.cn/"
-    url="http://0.0.0.0:7001/"
+    url="http://0.0.0.0:9880/"
 
     # text = "在遥远的, 星系中, 银河帝国, 经历了繁荣, 和倾覆，造就了一批, 流浪者, 和机器人"
-    text = "建造师，右键是你的小帮手，能关弹幕，撤操作，灵活运用更顺手哦。"
-    # text = "你好啊Jessica，好久不见"
+    text = "这个字的读音是角(jue2)色，而不是角(jiao3)色"
     # text = ""
     # for i in range(30):
     #     text += raw_text
-    temperature = 1.0
-    top_k = 15
-    params = {
+    data = {
         "text": text,
-        "top_k": top_k,
-        "temperature": temperature,
-        "speed_factor": 1.0,
-        "batch_size": 100,
-        "emotion": "Relax"
+        "text_language": "zh"
     }
 
     repeat = 1
@@ -40,15 +37,15 @@ def compute(index):
 
     for i in range(repeat):
         start_time2 = time.time()
-        response = requests.post(url + "tts_torch", json=params)
+        audio = requests.post(url, json=data)
         # response = requests.post(url + "tts_torch", json=params)
         # print(response.json())
-        response_dict = response.json()
-        audio = response_dict['audio']
-        audio = base64.b64decode(audio)
+        # response_dict = response.json()
+        # audio = response_dict['audio']
+        # audio = base64.b64decode(audio)
         audio_array = np.frombuffer(audio, dtype=np.int16)
         output_file = "wa.wav"
-        sample_rate = response_dict['sampling_rate']
+        sample_rate = 32000
         write(output_file, sample_rate, audio_array)
     ed = time.time()
     print(ed - start_time)

@@ -1,7 +1,7 @@
 """
 # api.py usage
-
-` python api.py -dr "123.wav" -dt "一二三。" -dl "zh" `
+python api.py -dr "/data1/ziyiliu/tts/GPT-SoVITS/refs/Sanyueqi/archive_mar7th_6.wav" -dt "名字是我自己取的，大家也叫我三月、小三月…你呢？你想叫我什么？" -dl "zh"
+` python api.py -dr "123.wav" -dt "这个字的读音是角(jue2)色，而不是角(jiao3)色" -dl "zh" `
 
 ## 执行参数:
 
@@ -34,7 +34,7 @@ endpoint: `/`
 
 使用执行参数指定的参考音频:
 GET:
-    `http://127.0.0.1:9880?text=先帝创业未半而中道崩殂，今天下三分，益州疲弊，此诚危急存亡之秋也。&text_language=zh`
+    `http://0.0.0.0:9880?text=先帝创业未半而中道崩殂，今天下三分，益州疲弊，此诚危急存亡之秋也。&text_language=zh`
 POST:
 ```json
 {

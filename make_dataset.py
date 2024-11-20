@@ -10,12 +10,12 @@ def get_wav_file_size(file_path):
         return file_size
 
 
-def filter_file_by_size(source_directory_list, destination_directory, metadata, random_meta_data, language='EN'):
+def filter_file_by_size(source_directory_list, destination_directory, metadata, language='EN'):
     for source_directory in source_directory_list:
         wav_files = [f for f in os.listdir(source_directory) if f.endswith('.wav')]
         if not os.path.exists(destination_directory):
                 os.makedirs(destination_directory)
-        min_size = 500
+        min_size = 100
         speaker_name = source_directory.split('/')[-1]
 
         filtered_files = [f for f in wav_files if get_wav_file_size(os.path.join(source_directory, f)) / 1024 >= min_size]
@@ -112,11 +112,10 @@ def merge_dataset():
 
 
 if __name__ == '__main__':
-    directory = ["/data1/ziyiliu/datasets/tts/chinese/NingguangMergeLeidian"]
+    directory = ["/data1/ziyiliu/tts/dataset/Kaiya_cn/raw_data/Kaiya"]
 
-    metadata = "/data1/ziyiliu/tts/Bert-VITS2/data/NingguangMergeLeidian/esd.list"
-    random_metadata = "/data1/ziyiliu/tts/Bert-VITS2/data/NingguangMergeLeidian/random_esd.list"
-    data_save_path = "/data1/ziyiliu/tts/Bert-VITS2/data/NingguangMergeLeidian/raw"
-    filtered_files = filter_file_by_size(directory, data_save_path, metadata, random_metadata, language='ZH')
+    metadata = "/data1/ziyiliu/tts/GPT-SoVITS/logs/Kaiya/esd.list"
+    data_save_path = "/data1/ziyiliu/tts/GPT-SoVITS/logs/Kaiya/raw_data"
+    filtered_files = filter_file_by_size(directory, data_save_path, metadata, language='ZH')
 
     # merge_dataset()
